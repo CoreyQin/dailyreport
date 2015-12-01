@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+// TODO:need put the connect string into file
 public class DataBaseHandler {
 
 	private static Connection getConnection() {

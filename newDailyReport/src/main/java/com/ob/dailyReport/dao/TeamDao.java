@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ob.dailyReport.model.Role;
+
 public class TeamDao {
 
 	public static List<String> getTeamList() throws SQLException {
@@ -30,12 +32,28 @@ public class TeamDao {
 	}
 
 	public static String getEmployeeRole(String employee, String project) throws SQLException {
-		String sql = "select role from project_info where employee = '" + employee + "' and project = '" + project
-				+ "'";
+		String sql;
+		if (project == null || project.equals("")) {
+			sql = "select role from project_info where employee = '" + employee + "'";
+		} else {
+			sql = "select role from project_info where employee = '" + employee + "' and project = '" + project + "'";
+		}
+
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		if (rs.next()) {
 			String role = rs.getString("role");
 			return role;
+		}
+		return null;
+	}
+
+	public static String getTeamLeader(String team) throws SQLException {
+		List<String> employeeList = getEmployeeList(team);
+		for (String employee : employeeList) {
+			String role = getEmployeeRole(employee, null);
+			if(role.equals(Role.TL)){
+				return employee;
+			}
 		}
 		return null;
 	}

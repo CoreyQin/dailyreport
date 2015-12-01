@@ -17,5 +17,10 @@ public class DateUtil {
 		Date date = formatter.parse(dateString);
 		return date;
 	}
+	
+	public static String getTodayDateStr(){
+		Date today = new Date();
+		return FormatDate2String(today);
+	}
 
 }
