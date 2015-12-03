@@ -2,7 +2,7 @@ package com.ob.dailyReport.model;
 
 import java.util.Date;
 
-public class EmployeeHistory {
+public class ReportHistory {
 
 	private String employeeName;
 	private String projectName;

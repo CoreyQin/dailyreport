@@ -8,20 +8,22 @@ public class TimerManager {
 
 	// time period
 	private static final long PERIOD_DAY = 24 * 60 * 60 * 1000;
+	
+//	private static final long PERIOD_DAY = 60 * 1000;
 
-	public TimerManager() {
+	public static void startTimer() {
 		Calendar calendar = Calendar.getInstance();
 		// 6:00 PM
-		calendar.set(Calendar.HOUR_OF_DAY, 14);
-		calendar.set(Calendar.MINUTE, 24);
-		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.HOUR_OF_DAY, 10);
+		calendar.set(Calendar.MINUTE, 18);
+		calendar.set(Calendar.SECOND, 00);
 
 		Date startDate = calendar.getTime(); 
 
 		// 如果第一次执行定时任务的时间 小于 当前的时间
 		// 此时要在 第一次执行定时任务的时间 加一天，以便此任务在下个时间点执行。如果不加一天，任务会立即执行。
 		if (startDate.before(new Date())) {
-			startDate = this.addDay(startDate, 1);
+			startDate = addDay(startDate, 1);
 		}
 
 		Timer timer = new Timer();
@@ -29,7 +31,7 @@ public class TimerManager {
 		timer.schedule(task, startDate, PERIOD_DAY);
 	}
 
-	private Date addDay(Date date, int num) {
+	private static Date addDay(Date date, int num) {
 		Calendar newDate = Calendar.getInstance();
 		newDate.setTime(date);
 		newDate.add(Calendar.DAY_OF_MONTH, num);

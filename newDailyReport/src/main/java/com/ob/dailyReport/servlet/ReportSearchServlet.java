@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.ob.dailyReport.dao.EmployeeTaskDao;
-import com.ob.dailyReport.model.EmployeeHistory;
+import com.ob.dailyReport.model.ReportHistory;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.TaskStatus;
 

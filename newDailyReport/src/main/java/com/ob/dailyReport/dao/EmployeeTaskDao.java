@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.ob.dailyReport.model.EmployeeHistory;
+import com.ob.dailyReport.model.ReportHistory;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.TaskStatus;
 import com.ob.dailyReport.util.DateUtil;

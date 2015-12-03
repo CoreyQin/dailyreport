@@ -4,6 +4,12 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	
+	<listener>
+		<listener-class>
+			com.ob.dailyReport.timer.TaskListener
+		</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>SubmitReportServlet</servlet-name>
@@ -16,8 +22,9 @@
 	<servlet>
 		<servlet-name>ReportGenerateServlet</servlet-name>
 		<servlet-class>com.ob.dailyReport.servlet.ReportGenerateServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>TeamListServlet</servlet-name>
 		<servlet-class>com.ob.dailyReport.servlet.TeamListServlet</servlet-class>
@@ -55,5 +62,7 @@
 		<servlet-name>ProjectListServlet</servlet-name>
 		<url-pattern>/ProjectListServlet</url-pattern>
 	</servlet-mapping>
+
 	
+
 </web-app>

@@ -51,7 +51,7 @@ public class TeamDao {
 		List<String> employeeList = getEmployeeList(team);
 		for (String employee : employeeList) {
 			String role = getEmployeeRole(employee, null);
-			if(role.equals(Role.TL)){
+			if (role != null && role.equals(Role.TL.toString())) {
 				return employee;
 			}
 		}
