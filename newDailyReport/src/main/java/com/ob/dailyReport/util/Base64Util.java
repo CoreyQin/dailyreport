@@ -10,7 +10,7 @@ public class Base64Util {
 	 */
 	public static String decode(final String string) {
 		try {
-			return new String(Base64.getDecoder().decode(string.getBytes("UTF-8")), "utf-8");
+			return new String(Base64.getDecoder().decode(string.getBytes("UTF-8")), "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return null;
