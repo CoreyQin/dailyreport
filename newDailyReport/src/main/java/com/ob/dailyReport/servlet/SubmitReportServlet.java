@@ -34,7 +34,7 @@ public class SubmitReportServlet extends HttpServlet {
 //		EmployeeReport input = this.fakeModel();
 		EmployeeReport input = this.convertJson2Model(jsonString);
 		//
-		EmployeeTaskDao.submitTasks(input);
+		EmployeeTaskDao.addTasks(input);
 
 	}
 	

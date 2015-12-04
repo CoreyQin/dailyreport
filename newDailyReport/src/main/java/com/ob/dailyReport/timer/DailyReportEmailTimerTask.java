@@ -11,7 +11,6 @@ import com.ob.dailyReport.dao.EmployeeDao;
 import com.ob.dailyReport.dao.TeamDao;
 import com.ob.dailyReport.email.EmailSender;
 import com.ob.dailyReport.model.Employee;
-import com.ob.dailyReport.util.Constant;
 import com.ob.dailyReport.util.ReportFileManager;
 import com.ob.dailyReport.util.ReportGenerater;
 
@@ -25,7 +24,7 @@ public class DailyReportEmailTimerTask extends TimerTask {
 			// generate team report for all teams and send email the team leader
 			List<String> teamList = TeamDao.getTeamList();
 			for (String team : teamList) {
-				String teamLeader = TeamDao.getTeamLeader(team);
+				String teamLeader = EmployeeDao.getTeamLeader(team);
 				team_leaderMap.put(team, teamLeader);
 			}
 			sendReport();

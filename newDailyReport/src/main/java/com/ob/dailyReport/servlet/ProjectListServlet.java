@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.ob.dailyReport.dao.TeamProjectDao;
+import com.ob.dailyReport.dao.ProjectDao;
 
 public class ProjectListServlet extends HttpServlet {
 
@@ -32,7 +32,7 @@ public class ProjectListServlet extends HttpServlet {
 		JSONObject dataJson = new JSONObject(jsonString);
 		String teamName = dataJson.getString("team");
 		try {
-			List<String> projectList = TeamProjectDao.getProjectList(teamName);
+			List<String> projectList = ProjectDao.getProjectList(teamName);
 			JSONArray projectArray = new JSONArray();
 			JSONObject returnJson = new JSONObject();
 			for(String project : projectList){

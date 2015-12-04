@@ -2,14 +2,12 @@ package com.ob.dailyReport.model;
 
 import java.util.Date;
 
-public class ReportHistory {
-
+public class TaskRecord {
 	private String employeeName;
 	private String projectName;
 	private String role;
 	private Date date;
 	private TaskStatus status;
-	private String plans;
 
 	public String getEmployeeName() {
 		return employeeName;
@@ -50,15 +48,5 @@ public class ReportHistory {
 	public void setStatus(TaskStatus status) {
 		this.status = status;
 	}
-
-	public String getPlans() {
-		return plans;
-	}
-
-	public void setPlans(String plans) {
-		this.plans = plans;
-	}
-	
-	
 
 }

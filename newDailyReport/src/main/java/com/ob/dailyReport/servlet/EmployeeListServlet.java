@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.ob.dailyReport.dao.TeamDao;
+import com.ob.dailyReport.dao.EmployeeDao;
 
 public class EmployeeListServlet extends HttpServlet {
 
@@ -32,7 +32,7 @@ public class EmployeeListServlet extends HttpServlet {
 		JSONObject dataJson = new JSONObject(jsonString);
 		String teamName = dataJson.getString("team");
 		try {
-			List<String> employeeList = TeamDao.getEmployeeList(teamName);
+			List<String> employeeList = EmployeeDao.getEmployeeList(teamName);
 			JSONArray employeeArray = new JSONArray();
 			JSONObject returnJson = new JSONObject();
 			for(String employee : employeeList){

@@ -6,14 +6,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.ob.dailyReport.model.ReportHistory;
+import com.ob.dailyReport.model.TaskRecord;
+import com.ob.dailyReport.db.DataBaseHandler;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.TaskStatus;
+import com.ob.dailyReport.util.Base64Util;
 import com.ob.dailyReport.util.DateUtil;
 
 public class EmployeeTaskDao {
 
-	public static void submitTasks(EmployeeReport employee) {
+	/**
+	 * 
+	 * @param employee
+	 */
+	public static void addTasks(EmployeeReport employee) {
 		String name = employee.getName();
 		String project = employee.getProject();
 		String role = employee.getRole();
@@ -21,7 +27,7 @@ public class EmployeeTaskDao {
 		String plans = employee.getPlans();
 		// simple strategy : first remove all tasks which the employee submitted
 		// the day.
-		removeTasks(name, project, date);
+		removeAllTasks(name, project, date);
 
 		List<TaskStatus> taskList = employee.getCurrentStatus();
 		try {
@@ -44,7 +50,13 @@ public class EmployeeTaskDao {
 
 	}
 
-	private static void removeTasks(String employee, String projectName, String dateString) {
+	/**
+	 * 
+	 * @param employee
+	 * @param projectName
+	 * @param dateString
+	 */
+	public static void removeAllTasks(String employee, String projectName, String dateString) {
 		String plan_sql = "delete from plans_info where employee = '" + employee + "' and project='" + projectName
 				+ "' and date = '" + dateString + "'";
 		String task_sql = "delete from task_info where employee = '" + employee + "' and project='" + projectName
@@ -57,12 +69,39 @@ public class EmployeeTaskDao {
 		}
 	}
 
+	public static List<TaskRecord> getEmployeeTasks(String employee, Date date) throws SQLException {
+		List<TaskRecord> historyList = new ArrayList<TaskRecord>();
+		String dateString = DateUtil.FormatDate2String(date);
+		String sql = "select * from task_info where date ='" + dateString + "' and employee = '" + employee + "'";
+		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
+		while (rs.next()) {
+			TaskRecord eh = new TaskRecord();
+			eh.setEmployeeName(employee);
+			eh.setDate(date);
+			String taskDesc = Base64Util.decode(rs.getString("task_desc"));
+			float hours = rs.getFloat("hours");
+			String eta = rs.getString("eta");
+			String project = rs.getString("project");
+			String role = rs.getString("role");
+			TaskStatus status = new TaskStatus();
+			status.setDescription(taskDesc);
+			status.setSpentHours(hours);
+			status.setEta(eta);
+			eh.setStatus(status);
+			eh.setProjectName(project);
+			eh.setRole(role);
+			historyList.add(eh);
+		}
+		return historyList;
+
+	}
+
 	public static EmployeeReport getEmployeeReport(String employee, String projectName, Date date) throws SQLException {
 		EmployeeReport employeeReport = new EmployeeReport();
 		employeeReport.setName(employee);
 		employeeReport.setProject(projectName);
 		employeeReport.setReportDate(date);
-		
+
 		String dateString = DateUtil.FormatDate2String(date);
 		String sql = "select * from task_info where employee = '" + employee + "' and project='" + projectName
 				+ "' and date = '" + dateString + "'";
@@ -71,14 +110,14 @@ public class EmployeeTaskDao {
 			String taskDesc = rs.getString("task_desc");
 			float hours = rs.getFloat("hours");
 			String eta = rs.getString("eta");
-			
+
 			TaskStatus status = new TaskStatus();
 			status.setDescription(taskDesc);
 			status.setSpentHours(hours);
 			status.setEta(eta);
 			employeeReport.addStatus(status);
 		}
-		
+
 		String plans_sql = "select plans from plans_info where employee='" + employee + "' and date = '" + dateString
 				+ "' and project = '" + projectName + "'";
 		rs = DataBaseHandler.executeQuerySql(plans_sql);

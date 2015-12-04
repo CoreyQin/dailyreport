@@ -7,14 +7,14 @@ import java.util.List;
 public class EmployeeReport {
 
 	private String name;
-	
+
 	private String project;
-	
+
+	private String role;
+
 	private Date reportDate;
 
 	private List<TaskStatus> currentStatus = new ArrayList<TaskStatus>();
-	
-	private String role;
 
 	private String plans;
 
@@ -25,7 +25,7 @@ public class EmployeeReport {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Date getReportDate() {
 		return reportDate;
 	}
@@ -49,8 +49,8 @@ public class EmployeeReport {
 	public void setPlans(String plans) {
 		this.plans = plans;
 	}
-	
-	public void addStatus(TaskStatus status){
+
+	public void addStatus(TaskStatus status) {
 		this.currentStatus.add(status);
 	}
 
@@ -69,8 +69,5 @@ public class EmployeeReport {
 	public void setProject(String project) {
 		this.project = project;
 	}
-	
-	
-	
 
 }

@@ -7,6 +7,7 @@ public class Employee {
 	private String project;
 	private String role;
 	private String email;
+	private Boolean active;
 
 	public String getName() {
 		return name;
@@ -48,4 +49,12 @@ public class Employee {
 		this.email = email;
 	}
 
+	public boolean getActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
 }
