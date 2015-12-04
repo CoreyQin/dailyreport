@@ -30,6 +30,7 @@ public class ReportGenerater {
 	public static File generateReport(String filePath, String teamName, Date date) throws Exception {
 		HSSFWorkbook wb = new HSSFWorkbook();
 		HSSFSheet sheet = wb.createSheet("sheet1");
+		sheet.setDefaultRowHeight((short)600);
 		setSheetStyle(sheet);
 		// get data from database, build data to format model
 		// List<ProjectReport> projectList = fakeModel();
@@ -40,6 +41,7 @@ public class ReportGenerater {
 		convertModel2Excel(sheet, projectList);
 
 		configerSize(sheet);
+		changeColumnWid(sheet);
 		String reportName = teamName + "_" + DateUtil.FormatDate2String(date) + ".xls";
 		File file = new File(filePath + "\\" + reportName);
 		FileOutputStream fout = new FileOutputStream(file);
@@ -51,7 +53,7 @@ public class ReportGenerater {
 
 	private static void setSheetStyle(HSSFSheet sheet) {
 		StyleManager.resetColor(sheet.getWorkbook());
-		defaultStyle = StyleManager.getDefaultStyle(sheet.getWorkbook());
+		defaultStyle = StyleManager.createDefaultStyle(sheet.getWorkbook());
 
 		employeeStyle = StyleManager.getContentEmployeeStyle(sheet.getWorkbook());
 		contentLeftStyle = StyleManager.getContentLeftStyle(sheet.getWorkbook());
@@ -64,7 +66,17 @@ public class ReportGenerater {
 		sheet.setDefaultColumnStyle(4, contentCenterStyle);
 		sheet.setDefaultColumnStyle(5, contentCenterStyle);
 		sheet.setDefaultColumnStyle(6, contentLeftStyle);
-
+	}
+	
+	
+	private static void changeColumnWid(HSSFSheet sheet){
+		sheet.setColumnWidth(0, 22*256);
+		sheet.setColumnWidth(1, 12*256);
+		sheet.setColumnWidth(2, 6*256);
+		sheet.setColumnWidth(3, 70*256);
+		sheet.setColumnWidth(4, 7*256);
+		sheet.setColumnWidth(5, 7*256);
+		sheet.setColumnWidth(6, 50*256);
 	}
 
 	private static void configerSize(HSSFSheet sheet) {
@@ -86,7 +98,8 @@ public class ReportGenerater {
 		HSSFRow project_row = sheet.createRow(currentRowIndex);
 		// create cell for project name
 		HSSFCell project_cell = project_row.createCell(0);
-		project_cell.setCellValue(project.getProjectName());
+//		project_cell.setCellValue(new HSSFRichTextString(project.getProjectName()));
+		configWrapText(project_cell,project.getProjectName());
 		// project_cell.setCellStyle(defaultStyle);
 
 		for (int i = 0; i < project.getEmployeeRList().size(); i++) {
@@ -99,7 +112,8 @@ public class ReportGenerater {
 
 			// create cell for employee name
 			HSSFCell employee_cell = employee_row.createCell(1);
-			employee_cell.setCellValue(employee.getName());
+//			employee_cell.setCellValue(new HSSFRichTextString(employee.getName()));
+			configWrapText(employee_cell,employee.getName());
 			// employee_cell.setCellStyle(defaultStyle);
 
 			// create cell for role
@@ -109,10 +123,11 @@ public class ReportGenerater {
 
 			// create cell for plans
 			HSSFCell plans_cell = employee_row.createCell(6);
-			HSSFCellStyle cellStyle = plans_cell.getCellStyle();
-			cellStyle.setWrapText(true);
-			plans_cell.setCellStyle(cellStyle);
-			plans_cell.setCellValue(new HSSFRichTextString(processSpecialChar(employee.getPlans())));
+//			HSSFCellStyle cellStyle = plans_cell.getCellStyle();
+//			cellStyle.setWrapText(true);
+//			plans_cell.setCellStyle(cellStyle);
+//			plans_cell.setCellValue(new HSSFRichTextString(processSpecialChar(employee.getPlans())));
+			configWrapText(plans_cell,processSpecialChar(employee.getPlans()));
 
 			generateStatusRows(employee, employee_row);
 
@@ -133,6 +148,14 @@ public class ReportGenerater {
 		int projectEndRow = currentRowIndex;
 		sheet.addMergedRegion(new CellRangeAddress(projectStartRow, projectEndRow, 0, 0));
 	}
+	
+	
+	private static void configWrapText(HSSFCell cell, String value){
+		HSSFCellStyle cellStyle = cell.getCellStyle();
+		cellStyle.setWrapText(true);
+		cell.setCellStyle(cellStyle);
+		cell.setCellValue(new HSSFRichTextString(value));
+	}
 
 	private static String processSpecialChar(String value) {
 		return value.replaceAll("<br>", "\n");
@@ -148,10 +171,11 @@ public class ReportGenerater {
 			}
 
 			HSSFCell desc_cell = task_row.createCell(3);
-			HSSFCellStyle cellStyle = desc_cell.getCellStyle();
-			cellStyle.setWrapText(true);
-			desc_cell.setCellStyle(cellStyle);
-			desc_cell.setCellValue(new HSSFRichTextString(processSpecialChar(task.getDescription())));
+//			HSSFCellStyle cellStyle = desc_cell.getCellStyle();
+//			cellStyle.setWrapText(true);
+//			desc_cell.setCellStyle(cellStyle);
+//			desc_cell.setCellValue(new HSSFRichTextString(processSpecialChar(task.getDescription())));
+			configWrapText(desc_cell,processSpecialChar(task.getDescription()));
 
 			HSSFCell hours_cell = task_row.createCell(4);
 			hours_cell.setCellValue(task.getSpentHours());

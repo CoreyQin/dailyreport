@@ -10,6 +10,7 @@ import com.ob.dailyReport.model.EmployeeHistory;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.ProjectReport;
 import com.ob.dailyReport.model.TaskStatus;
+import com.ob.dailyReport.util.Base64Util;
 import com.ob.dailyReport.util.DateUtil;
 
 public class TeamReportDao {
@@ -86,7 +87,7 @@ public class TeamReportDao {
 				+ "' and project = '" + project + "'";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		if (rs.next()) {
-			String plans = rs.getString("plans");
+			String plans = Base64Util.decode(rs.getString("plans"));
 			return plans;
 		}
 		return null;
@@ -101,7 +102,7 @@ public class TeamReportDao {
 			EmployeeHistory eh = new EmployeeHistory();
 			eh.setEmployeeName(employeeName);
 			eh.setDate(date);
-			String taskDesc = rs.getString("task_desc");
+			String taskDesc = Base64Util.decode(rs.getString("task_desc"));
 			float hours = rs.getFloat("hours");
 			String eta = rs.getString("eta");
 			String project = rs.getString("project");

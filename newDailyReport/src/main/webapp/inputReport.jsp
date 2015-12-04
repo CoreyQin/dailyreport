@@ -1,88 +1,92 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/base/jquery.ui.all.css">
 
 <title>daily report</title>
 </head>
 
 <style>
-		body { font-size: 15px; }
-		label, input { display:block; }
-		input.text { margin-bottom:12px; width:95%; padding: .4em; }
-		div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-		div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 4px; text-align: left; }
+body {
+	font-size: 15px;
+}
+
+label, input {
+	display: block;
+}
+
+input.text {
+	margin-bottom: 12px;
+	width: 95%;
+	padding: .4em;
+}
+
+div#users-contain table {
+	margin: 1em 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div#users-contain table td, div#users-contain table th {
+	border: 1px solid #eee;
+	padding: .6em 4px;
+	text-align: left;
+}
 </style>
 <body>
 
 	<div>
-	<h2>user info:</h2>
-	<table style="width:600px; height: 100px;">
-		<tr>
-			<td align="right">
-			team: 
-			</td>
-			<td align="left">
-				<select id="team">
-					<option></option>
-					<option>team1</option>
-					<option>team2</option>
-				</select> 
-			</td>
-			<td align="right">
-			employee name: 
-			</td>
-			<td align="left">
-				<select id="employee">
+		<h2>user info:</h2>
+		<table style="width: 600px; height: 100px;">
+			<tr>
+				<td align="right">team:</td>
+				<td align="left"><select id="team">
+						<option></option>
+						<option>team1</option>
+						<option>team2</option>
+				</select></td>
+				<td align="right">employee name:</td>
+				<td align="left"><select id="employee">
 						<!-- <option></option> -->
 						<option>corey</option>
 						<option>gary</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-			project : 
-			</td>
-			<td align="left">
-				<select id="project">
+				</select></td>
+			</tr>
+			<tr>
+				<td align="right">project :</td>
+				<td align="left"><select id="project">
 						<option></option>
 						<option>project1</option>
 						<option>project2</option>
-				</select> 
-			</td>
-			<td align="right">
-			role: 
-			</td>
-			<td>
-				<select id="role">
+				</select></td>
+				<td align="right">role:</td>
+				<td><select id="role">
 						<option>QA</option>
 						<option>DEV</option>
 						<option>TL</option>
 						<option>Arch</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-		</tr>
-	</table>
-	
+				</select></td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+
 	</div>
 
 	<div id="dialog-form" title="Create/Edit User">
 		<form>
 			<fieldset>
-				<label for="taskDesc">task desc</label> 
-				<textarea id="taskDesc" rows="6" cols="50" class="text"></textarea> 
-				<label for="spentHours">spent hours</label> 
-				<input type="text" name="spentHours" id="spentHours" value="" class="text" /> 
-				<label for="eta">eta</label> 
-				<input type="text" name="eta" id="eta" value="" class="text" /> 
-				<input type="hidden" name="rowindex" id="rowindex" value="" />
+				<label for="taskDesc">task desc</label>
+				<textarea id="taskDesc" rows="6" cols="50" class="text"></textarea>
+				<label for="spentHours">spent hours</label> <input type="text"
+					name="spentHours" id="spentHours" value="" class="text" /> <label
+					for="eta">eta</label> <input type="text" name="eta" id="eta"
+					value="" class="text" /> <input type="hidden" name="rowindex"
+					id="rowindex" value="" />
 			</fieldset>
 		</form>
 	</div>
@@ -107,16 +111,23 @@
 		</table>
 
 	</div>
-	<br> <br> <br><br> <br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div>
 		<h2>plans for tomorrow:</h2>
 		<textarea id="plans" rows="8" cols="100"></textarea>
 	</div>
-	
-	<br> <br> <input id="submit" type="button" value='submit' onclick="submitTasks()">
-	
+
+	<br>
+	<br>
+	<input id="submit" type="button" value='submit' onclick="submitTasks()">
+
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui-1.8.21.custom.js"></script>
+	<script src="js/Base64Util.js"></script>
 	<script type="text/javascript">
 		function submitTasks() {
 			if(!checkInput()){
@@ -153,23 +164,23 @@
 			var role = $("#role").val();
 			//var date = new Date();
 			//var dateString = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
-			var plans = $("#plans").val();
+			var plans = encode($("#plans").val());
 			var trows =  $("#task_table tbody").children();
 			var tableData = "";
 			for(var i=0;i<trows.length;i++){
 				var row = $(trows[i]);
 				var tds = row.children();
-				var task = tds.eq(0).html();
+				var task = tds.eq(0).html().toString();
 				var hours = tds.eq(1).text();
 				var eta = tds.eq(2).text();
-				tableData += "{'task':'"+task+"'"+",'hours':'"+hours+"'"+",'eta':'"+eta+"'}";
+				tableData += "{'task':'"+encode(task)+"'"+",'hours':'"+hours+"'"+",'eta':'"+eta+"'}";
 				if(i < trows.length -1){
 					tableData += ",";
 				}
 			}
 			
 			var jsonString = "{'name':'"+employee+"','project':'"+project+"','role':'"+role+"','taskList':["+tableData+"],'plans':'"+plans+"'}";
-			return replaceSpecial(jsonString);
+			return jsonString;
 		}
 		
 		/* function getPlans(){
@@ -179,8 +190,25 @@
 			return plans;
 		} */
 		
+		function encode(value){
+			if(value == null || value == ""){
+				return value;
+			}
+			//return base64Util.encodeBase64(value);
+			
+			return base64Util.base64encode(value);
+		}
+		
+		function decode(value){
+			if(value == null || value == ""){
+				return value;
+			}
+			//return base64Util.decodeBase64(value);
+			return base64Util.base64decode(value);
+		}
+		
 		function replaceSpecial(value){
-			value = value.replace(/\r\n/g,"<br>")  
+		 	value = value.replace(/\r\n/g,"<br>")  
         	value = value.replace(/\n/g,"<br>");
 			return value;
 		}
@@ -211,7 +239,7 @@
 			modal: true,
 			buttons: {
 				"Create/Edit": function() {
-					if (rowindex.val()==""){//新增
+					if (rowindex.val()==""){
 						$( "#task_table tbody" ).append( "<tr>" +
 							"<td>" + replaceSpecial(taskDesc.val()) + "</td>" + 
 							"<td>" + spentHours.val() + "</td>" + 
@@ -219,8 +247,7 @@
 							'<td><button class="EditButton" >Edit</button><button class="DeleteButton">Delete</button></td>'+
 						"</tr>" ); 
 						bindEditEvent();
-					}
-					else{//修改
+					}else{ 
 						var idx = rowindex.val();
 						var tr = $("#task_table>tbody>tr").eq(idx);
 						//$("#debug").text(tr.html());
@@ -242,25 +269,20 @@
 		
 		
 		function bindEditEvent(){
-			//绑定Edit按钮的单击事件
 			$(".EditButton").click(function(){
 					var b = $(this);
 					var tr = b.parents("tr");
 					var tds = tr.children();
-					//设置初始值
 					taskDesc.val(retrieveSpecial(tds.eq(0).html()));
 					spentHours.val(tds.eq(1).html());
 					eta.val(tds.eq(2).html());
 					
 					var trs = b.parents("tbody").children();
-					//设置行号，以行号为标识，进行修改。
 					rowindex.val(trs.index(tr));
 					
-					//打开对话框
 					$( "#dialog-form" ).dialog( "open" );
 			});
 			
-			//绑定Delete按钮的单击事件
 			$(".DeleteButton").click(function(){
 				var tr = $(this).parents("tr");
 				tr.remove();
@@ -286,6 +308,7 @@
 		var searchTasks = function(){
 			$( "#task_table tbody").empty();
 			$( "#plans").val();
+			
 			var employee = $("#employee").val();
 			var project = $("#project").val();
 			if(employee == "" || project == ""){
@@ -301,12 +324,12 @@
 						}
 						var employeeObject = eval("("+data+")");  
 						var plans = employeeObject.plans;
-						$("#plans").val(retrieveSpecial(plans));
+						$("#plans").val(decode(plans));
 						var taskArray = employeeObject.taskList;
 						for(var i= 0; i < taskArray.length;i++){  
 							var task = taskArray[i];
 							$( "#task_table tbody" ).append( "<tr>" +
-							"<td>" + task.task + "</td>" + 
+							"<td>" + decode(task.task) + "</td>" + 
 							"<td>" + task.hours + "</td>" + 
 							"<td>" + task.eta + "</td>" +
 							'<td><button class="EditButton" >Edit</button><button class="DeleteButton">Delete</button></td>'+
@@ -387,10 +410,8 @@
 		$("#team").change(teamChanged);
 	});
 	
-	
-	
 	</script>
-	
+
 
 
 </body>

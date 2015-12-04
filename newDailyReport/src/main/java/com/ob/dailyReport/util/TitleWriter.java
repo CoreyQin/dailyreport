@@ -15,6 +15,7 @@ public class TitleWriter {
 	public static void write(HSSFSheet sheet) throws Exception {
 
 		HSSFCellStyle style = StyleManager.getTitleStyle(sheet.getWorkbook());
+//		sheet.setDefaultRowHeight((short)450);
 		HSSFRow row = sheet.createRow(0);
 		String title[] = { "Project", "Name", "Role", "Status for Today" };
 		for (int i = 0; i < title.length; i++) {
