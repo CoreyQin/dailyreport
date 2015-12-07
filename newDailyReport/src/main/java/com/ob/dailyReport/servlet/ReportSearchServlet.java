@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.ob.dailyReport.dao.EmployeeTaskDao;
-import com.ob.dailyReport.model.TaskRecord;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.TaskStatus;
+import com.ob.dailyReport.service.EmployeeReportService;
+import com.ob.dailyReport.util.Base64Util;
 
 public class ReportSearchServlet extends HttpServlet {
 
@@ -33,26 +32,26 @@ public class ReportSearchServlet extends HttpServlet {
 		String employee = dataJson.getString("name");
 		String project = dataJson.getString("project");
 		Date date = new Date();
-		
+
 		EmployeeReport employeeReport;
 		try {
-			employeeReport = EmployeeTaskDao.getEmployeeReport(employee, project, date);
-			String tasksJson = this.converTasks2Json(employeeReport);
+			employeeReport = EmployeeReportService.getEmployeeReport(employee, date, project);
+			String tasksJson = this.converReport2Json(employeeReport);
 			response.getWriter().print(tasksJson);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	private String converTasks2Json(EmployeeReport employeeReport){
+
+	private String converReport2Json(EmployeeReport employeeReport) {
 		JSONObject employeeObject = new JSONObject();
 		employeeObject.put("name", employeeReport.getName());
 		employeeObject.put("project", employeeReport.getProject());
-		employeeObject.put("plans", employeeReport.getPlans());
+		employeeObject.put("plans", Base64Util.encode(employeeReport.getPlans()));
 		JSONArray taskArray = new JSONArray();
-		for(TaskStatus status : employeeReport.getCurrentStatus()){
+		for (TaskStatus status : employeeReport.getCurrentStatus()) {
 			JSONObject taskObject = new JSONObject();
-			taskObject.put("task", status.getDescription());
+			taskObject.put("task", Base64Util.encode(status.getDescription()));
 			taskObject.put("hours", status.getSpentHours());
 			taskObject.put("eta", status.getEta());
 			taskArray.put(taskObject);
@@ -60,9 +59,8 @@ public class ReportSearchServlet extends HttpServlet {
 		employeeObject.put("taskList", taskArray);
 		return employeeObject.toString();
 	}
-	
-	
-	private String getInputJson(HttpServletRequest request) throws IOException{
+
+	private String getInputJson(HttpServletRequest request) throws IOException {
 		BufferedReader reader = request.getReader();
 		StringBuffer buffer = new StringBuffer();
 		String str;

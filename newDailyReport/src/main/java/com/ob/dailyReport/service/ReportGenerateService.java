@@ -1,4 +1,4 @@
-package com.ob.dailyReport.util;
+package com.ob.dailyReport.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,12 +13,14 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 
-import com.ob.dailyReport.handler.TeamReportHandler;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.ProjectReport;
 import com.ob.dailyReport.model.TaskStatus;
+import com.ob.dailyReport.util.DateUtil;
+import com.ob.dailyReport.util.StyleManager;
+import com.ob.dailyReport.util.TitleWriter;
 
-public class ReportGenerater {
+public class ReportGenerateService {
 
 	private static int currentRowIndex = 0;
 
@@ -35,7 +37,7 @@ public class ReportGenerater {
 		// get data from database, build data to format model
 		// List<ProjectReport> projectList = fakeModel();
 
-		List<ProjectReport> projectList = TeamReportHandler.getTeamReport(teamName, date);
+		List<ProjectReport> projectList = TeamReportHistoryService.getTeamReport(teamName, date);
 		// convert mode data to excel data
 		TitleWriter.write(sheet);
 		convertModel2Excel(sheet, projectList);
@@ -85,7 +87,7 @@ public class ReportGenerater {
 		}
 	}
 
-	public static void convertModel2Excel(HSSFSheet sheet, List<ProjectReport> reportList) {
+	private static void convertModel2Excel(HSSFSheet sheet, List<ProjectReport> reportList) {
 		currentRowIndex = 2;
 		for (int i = 0; i < reportList.size(); i++) {
 			ProjectReport project = reportList.get(i);

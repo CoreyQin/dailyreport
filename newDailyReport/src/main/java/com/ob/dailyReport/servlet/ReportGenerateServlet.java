@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.ob.dailyReport.service.ReportGenerateService;
 import com.ob.dailyReport.util.Constant;
 import com.ob.dailyReport.util.DateUtil;
 import com.ob.dailyReport.util.ReportFileManager;
-import com.ob.dailyReport.util.ReportGenerater;
 
 public class ReportGenerateServlet extends HttpServlet {
 	
@@ -34,8 +34,6 @@ public class ReportGenerateServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
-//	private String reportPath = "report";
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String jsonString = this.getInputJson(request);
@@ -43,11 +41,8 @@ public class ReportGenerateServlet extends HttpServlet {
 		String teamName = dataJson.getString("team");
 		String dateString = dataJson.getString("date");
 		String download = dataJson.getString("download");
-
-//		ServletContext sctx = getServletContext();
-//		String path = sctx.getRealPath("/" + reportPath);
 		try {
-			File report = ReportGenerater.generateReport(ReportFileManager.getInstance().getReportPath(), teamName, DateUtil.parseString2Date(dateString));
+			File report = ReportGenerateService.generateReport(ReportFileManager.getInstance().getReportPath(), teamName, DateUtil.parseString2Date(dateString));
 			if (download == null || download.equals("") || Boolean.parseBoolean(download)) {
 				response.getWriter().print(Constant.reportFilePath + "/" + report.getName());
 			}

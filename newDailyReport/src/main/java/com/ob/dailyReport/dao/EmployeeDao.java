@@ -12,7 +12,7 @@ import com.ob.dailyReport.model.Role;
 public class EmployeeDao {
 
 	public static Employee getEmployee(String employeeName) throws SQLException {
-		String sql = "select * from team_member where employee = '" + employeeName + "';";
+		String sql = "select * from employee where employee = '" + employeeName + "';";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		Employee employee = null;
 		if (rs.next()) {
@@ -108,9 +108,9 @@ public class EmployeeDao {
 	public static String getEmployeeRole(String employee, String project) throws SQLException {
 		String sql;
 		if (project == null || project.equals("")) {
-			sql = "select role from project_info where employee = '" + employee + "'";
+			sql = "select role from employee where employee = '" + employee + "'";
 		} else {
-			sql = "select role from project_info where employee = '" + employee + "' and project = '" + project + "'";
+			sql = "select role from employee where employee = '" + employee + "' and project = '" + project + "'";
 		}
 
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);

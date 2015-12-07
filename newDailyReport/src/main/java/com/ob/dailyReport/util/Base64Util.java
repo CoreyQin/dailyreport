@@ -9,6 +9,9 @@ public class Base64Util {
 	 * @return
 	 */
 	public static String decode(final String string) {
+		if(string == null || string.equals("")){
+			return string;
+		}
 		try {
 			return new String(Base64.getDecoder().decode(string.getBytes("UTF-8")), "UTF-8");
 		} catch (UnsupportedEncodingException e) {
@@ -25,6 +28,9 @@ public class Base64Util {
 	 * @throws Exception
 	 */
 	public static String encode(final String string) {
+		if(string == null || string.equals("")){
+			return string;
+		}
 		try {
 			return new String(Base64.getEncoder().encode(string.getBytes("UTF-8")), "UTF-8");
 		} catch (UnsupportedEncodingException e) {

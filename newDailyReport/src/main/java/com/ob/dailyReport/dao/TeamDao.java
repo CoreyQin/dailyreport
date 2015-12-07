@@ -23,7 +23,7 @@ public class TeamDao {
 
 	public static List<String> getTeamList() throws SQLException {
 		List<String> teamList = new ArrayList<String>();
-		String sql = "select distinct(team) from team_project";
+		String sql = "select team from team";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		while (rs.next()) {
 			String team = rs.getString("team");

@@ -11,8 +11,8 @@ import com.ob.dailyReport.dao.EmployeeDao;
 import com.ob.dailyReport.dao.TeamDao;
 import com.ob.dailyReport.email.EmailSender;
 import com.ob.dailyReport.model.Employee;
+import com.ob.dailyReport.service.ReportGenerateService;
 import com.ob.dailyReport.util.ReportFileManager;
-import com.ob.dailyReport.util.ReportGenerater;
 
 public class DailyReportEmailTimerTask extends TimerTask {
 
@@ -35,7 +35,7 @@ public class DailyReportEmailTimerTask extends TimerTask {
 
 	private void sendReport() throws Exception {
 		for (String team : team_leaderMap.keySet()) {
-			File report = ReportGenerater.generateReport(ReportFileManager.getInstance().getReportPath(), team, new Date());
+			File report = ReportGenerateService.generateReport(ReportFileManager.getInstance().getReportPath(), team, new Date());
 			String teamLeader = team_leaderMap.get(team);
 			// get email address of team leader
 			Employee employee = EmployeeDao.getEmployee(teamLeader);

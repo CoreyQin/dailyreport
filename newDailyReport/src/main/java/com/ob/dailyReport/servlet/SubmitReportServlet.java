@@ -2,6 +2,7 @@ package com.ob.dailyReport.servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.json.JSONObject;
 import com.ob.dailyReport.dao.EmployeeTaskDao;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.TaskStatus;
+import com.ob.dailyReport.service.EmployeeReportService;
 
 public class SubmitReportServlet extends HttpServlet {
 
@@ -32,10 +34,12 @@ public class SubmitReportServlet extends HttpServlet {
 		String jsonString = this.getInputJson(request);
 		// convert user input to data model
 //		EmployeeReport input = this.fakeModel();
-		EmployeeReport input = this.convertJson2Model(jsonString);
-		//
-		EmployeeTaskDao.addTasks(input);
-
+		EmployeeReport report = this.convertJson2Model(jsonString);
+		try {
+			EmployeeReportService.submitReport(report);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private String getInputJson(HttpServletRequest request) throws IOException{
@@ -50,11 +54,13 @@ public class SubmitReportServlet extends HttpServlet {
 		return buffer.toString();
 	}
 
-	private EmployeeReport fakeModel() {
-		String jsonString = "{'name':'corey','project':'project1','role':'dev','taskList':[{'task':'task1','hours':'2','eta':'eta'}],'plans':'plans of corey'}";
-		EmployeeReport input = this.convertJson2Model(jsonString);
-		return input;
-	}
+	// private EmployeeReport fakeModel() {
+	// String jsonString =
+	// "{'name':'corey','project':'project1','role':'dev','taskList':[{'task':'task1','hours':'2','eta':'eta'}],'plans':'plans
+	// of corey'}";
+	// EmployeeReport input = this.convertJson2Model(jsonString);
+	// return input;
+	// }
 
 	private EmployeeReport convertJson2Model(String jsonString) {
 		JSONObject dataJson = new JSONObject(jsonString);

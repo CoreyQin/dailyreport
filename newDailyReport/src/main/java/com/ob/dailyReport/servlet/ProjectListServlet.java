@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.ob.dailyReport.dao.ProjectDao;
+import com.ob.dailyReport.service.ProjectService;
 
 public class ProjectListServlet extends HttpServlet {
 
@@ -22,30 +22,29 @@ public class ProjectListServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String jsonString = this.getInputJson(request);
-		if(jsonString == null || jsonString.equals("")){
+		if (jsonString == null || jsonString.equals("")) {
 			return;
 		}
 		JSONObject dataJson = new JSONObject(jsonString);
 		String teamName = dataJson.getString("team");
 		try {
-			List<String> projectList = ProjectDao.getProjectList(teamName);
+			List<String> projectList = ProjectService.getProjectList(teamName);
 			JSONArray projectArray = new JSONArray();
 			JSONObject returnJson = new JSONObject();
-			for(String project : projectList){
+			for (String project : projectList) {
 				projectArray.put(project);
 			}
 			returnJson.put("projectList", projectArray);
 			response.getWriter().print(returnJson.toString());
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private String getInputJson(HttpServletRequest request) throws IOException {
 		BufferedReader reader = request.getReader();
 		StringBuffer buffer = new StringBuffer();

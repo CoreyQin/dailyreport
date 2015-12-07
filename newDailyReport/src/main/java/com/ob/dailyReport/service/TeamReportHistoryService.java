@@ -1,4 +1,4 @@
-package com.ob.dailyReport.handler;
+package com.ob.dailyReport.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import com.ob.dailyReport.model.ProjectReport;
 import com.ob.dailyReport.model.TaskRecord;
 import com.ob.dailyReport.model.TaskStatus;
 
-public class TeamReportHandler {
+public class TeamReportHistoryService {
 
 //	public static List<ProjectReport> getTeamReport(String team, Date date) throws SQLException {
 //		String sql = "select * from team_member where team = '" + team + "'";

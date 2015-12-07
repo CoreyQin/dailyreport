@@ -23,7 +23,7 @@ public class ProjectDao {
 
 	public static List<String> getProjectList(String team) throws SQLException {
 		List<String> projectList = new ArrayList<String>();
-		String sql = "select project from team_project where team ='" + team + "'";
+		String sql = "select project from project where team ='" + team + "'";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		while (rs.next()) {
 			String project = rs.getString("project");
