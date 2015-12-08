@@ -388,7 +388,7 @@ div#users-contain table td, div#users-contain table th {
 					data : "{'team':'"+$("#team").val()+"'}",
 					success : function(data) {
 						var employeeList = eval("("+data+")"); 
-						var employeeArray = employeeList.employeeList;
+						var employeeArray = employeeList.rows;
 						fillData2Select($("#employee"), employeeArray);
 					},
 					error : function() {

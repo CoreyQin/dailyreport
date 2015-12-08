@@ -7,12 +7,13 @@ import java.util.List;
 
 import com.ob.dailyReport.db.DataBaseHandler;
 import com.ob.dailyReport.model.Employee;
+import com.ob.dailyReport.model.PageBean;
 import com.ob.dailyReport.model.Role;
 
 public class EmployeeDao {
 
 	public static Employee getEmployee(String employeeName) throws SQLException {
-		String sql = "select * from employee where employee = '" + employeeName + "';";
+		String sql = "select * from employee where employee = '" + employeeName + "' and active = '1';";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		Employee employee = null;
 		if (rs.next()) {
@@ -29,14 +30,63 @@ public class EmployeeDao {
 		return employee;
 	}
 
+	public static List<Employee> getEmployeeList(String team, PageBean pageBean) throws SQLException {
+		List<Employee> employeeList = new ArrayList<Employee>();
+		StringBuffer sb = new StringBuffer("select * from employee where team = '" + team + "' and active = '1'");
+		if (pageBean != null) {
+			sb.append(" limit " + pageBean.getStart() + "," + pageBean.getRows());
+		}
+		ResultSet rs = DataBaseHandler.executeQuerySql(sb.toString());
+		while (rs.next()) {
+			Employee employee = new Employee();
+			String name = rs.getString("employee");
+			String project = rs.getString("project");
+			String role = rs.getString("role");
+			String email = rs.getString("email");
+			employee.setName(name);
+			employee.setTeam(team);
+			employee.setProject(project);
+			employee.setRole(role);
+			employee.setEmail(email);
+
+			employeeList.add(employee);
+		}
+		return employeeList;
+	}
+
+	public static int employeeCount(String team) throws SQLException {
+		StringBuffer sb = new StringBuffer(
+				"select count(*) as total from employee where team = '" + team + "' and active = '1'");
+		ResultSet rs = DataBaseHandler.executeQuerySql(sb.toString());
+		if (rs.next()) {
+			return rs.getInt("total");
+		} else {
+			return 0;
+		}
+	}
+
+	public static List<String> getEmployeeNameList(String team, PageBean pageBean) throws SQLException {
+		List<String> employeeList = new ArrayList<String>();
+		StringBuffer sb = new StringBuffer("select employee from employee where team = '" + team + "' and active = '1'");
+		if (pageBean != null) {
+			sb.append(" limit " + pageBean.getStart() + "," + pageBean.getRows());
+		}
+		ResultSet rs = DataBaseHandler.executeQuerySql(sb.toString());
+		while (rs.next()) {
+			String employee = rs.getString("employee");
+			employeeList.add(employee);
+		}
+		return employeeList;
+	}
+
 	public static boolean addEmployee(Employee employee) throws SQLException {
 		String employeeName = employee.getName();
 		String team = employee.getTeam();
 		String project = employee.getProject();
 		String role = employee.getRole();
 		String email = employee.getEmail();
-		String sql = "insert into employee (employee,team,project,role,email) values('" + employeeName + "','" + team
-				+ "','" + project + "','" + role + "','" + email + "');" + employeeName + "';";
+		String sql = "insert into employee (employee,team,project,role,email,active) values('" + employeeName + "','"
+				+ team + "','" + project + "','" + role + "','" + email + "','1')";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
 	}
@@ -94,17 +144,6 @@ public class EmployeeDao {
 		return sql;
 	}
 
-	public static List<String> getEmployeeList(String team) throws SQLException {
-		List<String> employeeList = new ArrayList<String>();
-		String sql = "select employee from employee where team = '" + team + "'";
-		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
-		while (rs.next()) {
-			String employee = rs.getString("employee");
-			employeeList.add(employee);
-		}
-		return employeeList;
-	}
-
 	public static String getEmployeeRole(String employee, String project) throws SQLException {
 		String sql;
 		if (project == null || project.equals("")) {
@@ -122,7 +161,7 @@ public class EmployeeDao {
 	}
 
 	public static String getTeamLeader(String team) throws SQLException {
-		List<String> employeeList = getEmployeeList(team);
+		List<String> employeeList = getEmployeeNameList(team, null);
 		for (String employee : employeeList) {
 			String role = getEmployeeRole(employee, null);
 			if (role != null && role.equals(Role.TL.toString())) {

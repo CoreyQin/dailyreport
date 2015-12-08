@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.ob.dailyReport.model.Project;
 import com.ob.dailyReport.service.ProjectService;
 
 public class ProjectListServlet extends HttpServlet {
@@ -24,22 +25,22 @@ public class ProjectListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String jsonString = this.getInputJson(request);
-		if (jsonString == null || jsonString.equals("")) {
-			return;
-		}
-		JSONObject dataJson = new JSONObject(jsonString);
-		String teamName = dataJson.getString("team");
+//		String jsonString = this.getInputJson(request);
+//		if (jsonString == null || jsonString.equals("")) {
+//			return;
+//		}
+//		JSONObject dataJson = new JSONObject(jsonString);
+//		String teamName = dataJson.getString("team");
+		String teamName = request.getParameter("team");
 		try {
-			List<String> projectList = ProjectService.getProjectList(teamName);
+			List<Project> projectList = ProjectService.getProjectList(teamName);
 			JSONArray projectArray = new JSONArray();
 			JSONObject returnJson = new JSONObject();
-			for (String project : projectList) {
-				projectArray.put(project);
+			for (Project project : projectList) {
+				projectArray.put(project.toJsonObject());
 			}
 			returnJson.put("projectList", projectArray);
-			response.getWriter().print(returnJson.toString());
-
+			response.getWriter().print(projectArray.toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,7 @@
 package com.ob.dailyReport.model;
 
+import org.json.JSONObject;
+
 public class Employee {
 
 	private String name;
@@ -8,6 +10,19 @@ public class Employee {
 	private String role;
 	private String email;
 	private Boolean active;
+	
+	public Employee(){
+	}
+	
+	public Employee(String name, String team, String project, String role, String email, Boolean active) {
+		super();
+		this.name = name;
+		this.team = team;
+		this.project = project;
+		this.role = role;
+		this.email = email;
+		this.active = active;
+	}
 
 	public String getName() {
 		return name;
@@ -56,5 +71,15 @@ public class Employee {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
+
+	public JSONObject toJsonObject() {
+		JSONObject employeeOjbect = new JSONObject();
+		employeeOjbect.put("employee", name);
+		employeeOjbect.put("team", team);
+		employeeOjbect.put("project", project);
+		employeeOjbect.put("role", role);
+		employeeOjbect.put("email", email);
+		return employeeOjbect;
+	}
+
 }

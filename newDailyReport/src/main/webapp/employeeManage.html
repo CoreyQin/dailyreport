@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="jquery,ui,easy,easyui,web">
+	<meta name="description" content="easyui help you build your web page easily!">
+	<title>manage page</title>
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/demo/demo.css">
+	
+	<style type="text/css">
+		#employee_fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		#project_fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+		}
+		.fitem{
+			margin-bottom:5px;
+		}
+		.fitem label{
+			display:inline-block;
+			width:100px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-easyui-1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+		var url;
+		function newUser(){
+			$('#employee_dlg').dialog('open').dialog('setTitle','New User');
+			$('#employee_fm').form('clear');
+			var team = $('#team').combobox('getText');
+			url = 'EmployeeSaveServlet?team='+team ;
+		}
+		function editUser(){
+			var row = $('#employee_dg').datagrid('getSelected');
+			if (row){
+				$('#employee_dlg').dialog('open').dialog('setTitle','Edit Employee');
+				$('#employee_fm').form('load',row);
+				var team = $('#team').combobox('getText');
+				url = 'EmployeeSaveServlet?team='+team ;
+			}
+		}
+		function saveUser(){
+			$('#employee_fm').form('submit',{
+				url: url,
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success: function(result){
+					var result = eval('('+result+')');
+					if (result.success){
+						$('#employee_dlg').dialog('close');		// close the dialog
+						$('#employee_dg').datagrid('reload');	// reload the user data
+					} else {
+						$.messager.show({
+							title: 'Error',
+							msg: result.msg
+						});
+					}
+				}
+			});
+		}
+		function removeUser(){
+			var row = $('#employee_dg').datagrid('getSelected');
+			if (row){
+				$.messager.confirm('Confirm','Are you sure you want to remove this user?',function(r){
+					if (r){
+						$.post('EmployeeDeleteServlet',{employee:row.employee},function(result){
+							if (result.success){
+								$('#employee_dg').datagrid('reload');	// reload the user data
+							} else {
+								$.messager.show({	// show error message
+									title: 'Error',
+									msg: result.msg
+								});
+							}
+						},'json');
+					}
+				});
+			}
+		}
+		
+		
+		function editProject(){
+			var row = $('#project_dg').datagrid('getSelected');
+			if (row){
+				$('#project_dlg').dialog('open').dialog('setTitle','Edit Employee');
+				$('#project_fm').form('load',row);
+				var team = $('#team').combobox('getText');
+				url = 'ProjectSaveServlet?team='+team ;
+			}
+		}
+		function saveProject(){
+			$('#project_fm').form('submit',{
+				url: url,
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success: function(result){
+					var result = eval('('+result+')');
+					if (result.success){
+						$('#project_dlg').dialog('close');		// close the dialog
+						$('#project_dg').datagrid('reload');	// reload the user data
+					} else {
+						$.messager.show({
+							title: 'Error',
+							msg: result.msg
+						});
+					}
+				}
+			});
+		}
+		
+		function searchEmployee(){
+			$('#employee_dg').datagrid('load',{
+				team : $('#team').combobox('getText')
+			});
+		}
+		
+	    function initEmployeeGrid()
+          {  
+              $('#employee_dg').datagrid({
+                  url:'EmployeeListServlet',
+                  queryParams:{
+                	  team : ''
+                  },
+                  columns:[[
+                            {field:'employee',title:'employee',width:50},
+                            {field:'project',title:'project',width:50},
+                            {field:'role',title:'role',width:50},
+                            {field:'email',title:'email',width:50}
+                    ]],
+                  title: "employee list",
+                  pagination:true,
+                  rownumbers:true,
+                  singleSelect:true,
+                  fitColumns:true,
+                  toolbar : $('#employee_toolbar')
+             });
+          } 
+	    
+	    
+	    function searchProject(){
+			$('#project_dg').datagrid('load',{
+				team : $('#team').combobox('getText')
+			});
+		}
+	    
+	    function initProjectGrid()
+        {  
+            $('#project_dg').datagrid({
+                url:'ProjectListServlet',
+                queryParams:{
+              	  team : ''
+                },
+                columns:[[
+                          {field:'project',title:'project',width:50},
+                          {field:'order',title:'order',width:50},
+                  ]],
+                title: "project list",
+                singleSelect:true,
+                fitColumns:true,
+                toolbar : $('#project_toolbar')
+           });
+        } 
+	    
+	    $(function() {
+	    	$("#team").combobox({
+	    		onChange: function () {
+	    			searchEmployee();
+	    			searchProject();
+	    		}
+	    	});
+	    	
+	    	initEmployeeGrid();
+	    	initProjectGrid();
+	    });
+	    
+	</script>
+</head>
+<body>
+	<h2>manage page</h2>
+	<div class="demo-info" style="margin-bottom:10px">
+	</div>
+	
+	<!-- <table id="employee_dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
+			toolbar="#employee_toolbar">
+	</table> -->
+	
+	<div style="margin:20px 0;">
+		<span>Please select team: </span>
+		<input class="easyui-combobox" 
+			id="team"
+			name="team"
+			data-options="
+					url:'TeamListServlet',
+					method:'get',
+					valueField:'id',
+					textField:'text',
+					panelHeight:'auto'
+			">
+	</div>
+	
+	<table id="project_dg" style="width:700px"></table>  
+	<div id="project_toolbar">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newProject()">New Project</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editProject()">Edit Project</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeProject()">Remove Project</a>
+	</div>
+	
+	<div id="project_dlg" class="easyui-dialog" style="width:500px;height:280px;padding:10px 20px"
+			closed="true" buttons="#project_dlg-buttons">
+		<div class="ftitle">User Information</div>
+		<form id="project_fm" method="post">
+			<div class="fitem">
+				<label>Name:</label>
+				<input name="project" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Order:</label>
+				<input name="order" class="easyui-validatebox" required="true">
+			</div>
+		</form>
+	</div>
+	<div id="project_dlg-buttons">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#project_dlg').dialog('close')">Cancel</a>
+	</div>
+	
+	<div class="demo-info" style="margin-bottom:80px">
+	</div>
+	
+	<table id="employee_dg"></table>  
+	<div id="employee_toolbar">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">Remove User</a>
+	</div>
+	
+	<div id="employee_dlg" class="easyui-dialog" style="width:500px;height:280px;padding:10px 20px"
+			closed="true" buttons="#employee_dlg-buttons">
+		<div class="ftitle">User Information</div>
+		<form id="employee_fm" method="post">
+			<div class="fitem">
+				<label>Name:</label>
+				<input name="employee" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Project:</label>
+				<input name="project" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Role:</label>
+				<select name="role">
+					<option>Dev</option>
+					<option>QA</option>
+					<option>TL</option>
+					<option>ARCH</option>
+					<option>QAL</option>
+				</select>
+			</div>
+			<div class="fitem">
+				<label>Email:</label>
+				<input name="email" class="easyui-validatebox" validType="email">
+			</div>
+		</form>
+	</div>
+	<div id="employee_dlg-buttons">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#employee_dlg').dialog('close')">Cancel</a>
+	</div>
+</body>
+</html>

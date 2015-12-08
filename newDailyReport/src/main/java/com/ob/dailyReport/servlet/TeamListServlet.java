@@ -27,12 +27,15 @@ public class TeamListServlet extends HttpServlet {
 		try {
 			List<String> teamList = TeamDao.getTeamList();
 			JSONArray teamArray = new JSONArray();
-			JSONObject dataJson = new JSONObject();
+//			JSONObject dataJson = new JSONObject();
 			for(String team : teamList){
-				teamArray.put(team);
+				JSONObject rowObject = new JSONObject();
+				rowObject.put("value", team);
+				rowObject.put("text", team);
+				teamArray.put(rowObject);
 			}
-			dataJson.put("teamList", teamArray);
-			response.getWriter().print(dataJson.toString());
+//			dataJson.put("teamList", teamArray);
+			response.getWriter().print(teamArray.toString());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

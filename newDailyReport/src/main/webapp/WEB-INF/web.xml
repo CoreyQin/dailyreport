@@ -1,68 +1,81 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
 
-<web-app>
-	<display-name>Archetype Created Web Application</display-name>
-	
-	<listener>
-		<listener-class>
+-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>Archetype Created Web Application</display-name>
+  <listener>
+    <listener-class>
 			com.ob.dailyReport.timer.TaskListener
 		</listener-class>
-	</listener>
-
-	<servlet>
-		<servlet-name>SubmitReportServlet</servlet-name>
-		<servlet-class>com.ob.dailyReport.servlet.SubmitReportServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ReportSearchServlet</servlet-name>
-		<servlet-class>com.ob.dailyReport.servlet.ReportSearchServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ReportGenerateServlet</servlet-name>
-		<servlet-class>com.ob.dailyReport.servlet.ReportGenerateServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-
-	<servlet>
-		<servlet-name>TeamListServlet</servlet-name>
-		<servlet-class>com.ob.dailyReport.servlet.TeamListServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>EmployeeListServlet</servlet-name>
-		<servlet-class>com.ob.dailyReport.servlet.EmployeeListServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ProjectListServlet</servlet-name>
-		<servlet-class>com.ob.dailyReport.servlet.ProjectListServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>SubmitReportServlet</servlet-name>
-		<url-pattern>/SubmitReportServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ReportSearchServlet</servlet-name>
-		<url-pattern>/ReportSearchServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ReportGenerateServlet</servlet-name>
-		<url-pattern>/ReportGenerateServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>TeamListServlet</servlet-name>
-		<url-pattern>/TeamListServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>EmployeeListServlet</servlet-name>
-		<url-pattern>/EmployeeListServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ProjectListServlet</servlet-name>
-		<url-pattern>/ProjectListServlet</url-pattern>
-	</servlet-mapping>
-
-	
-
+  </listener>
+  <servlet>
+    <servlet-name>SubmitReportServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.SubmitReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReportSearchServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.ReportSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReportGenerateServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.ReportGenerateServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>TeamListServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.TeamListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EmployeeListServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.EmployeeListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProjectListServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.ProjectListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitReportServlet</servlet-name>
+    <url-pattern>/SubmitReportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportSearchServlet</servlet-name>
+    <url-pattern>/ReportSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportGenerateServlet</servlet-name>
+    <url-pattern>/ReportGenerateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TeamListServlet</servlet-name>
+    <url-pattern>/TeamListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EmployeeListServlet</servlet-name>
+    <url-pattern>/EmployeeListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProjectListServlet</servlet-name>
+    <url-pattern>/ProjectListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeSaveServlet</display-name>
+    <servlet-name>EmployeeSaveServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.EmployeeSaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeSaveServlet</servlet-name>
+    <url-pattern>/EmployeeSaveServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeDeleteServlet</display-name>
+    <servlet-name>EmployeeDeleteServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.EmployeeDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeDeleteServlet</servlet-name>
+    <url-pattern>/EmployeeDeleteServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
