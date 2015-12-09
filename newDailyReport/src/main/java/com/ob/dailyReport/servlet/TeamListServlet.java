@@ -32,7 +32,8 @@ public class TeamListServlet extends HttpServlet {
 				JSONObject rowObject = new JSONObject();
 				rowObject.put("value", team);
 				rowObject.put("text", team);
-				teamArray.put(rowObject);
+//				teamArray.put(rowObject);
+				teamArray.put(team);
 			}
 //			dataJson.put("teamList", teamArray);
 			response.getWriter().print(teamArray.toString());

@@ -349,12 +349,13 @@ div#users-contain table td, div#users-contain table th {
 		
 		// change team options
 		$.ajax({
-				type : "post",
+				type : "get",
 				url : "TeamListServlet",
 				success : function(data) {
-					var teamList = eval("("+data+")"); 
-					var teamArray = teamList.teamList;
-					fillData2Select($("#team"),teamArray);
+					//var teamList = eval("("+data+")"); 
+					var teamArray = eval("("+data+")"); 
+					fillTeamList(teamArray);
+					//fillData2Select($("#team"),teamArray);
 					teamChanged();
 				},
 				error : function() {
@@ -367,13 +368,15 @@ div#users-contain table td, div#users-contain table th {
 				// change project options
 				$("#project").empty();
 				$.ajax({
-						type : "post",
-						url : "ProjectListServlet",
+						type : "get",
+						url : "ProjectListServlet?team="+$("#team").val(),
 						data : "{'team':'"+$("#team").val()+"'}",
 						success : function(data) {
-							var projectList = eval("("+data+")"); 
+							/* var projectList = eval("("+data+")"); 
 							var projectArray = projectList.projectList;
-							fillData2Select($("#project"),projectArray);
+							fillData2Select($("#project"),projectArray); */
+							var projectArray = eval("("+data+")");
+							fillProjectList(projectArray);
 						},
 						error : function() {
 							console.error("error!");
@@ -383,18 +386,43 @@ div#users-contain table td, div#users-contain table th {
 				// change employee options
 				$("#employee").empty();
 				$.ajax({
-					type : "post",
-					url : "EmployeeListServlet",
+					type : "get",
+					url : "EmployeeListServlet?team="+$("#team").val(),
 					data : "{'team':'"+$("#team").val()+"'}",
 					success : function(data) {
+						/* var employeeList = eval("("+data+")"); 
+						var employeeArray = employeeList.rows;
+						fillData2Select($("#employee"), employeeArray); */
 						var employeeList = eval("("+data+")"); 
 						var employeeArray = employeeList.rows;
-						fillData2Select($("#employee"), employeeArray);
+						fillEmployeeList(employeeArray);
 					},
 					error : function() {
 						console.error("error!");
 					}
 				})
+		}
+		
+		function fillTeamList(teamArray){
+			fillData2Select($("#team"),teamArray);
+		}
+		
+		function fillProjectList(projectArray){
+			var projectNameArray = [];
+			for(var i= 0; i < projectArray.length;i++){  
+				var projectObject = projectArray[i];
+				projectNameArray[i] = projectObject.project;
+			}
+			fillData2Select($("#project"),projectNameArray);
+		}
+		
+		function fillEmployeeList(employeeArray){
+			var employeeNameArray = [];
+			for(var i= 0; i < employeeArray.length;i++){  
+				var employeeObject = employeeArray[i];
+				employeeNameArray[i] = employeeObject.employee;
+			}
+			fillData2Select($("#employee"),employeeNameArray);
 		}
 			
 			

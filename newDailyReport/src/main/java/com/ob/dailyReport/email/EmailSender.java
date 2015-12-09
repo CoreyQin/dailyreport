@@ -24,25 +24,23 @@ public class EmailSender {
 	private static Properties props = new Properties();
 
 	private static Session session;
-	
-	private static String from = "obdailyreport@sohu.com";
+
+	private static String from = "dailyReportServer@objectivasoftware";
 
 	static {
-		boolean isAuth = true;
-		boolean isSSL = true;
-		String host = "smtp.sohu.com";
-		int port = 465;
-		final String username = "obdailyreport@sohu.com";
-		final String password = "objectiva123";
-		props.put("mail.smtp.ssl.enable", isSSL);
+		String host = "10.32.148.123";
+		int port = 25;
+		// final String username = "obdailyreport@sohu.com";
+		// final String password = "objectiva123";
+		// props.put("mail.smtp.ssl.enable", true);
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.port", port);
-		props.put("mail.smtp.auth", isAuth);
+		props.put("mail.smtp.auth", false);
 
 		session = Session.getDefaultInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
+				return new PasswordAuthentication("", "");
 			}
 		});
 
@@ -56,15 +54,11 @@ public class EmailSender {
 			msg.setSubject(subject);
 			// msg.setText("this is test content");
 
-			// 下面是模拟发送带附件的邮件
-			// 新建一个MimeMultipart对象用来存放多个BodyPart对象
 			Multipart mtp = new MimeMultipart();
 			// ------设置信件文本内容------
 			// 新建一个存放信件内容的BodyPart对象
 			BodyPart body = new MimeBodyPart();
-			// 给BodyPart对象设置内容和格式/编码方式
 			body.setContent(content, "text/html");
-			// 将含有信件内容的BodyPart加入到MimeMultipart对象中
 			mtp.addBodyPart(body);
 
 			BodyPart attachment = new MimeBodyPart();
@@ -73,26 +67,28 @@ public class EmailSender {
 			attachment.setFileName(file.getName());
 			attachment.setDataHandler(dh);
 			mtp.addBodyPart(attachment);
-
 			msg.setContent(mtp);
-
-			// 以上为发送带附件的方式
-			// 先进行存储邮件
 			msg.saveChanges();
-
 			Transport.send(msg);
+			System.out.println("send email to :" + to + " successfully");
 		} catch (AddressException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
-		System.out.println("发送完毕！");
+
 	}
 
 	public static void sendReport(String to, File file) {
 		String subject = "daily report";
 		String content = "please get daily report file refer to the attachment";
-		sendEmail(to,subject,content,file);
+		sendEmail(to, subject, content, file);
+	}
+
+	public static void main(String[] args) {
+		String to = "coreyqin@objectivasoftware.com";
+		File file = new File("pom.xml");
+		sendReport(to, file);
 	}
 
 }

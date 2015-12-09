@@ -23,6 +23,7 @@ public class ProjectListServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	// TODO : need think about communication
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		String jsonString = this.getInputJson(request);
