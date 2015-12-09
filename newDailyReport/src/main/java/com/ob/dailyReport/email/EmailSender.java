@@ -55,8 +55,6 @@ public class EmailSender {
 			// msg.setText("this is test content");
 
 			Multipart mtp = new MimeMultipart();
-			// ------设置信件文本内容------
-			// 新建一个存放信件内容的BodyPart对象
 			BodyPart body = new MimeBodyPart();
 			body.setContent(content, "text/html");
 			mtp.addBodyPart(body);

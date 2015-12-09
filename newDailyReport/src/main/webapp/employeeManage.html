@@ -168,7 +168,7 @@
                 },
                 columns:[[
                           {field:'project',title:'project',width:50},
-                          {field:'order',title:'order',width:50},
+                          {field:'level',title:'level',width:50},
                   ]],
                 title: "project list",
                 singleSelect:true,
@@ -178,12 +178,30 @@
         } 
 	    
 	    $(function() {
+	    	$.getJSON("TeamListServlet", function(json) {
+	                var fitData = [];
+	                for(var i=0;i<json.length;i++){
+	                	var teamName = json[i];
+	                	var option = {};
+	                	option["id"] = teamName;
+	                	option["text"] = teamName;
+	                	fitData.push(option);
+	                }
+	                $("#team").combobox({
+	                	data : fitData
+	                });	
+	    	});
 	    	$("#team").combobox({
 	    		onChange: function () {
 	    			searchEmployee();
 	    			searchProject();
-	    		}
+	    		},
+	    	
+		    	onLoadSuccess: function () {
+	               
+	            }
 	    	});
+	    	
 	    	
 	    	initEmployeeGrid();
 	    	initProjectGrid();
@@ -206,11 +224,9 @@
 			id="team"
 			name="team"
 			data-options="
-					url:'TeamListServlet',
-					method:'get',
 					valueField:'id',
 					textField:'text',
-					panelHeight:'auto'
+					panelHeight:'auto',
 			">
 	</div>
 	
@@ -230,13 +246,13 @@
 				<input name="project" class="easyui-validatebox" required="true">
 			</div>
 			<div class="fitem">
-				<label>Order:</label>
-				<input name="order" class="easyui-validatebox" required="true">
+				<label>Level:</label>
+				<input name="level" class="easyui-validatebox" required="true">
 			</div>
 		</form>
 	</div>
 	<div id="project_dlg-buttons">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveProject()">Save</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#project_dlg').dialog('close')">Cancel</a>
 	</div>
 	

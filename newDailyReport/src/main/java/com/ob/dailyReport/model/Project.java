@@ -6,7 +6,7 @@ public class Project {
 
 	private String name;
 	private String team;
-	private int order = 10;
+	private int level = 10;
 
 	public Project() {
 
@@ -18,11 +18,11 @@ public class Project {
 		this.team = team;
 	}
 
-	public Project(String name, String team, int order) {
+	public Project(String name, String team, int level) {
 		super();
 		this.name = name;
 		this.team = team;
-		this.order = order;
+		this.level = level;
 	}
 
 	public String getName() {
@@ -41,19 +41,19 @@ public class Project {
 		this.team = team;
 	}
 
-	public int getOrder() {
-		return order;
+	public int getLevel() {
+		return level;
 	}
 
-	public void setOrder(int order) {
-		this.order = order;
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 	public JSONObject toJsonObject() {
 		JSONObject projectObject = new JSONObject();
 		projectObject.put("project", name);
 		projectObject.put("team", team);
-		projectObject.put("order", order);
+		projectObject.put("level", level);
 		return projectObject;
 	}
 

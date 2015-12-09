@@ -17,7 +17,7 @@ public class DataBaseHandler {
 				return conn;
 			}
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/newdailyreport", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/newdailyreport", "dailyreport", "dailyreport");
 		} catch (Exception e) {
 			System.out.println("fail to connect the database : " + e.getMessage());
 		}

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ob.dailyReport.db.DataBaseHandler;
-import com.ob.dailyReport.model.Employee;
 import com.ob.dailyReport.model.Project;
 
 public class ProjectDao {
@@ -14,8 +13,8 @@ public class ProjectDao {
 	public static boolean addProject(Project project) throws SQLException {
 		String projectName = project.getName();
 		String team = project.getTeam();
-		int order = project.getOrder();
-		String sql = "insert into project (project,team,order) values('" + projectName + "','" + team + "','" + order
+		int level = project.getLevel();
+		String sql = "insert into project (project,team,level) values('" + projectName + "','" + team + "','" + level
 				+ "';";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
@@ -35,8 +34,8 @@ public class ProjectDao {
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		while (rs.next()) {
 			String projectName = rs.getString("project");
-			int order = rs.getInt("order");
-			Project project = new Project(projectName, team, order);
+			int level = rs.getInt("level");
+			Project project = new Project(projectName, team, level);
 			projectList.add(project);
 		}
 		return projectList;
@@ -55,8 +54,8 @@ public class ProjectDao {
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		if (rs.next()) {
 			String team = rs.getString("team");
-			int order = rs.getInt("order");
-			Project project = new Project(projectName, team, order);
+			int level = rs.getInt("level");
+			Project project = new Project(projectName, team, level);
 			return project;
 		}
 		return null;
@@ -71,7 +70,7 @@ public class ProjectDao {
 	private static String getUpdateSql(Project project) {
 		String projectName = project.getName();
 		String team = project.getTeam();
-		int order = project.getOrder();
+		int level = project.getLevel();
 		StringBuffer sql = new StringBuffer("update project set ");
 		Boolean hasValue = false;
 		if (team != null) {
@@ -79,7 +78,7 @@ public class ProjectDao {
 			hasValue = true;
 		}
 
-		updateSql(sql, "order", String.valueOf(order), hasValue);
+		updateSql(sql, "level", String.valueOf(level), hasValue);
 		hasValue = true;
 
 		sql.append(" where project='" + projectName + "';");

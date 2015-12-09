@@ -78,4 +78,14 @@
     <servlet-name>EmployeeDeleteServlet</servlet-name>
     <url-pattern>/EmployeeDeleteServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProjectSaveServlet</display-name>
+    <servlet-name>ProjectSaveServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.ProjectSaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjectSaveServlet</servlet-name>
+    <url-pattern>/ProjectSaveServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -14,9 +14,9 @@ public class TimerManager {
 	public static void startTimer() {
 		Calendar calendar = Calendar.getInstance();
 		// 6:00 PM
-		calendar.set(Calendar.HOUR_OF_DAY, 13);
-		calendar.set(Calendar.MINUTE, 34);
-		calendar.set(Calendar.SECOND, 30);
+		calendar.set(Calendar.HOUR_OF_DAY, 18);
+		calendar.set(Calendar.MINUTE, 20);
+		calendar.set(Calendar.SECOND, 00);
 
 		Date startDate = calendar.getTime(); 
 
