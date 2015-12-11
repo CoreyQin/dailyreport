@@ -10,18 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.ob.dailyReport.service.EmployeeService;
+import com.ob.dailyReport.model.Project;
+import com.ob.dailyReport.service.ProjectService;
 
 /**
- * Servlet implementation class EmployeeDeleteServlet
+ * Servlet implementation class ProjectDeleteServlet
  */
-public class EmployeeDeleteServlet extends HttpServlet {
+public class ProjectDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EmployeeDeleteServlet() {
+	public ProjectDeleteServlet() {
 		super();
 	}
 
@@ -31,10 +32,11 @@ public class EmployeeDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String employeeName = request.getParameter("employee");
+		String projectName = request.getParameter("project");
 		String team = request.getParameter("team");
+		Project project = new Project(projectName, team);
 		try {
-			EmployeeService.removeEmployee(employeeName, team);
+			ProjectService.removeProject(project);
 			JSONObject result = new JSONObject();
 			result.put("success", "true");
 			response.getWriter().print(result.toString());

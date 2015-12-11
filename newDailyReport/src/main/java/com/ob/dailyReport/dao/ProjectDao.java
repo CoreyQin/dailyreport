@@ -14,8 +14,8 @@ public class ProjectDao {
 		String projectName = project.getName();
 		String team = project.getTeam();
 		int level = project.getLevel();
-		String sql = "insert into project (project,team,level) values('" + projectName + "','" + team + "','" + level
-				+ "';";
+		String sql = "insert into project (project,team,level) values('" + projectName + "','" + team + "'," + level
+				+ ");";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
 	}

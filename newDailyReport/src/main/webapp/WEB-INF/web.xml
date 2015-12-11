@@ -88,4 +88,24 @@
     <servlet-name>ProjectSaveServlet</servlet-name>
     <url-pattern>/ProjectSaveServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProjectDeleteServlet</display-name>
+    <servlet-name>ProjectDeleteServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.ProjectDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjectDeleteServlet</servlet-name>
+    <url-pattern>/ProjectDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TaskListServlet</display-name>
+    <servlet-name>TaskListServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.TaskListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TaskListServlet</servlet-name>
+    <url-pattern>/TaskListServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

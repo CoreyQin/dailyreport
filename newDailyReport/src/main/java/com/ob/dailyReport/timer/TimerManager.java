@@ -12,23 +12,29 @@ public class TimerManager {
 //	private static final long PERIOD_DAY = 60 * 1000;
 
 	public static void startTimer() {
+		Timer timer = new Timer();
+		DailyReportEmailTimerTask task = new DailyReportEmailTimerTask();
+		timer.schedule(task, getStartDate(19,00,00), PERIOD_DAY);
+		
+		Timer timer2 = new Timer();
+		timer2.schedule(new DailyReportEmailTimerTask(), getStartDate(21,00,00), PERIOD_DAY);
+	}
+	
+	
+	private static Date getStartDate(int hours, int minute, int second){
 		Calendar calendar = Calendar.getInstance();
 		// 6:00 PM
-		calendar.set(Calendar.HOUR_OF_DAY, 18);
-		calendar.set(Calendar.MINUTE, 20);
-		calendar.set(Calendar.SECOND, 00);
+		calendar.set(Calendar.HOUR_OF_DAY, hours);
+		calendar.set(Calendar.MINUTE, minute);
+		calendar.set(Calendar.SECOND, second);
 
 		Date startDate = calendar.getTime(); 
-
 		// 如果第一次执行定时任务的时间 小于 当前的时间
 		// 此时要在 第一次执行定时任务的时间 加一天，以便此任务在下个时间点执行。如果不加一天，任务会立即执行。
 		if (startDate.before(new Date())) {
 			startDate = addDay(startDate, 1);
 		}
-
-		Timer timer = new Timer();
-		DailyReportEmailTimerTask task = new DailyReportEmailTimerTask();
-		timer.schedule(task, startDate, PERIOD_DAY);
+		return startDate;
 	}
 
 	private static Date addDay(Date date, int num) {

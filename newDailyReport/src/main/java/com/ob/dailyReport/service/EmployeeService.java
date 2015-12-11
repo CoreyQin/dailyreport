@@ -23,8 +23,8 @@ public class EmployeeService {
 		return EmployeeDao.employeeCount(team);
 	}
 
-	public static boolean isEmployeeExsit(String employeeName) throws SQLException {
-		Employee employee = EmployeeDao.getEmployee(employeeName);
+	public static boolean isEmployeeExsit(String employeeName,String team) throws SQLException {
+		Employee employee = EmployeeDao.getEmployee(employeeName,team);
 		if (employee != null) {
 			return true;
 		}
@@ -32,7 +32,7 @@ public class EmployeeService {
 	}
 
 	public static void saveEmployee(Employee employee) throws SQLException {
-		if (isEmployeeExsit(employee.getName())) {
+		if (isEmployeeExsit(employee.getName(),employee.getTeam())) {
 			EmployeeDao.updateEmployee(employee);
 		} else {
 			EmployeeDao.addEmployee(employee);
@@ -41,11 +41,12 @@ public class EmployeeService {
 	
 	public static void removeEmployee(Employee employee) throws SQLException {
 		String name = employee.getName();
-		EmployeeDao.removeEmployee(name);
+		String team = employee.getTeam();
+		removeEmployee(name,team);
 	}
 	
-	public static void removeEmployee(String name)throws SQLException {
-		EmployeeDao.removeEmployee(name);
+	public static void removeEmployee(String name,String team)throws SQLException {
+		EmployeeDao.removeEmployee(name,team);
 	}
 
 }

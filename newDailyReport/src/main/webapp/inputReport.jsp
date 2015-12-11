@@ -42,13 +42,13 @@ div#users-contain table td, div#users-contain table th {
 		<h2>user info:</h2>
 		<table style="width: 600px; height: 100px;">
 			<tr>
-				<td align="right">team:</td>
+				<td align="right">Team:</td>
 				<td align="left"><select id="team">
 						<option></option>
 						<option>team1</option>
 						<option>team2</option>
 				</select></td>
-				<td align="right">employee name:</td>
+				<td align="right">Employee Name:</td>
 				<td align="left"><select id="employee">
 						<!-- <option></option> -->
 						<option>corey</option>
@@ -56,13 +56,13 @@ div#users-contain table td, div#users-contain table th {
 				</select></td>
 			</tr>
 			<tr>
-				<td align="right">project :</td>
+				<td align="right">Project :</td>
 				<td align="left"><select id="project">
 						<option></option>
 						<option>project1</option>
 						<option>project2</option>
 				</select></td>
-				<td align="right">role:</td>
+				<td align="right">Role:</td>
 				<td><select id="role">
 						<option>QA</option>
 						<option>DEV</option>
@@ -367,14 +367,11 @@ div#users-contain table td, div#users-contain table th {
 		function teamChanged(){
 				// change project options
 				$("#project").empty();
-				$.ajax({
+	 			$.ajax({
 						type : "get",
-						url : "ProjectListServlet?team="+$("#team").val(),
-						data : "{'team':'"+$("#team").val()+"'}",
+						url : "ProjectListServlet",
+						data : {team:$("#team").val()},
 						success : function(data) {
-							/* var projectList = eval("("+data+")"); 
-							var projectArray = projectList.projectList;
-							fillData2Select($("#project"),projectArray); */
 							var projectArray = eval("("+data+")");
 							fillProjectList(projectArray);
 						},
@@ -382,17 +379,19 @@ div#users-contain table td, div#users-contain table th {
 							console.error("error!");
 						}
 					})
+					
+				/* $.get("ProjectListServlet",{team:$("#team").val()}, function(result){
+					var projectArray = eval("("+data+")");
+					fillProjectList(projectArray);
+				}); */
 			
 				// change employee options
 				$("#employee").empty();
 				$.ajax({
 					type : "get",
-					url : "EmployeeListServlet?team="+$("#team").val(),
-					data : "{'team':'"+$("#team").val()+"'}",
+					url : "EmployeeListServlet",
+					data : {team:$("#team").val()},
 					success : function(data) {
-						/* var employeeList = eval("("+data+")"); 
-						var employeeArray = employeeList.rows;
-						fillData2Select($("#employee"), employeeArray); */
 						var employeeList = eval("("+data+")"); 
 						var employeeArray = employeeList.rows;
 						fillEmployeeList(employeeArray);
@@ -401,6 +400,11 @@ div#users-contain table td, div#users-contain table th {
 						console.error("error!");
 					}
 				})
+				/* $.get("EmployeeListServlet",{team:$("#team").val()}, function(result){
+					var employeeList = eval("("+result+")"); 
+					var employeeArray = employeeList.rows;
+					fillEmployeeList(employeeArray);
+				}); */
 		}
 		
 		function fillTeamList(teamArray){
@@ -428,10 +432,10 @@ div#users-contain table td, div#users-contain table th {
 			
 		function fillData2Select(selectWidget, optionArray){
 			selectWidget.empty();
-			selectWidget.append("<option> - </option" ); 
+			selectWidget.append("<option> - </option>" ); 
 			for(var i= 0; i < optionArray.length;i++){  
 				var option = optionArray[i];
-				selectWidget.append("<option>"+option+"</option" ); 
+				selectWidget.append("<option>"+option+"</option>" ); 
 			}  
 		}
 		

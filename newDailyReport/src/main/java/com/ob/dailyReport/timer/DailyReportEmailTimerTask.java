@@ -35,16 +35,16 @@ public class DailyReportEmailTimerTask extends TimerTask {
 
 	private void sendReport() throws Exception {
 		for (String team : team_leaderMap.keySet()) {
-			File report = ReportGenerateService.generateReport(ReportFileManager.getInstance().getReportPath(), team, new Date());
+			File report = ReportGenerateService.generateReport(ReportFileManager.getInstance().getReportPath(), team,
+					new Date());
 			String teamLeader = team_leaderMap.get(team);
 			// get email address of team leader
-			Employee employee = EmployeeDao.getEmployee(teamLeader);
+			Employee employee = EmployeeDao.getEmployee(teamLeader, team);
 			String to = employee.getEmail();
 			EmailSender.sendReport(to, report);
 		}
 	}
-	
-	
+
 	public static void main(String[] args) {
 		DailyReportEmailTimerTask task = new DailyReportEmailTimerTask();
 		task.run();

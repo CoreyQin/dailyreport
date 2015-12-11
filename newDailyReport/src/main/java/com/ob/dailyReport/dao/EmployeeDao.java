@@ -12,13 +12,13 @@ import com.ob.dailyReport.model.Role;
 
 public class EmployeeDao {
 
-	public static Employee getEmployee(String employeeName) throws SQLException {
-		String sql = "select * from employee where employee = '" + employeeName + "' and active = '1';";
+	public static Employee getEmployee(String employeeName, String team) throws SQLException {
+		String sql = "select * from employee where employee = '" + employeeName + "' and team = '" + team
+				+ "' and active = '1';";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		Employee employee = null;
 		if (rs.next()) {
 			employee = new Employee();
-			String team = rs.getString("team");
 			String project = rs.getString("project");
 			String role = rs.getString("role");
 			String email = rs.getString("email");
@@ -67,7 +67,8 @@ public class EmployeeDao {
 
 	public static List<String> getEmployeeNameList(String team, PageBean pageBean) throws SQLException {
 		List<String> employeeList = new ArrayList<String>();
-		StringBuffer sb = new StringBuffer("select employee from employee where team = '" + team + "' and active = '1'");
+		StringBuffer sb = new StringBuffer(
+				"select employee from employee where team = '" + team + "' and active = '1'");
 		if (pageBean != null) {
 			sb.append(" limit " + pageBean.getStart() + "," + pageBean.getRows());
 		}
@@ -91,8 +92,9 @@ public class EmployeeDao {
 		return success;
 	}
 
-	public static boolean removeEmployee(String employeeName) throws SQLException {
-		String sql = "update employee set active = 0 where employee = '" + employeeName + "';";
+	public static boolean removeEmployee(String employeeName, String team) throws SQLException {
+		String sql = "update employee set active = 0 where employee = '" + employeeName + "' and team = '" + team
+				+ "';";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
 	}
@@ -144,12 +146,13 @@ public class EmployeeDao {
 		return sql;
 	}
 
-	public static String getEmployeeRole(String employee, String project) throws SQLException {
+	public static String getEmployeeRole(String employee, String team, String project) throws SQLException {
 		String sql;
 		if (project == null || project.equals("")) {
-			sql = "select role from employee where employee = '" + employee + "'";
+			sql = "select role from employee where employee = '" + employee + "' and team = '" + team + "'";
 		} else {
-			sql = "select role from employee where employee = '" + employee + "' and project = '" + project + "'";
+			sql = "select role from employee where employee = '" + employee + "' and team = '" + team
+					+ "' and project = '" + project + "'";
 		}
 
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
@@ -163,7 +166,7 @@ public class EmployeeDao {
 	public static String getTeamLeader(String team) throws SQLException {
 		List<String> employeeList = getEmployeeNameList(team, null);
 		for (String employee : employeeList) {
-			String role = getEmployeeRole(employee, null);
+			String role = getEmployeeRole(employee,team, null);
 			if (role != null && role.equals(Role.TL.toString())) {
 				return employee;
 			}

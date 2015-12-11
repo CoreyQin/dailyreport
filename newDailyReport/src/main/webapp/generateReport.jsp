@@ -14,6 +14,7 @@
 				<select id="team">
 					<!-- <option></option> -->
 					<option>Kronos Team5</option>
+					<option>Kronos Team1&8</option>
 				</select>
 			</td>
 		</tr>

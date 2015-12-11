@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Daily Report Input</title>
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/demo/demo.css">
+<style type="text/css">
+		#task_fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+		}
+		.fitem{
+			margin-bottom:5px;
+		}
+		.fitem label{
+			display:inline-block;
+			width:100px;
+		}
+	</style>
+</head>
+<body>
+
+	<script type="text/javascript" src="jquery-easyui-1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/dailyreport/input.js"></script>
+	<script type="text/javascript" src="js/Base64Util.js"></script>
+
+	<div>
+		<h2 align="center">Employee Task Today</h2>
+		<table style="width: 900px; height: 130px; margin-left: 180px;margin-bottom: 50px;margin-top: 100px;">
+			<tr align="center">
+				<td align="right">Team:</td>
+				<td align="left"><input class="easyui-combobox" id="team" name="team"></td>
+				<td align="right">Employee Name:</td>
+				<td align="left"><input class="easyui-combobox" id="employee" name="employee">
+				</td>
+			</tr>
+			<tr align="center">
+				<td align="right">Project :</td>
+				<td align="left"><input class="easyui-combobox" id="project" name="project"></td>
+				<td align="right">Role:</td>
+				<td align="left"><input class="easyui-combobox" id="project" name="project"></td>
+			</tr>
+			<tr align="center">
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+	<div align="center">
+		<table id="task_dg" style="width: 1100px"></table>
+	</div>
+	<div id="task_toolbar">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newTask()">New
+			Task</a> <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"
+			onclick="editTask()">Edit Task</a> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-remove" plain="true" onclick="removeTask()">Remove Task</a>
+	</div>
+
+	<div id="task_dlg" class="easyui-dialog"
+		style="width: 500px; height: 280px; padding: 10px 20px" closed="true"
+		buttons="#task_dlg-buttons">
+		<div class="ftitle">Task Information</div>
+		<form id="task_fm" method="post">
+			<div class="fitem">
+				<label>Task Description:</label> <input id="taskDesc" name="taskDesc" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Spent Hours:</label> <input id="spentHours" name="spentHours" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Eta:</label> <input id="eta" name="eta" class="easyui-validatebox">
+			</div>
+		</form>
+	</div>
+	<div id="task_dlg-buttons">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveTask()">Save</a> <a
+			href="#" class="easyui-linkbutton" iconCls="icon-cancel"
+			onclick="javascript:$('#task_dlg').dialog('close')">Cancel</a>
+	</div>
+	
+	<div style="margin:20px 60px;">
+		<input class="easyui-textbox" id="plans" name="plans" data-options="multiline:true" style="height:60px"></input>
+	</div>
+	
+	
+	<div align="center" style="margin-top:60px;">
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitReport()">submit</a>
+	</div>
+
+</body>
+<script type="text/javascript">
+	$(function() {
+		initTaskGrid();
+	});
+</script>
+
+
+</html>

@@ -36,147 +36,10 @@
 	</style>
 	<script type="text/javascript" src="jquery-easyui-1.4.4/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/dailyreport/employeeManage.js"></script>
+	<script type="text/javascript" src="js/dailyreport/projectManage.js"></script>
 	<script type="text/javascript">
 		var url;
-		function newUser(){
-			$('#employee_dlg').dialog('open').dialog('setTitle','New User');
-			$('#employee_fm').form('clear');
-			var team = $('#team').combobox('getText');
-			url = 'EmployeeSaveServlet?team='+team ;
-		}
-		function editUser(){
-			var row = $('#employee_dg').datagrid('getSelected');
-			if (row){
-				$('#employee_dlg').dialog('open').dialog('setTitle','Edit Employee');
-				$('#employee_fm').form('load',row);
-				var team = $('#team').combobox('getText');
-				url = 'EmployeeSaveServlet?team='+team ;
-			}
-		}
-		function saveUser(){
-			$('#employee_fm').form('submit',{
-				url: url,
-				onSubmit: function(){
-					return $(this).form('validate');
-				},
-				success: function(result){
-					var result = eval('('+result+')');
-					if (result.success){
-						$('#employee_dlg').dialog('close');		// close the dialog
-						$('#employee_dg').datagrid('reload');	// reload the user data
-					} else {
-						$.messager.show({
-							title: 'Error',
-							msg: result.msg
-						});
-					}
-				}
-			});
-		}
-		function removeUser(){
-			var row = $('#employee_dg').datagrid('getSelected');
-			if (row){
-				$.messager.confirm('Confirm','Are you sure you want to remove this user?',function(r){
-					if (r){
-						$.post('EmployeeDeleteServlet',{employee:row.employee},function(result){
-							if (result.success){
-								$('#employee_dg').datagrid('reload');	// reload the user data
-							} else {
-								$.messager.show({	// show error message
-									title: 'Error',
-									msg: result.msg
-								});
-							}
-						},'json');
-					}
-				});
-			}
-		}
-		
-		
-		function editProject(){
-			var row = $('#project_dg').datagrid('getSelected');
-			if (row){
-				$('#project_dlg').dialog('open').dialog('setTitle','Edit Employee');
-				$('#project_fm').form('load',row);
-				var team = $('#team').combobox('getText');
-				url = 'ProjectSaveServlet?team='+team ;
-			}
-		}
-		function saveProject(){
-			$('#project_fm').form('submit',{
-				url: url,
-				onSubmit: function(){
-					return $(this).form('validate');
-				},
-				success: function(result){
-					var result = eval('('+result+')');
-					if (result.success){
-						$('#project_dlg').dialog('close');		// close the dialog
-						$('#project_dg').datagrid('reload');	// reload the user data
-					} else {
-						$.messager.show({
-							title: 'Error',
-							msg: result.msg
-						});
-					}
-				}
-			});
-		}
-		
-		function searchEmployee(){
-			$('#employee_dg').datagrid('load',{
-				team : $('#team').combobox('getText')
-			});
-		}
-		
-	    function initEmployeeGrid()
-          {  
-              $('#employee_dg').datagrid({
-                  url:'EmployeeListServlet',
-                  queryParams:{
-                	  team : ''
-                  },
-                  columns:[[
-                            {field:'employee',title:'employee',width:50},
-                            {field:'project',title:'project',width:50},
-                            {field:'role',title:'role',width:50},
-                            {field:'email',title:'email',width:50}
-                    ]],
-                  title: "employee list",
-                  pagination:true,
-                  rownumbers:true,
-                  singleSelect:true,
-                  fitColumns:true,
-                  toolbar : $('#employee_toolbar')
-             });
-          } 
-	    
-	    
-	    function searchProject(){
-			$('#project_dg').datagrid('load',{
-				team : $('#team').combobox('getText')
-			});
-		}
-	    
-	    function initProjectGrid()
-        {  
-            $('#project_dg').datagrid({
-                url:'ProjectListServlet',
-                queryParams:{
-              	  team : ''
-                },
-                columns:[[
-                          {field:'project',title:'project',width:50},
-                          {field:'level',title:'level',width:50},
-                  ]],
-                title: "project list",
-                singleSelect:true,
-                fitColumns:true,
-                toolbar : $('#project_toolbar')
-           });
-        } 
-	    
 	    $(function() {
 	    	$.getJSON("TeamListServlet", function(json) {
 	                var fitData = [];
@@ -201,8 +64,6 @@
 	               
 	            }
 	    	});
-	    	
-	    	
 	    	initEmployeeGrid();
 	    	initProjectGrid();
 	    });
@@ -249,6 +110,7 @@
 				<label>Level:</label>
 				<input name="level" class="easyui-validatebox" required="true">
 			</div>
+			<input type='hidden' name="team" />
 		</form>
 	</div>
 	<div id="project_dlg-buttons">
@@ -281,7 +143,8 @@
 			<div class="fitem">
 				<label>Role:</label>
 				<select name="role">
-					<option>Dev</option>
+					<option>DM</option>
+					<option>DEV</option>
 					<option>QA</option>
 					<option>TL</option>
 					<option>ARCH</option>
@@ -292,6 +155,7 @@
 				<label>Email:</label>
 				<input name="email" class="easyui-validatebox" validType="email">
 			</div>
+			<input type='hidden' name="team" />
 		</form>
 	</div>
 	<div id="employee_dlg-buttons">
