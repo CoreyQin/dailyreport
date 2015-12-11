@@ -44,39 +44,6 @@ function teamChanged() {
 		});
 	});
 
-	// $.ajax({
-	// type : "get",
-	// url : "ProjectListServlet",
-	// data : {
-	// team : $("#team").val()
-	// },
-	// success : function(data) {
-	// var projectArray = eval("(" + data + ")");
-	// fillProjectList(projectArray);
-	// },
-	// error : function() {
-	// console.error("error!");
-	// }
-	// })
-
-	// change employee options
-//	$("#employee").empty();
-//	$.ajax({
-//		type : "get",
-//		url : "EmployeeListServlet",
-//		data : {
-//			team : $("#team").val()
-//		},
-//		success : function(data) {
-//			var employeeList = eval("(" + data + ")");
-//			var employeeArray = employeeList.rows;
-//			fillEmployeeList(employeeArray);
-//		},
-//		error : function() {
-//			console.error("error!");
-//		}
-//	}) 
-	
 	
 	$.getJSON("EmployeeListServlet", {
 		team : $('#team').combobox('getText')
@@ -96,36 +63,6 @@ function teamChanged() {
 	});
 }
 
-function fillTeamList(teamArray) {
-	fillData2Select($("#team"), teamArray);
-}
-
-function fillProjectList(projectArray) {
-	var projectNameArray = [];
-	for (var i = 0; i < projectArray.length; i++) {
-		var projectObject = projectArray[i];
-		projectNameArray[i] = projectObject.project;
-	}
-	fillData2Select($("#project"), projectNameArray);
-}
-
-function fillEmployeeList(employeeArray) {
-	var employeeNameArray = [];
-	for (var i = 0; i < employeeArray.length; i++) {
-		var employeeObject = employeeArray[i];
-		employeeNameArray[i] = employeeObject.employee;
-	}
-	fillData2Select($("#employee"), employeeNameArray);
-}
-
-function fillData2Select(selectWidget, optionArray) {
-	selectWidget.empty();
-	selectWidget.append("<option> - </option>");
-	for (var i = 0; i < optionArray.length; i++) {
-		var option = optionArray[i];
-		selectWidget.append("<option>" + option + "</option>");
-	}
-}
 
 /**
  * 
