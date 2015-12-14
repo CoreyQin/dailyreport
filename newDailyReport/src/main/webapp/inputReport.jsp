@@ -64,10 +64,12 @@ div#users-contain table td, div#users-contain table th {
 				</select></td>
 				<td align="right">Role:</td>
 				<td><select id="role">
-						<option>QA</option>
+						<option>DM</option>
 						<option>DEV</option>
+						<option>QA</option>
 						<option>TL</option>
-						<option>Arch</option>
+						<option>ARCH</option>
+						<option>QAL</option>
 				</select></td>
 			</tr>
 			<tr>

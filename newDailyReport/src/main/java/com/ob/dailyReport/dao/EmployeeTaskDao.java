@@ -64,6 +64,8 @@ public class EmployeeTaskDao {
 		DataBaseHandler.executeSql(task_sql);
 	}
 
+	
+	// TODO: need add team parameter
 	public static List<TaskRecord> getEmployeeTasks(String employee, Date date) throws SQLException {
 		List<TaskRecord> historyList = new ArrayList<TaskRecord>();
 		String dateString = DateUtil.FormatDate2String(date);
