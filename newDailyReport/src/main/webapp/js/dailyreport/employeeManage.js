@@ -25,6 +25,7 @@ function editUser() {
  * 
  */
 function saveUser() {
+	$('#employee_fm').find('input[name="team"]').val($('#team').combobox('getText'));
 	$('#employee_fm').form('submit', {
 		url : url,
 		data : {team : $('#team').combobox('getText')},

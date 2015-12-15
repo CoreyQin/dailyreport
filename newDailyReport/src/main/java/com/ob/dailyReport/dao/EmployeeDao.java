@@ -93,8 +93,7 @@ public class EmployeeDao {
 	}
 
 	public static boolean removeEmployee(String employeeName, String team) throws SQLException {
-		String sql = "update employee set active = 0 where employee = '" + employeeName + "' and team = '" + team
-				+ "';";
+		String sql = "delete from employee where employee = '" + employeeName + "' and team = '" + team + "';";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
 	}
@@ -166,7 +165,7 @@ public class EmployeeDao {
 	public static String getTeamLeader(String team) throws SQLException {
 		List<String> employeeList = getEmployeeNameList(team, null);
 		for (String employee : employeeList) {
-			String role = getEmployeeRole(employee,team, null);
+			String role = getEmployeeRole(employee, team, null);
 			if (role != null && role.equals(Role.TL.toString())) {
 				return employee;
 			}
