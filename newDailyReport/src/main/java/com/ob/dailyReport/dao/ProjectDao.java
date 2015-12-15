@@ -42,7 +42,7 @@ public class ProjectDao {
 	}
 
 	public static boolean isExsit(String projectName, String team) throws SQLException {
-		Project project = getProject(projectName,team);
+		Project project = getProject(projectName, team);
 		if (project != null) {
 			return true;
 		}
@@ -70,28 +70,20 @@ public class ProjectDao {
 		String projectName = project.getName();
 		String team = project.getTeam();
 		int level = project.getLevel();
-		StringBuffer sql = new StringBuffer("update project set ");
-		Boolean hasValue = false;
-		if (team != null) {
-			sql.append("team ='" + team + "'");
-			hasValue = true;
-		}
-
-		updateSql(sql, "level", String.valueOf(level), hasValue);
-		hasValue = true;
-
-		sql.append(" where project='" + projectName + "';");
+		StringBuffer sql = new StringBuffer(
+				"update project set level=" + level + " where project='" + projectName + "' and team='" + team + "';");
 		return sql.toString();
 	}
 
-	private static StringBuffer updateSql(StringBuffer sql, String columnName, String value, Boolean hasValue) {
-		if (value != null) {
-			if (hasValue) {
-				sql.append(", ");
-			}
-			sql.append(columnName + "='" + value + "'");
-		}
-		return sql;
-	}
+	// private static StringBuffer updateSql(StringBuffer sql, String
+	// columnName, String value, Boolean hasValue) {
+	// if (value != null) {
+	// if (hasValue) {
+	// sql.append(", ");
+	// }
+	// sql.append(columnName + "='" + value + "'");
+	// }
+	// return sql;
+	// }
 
 }

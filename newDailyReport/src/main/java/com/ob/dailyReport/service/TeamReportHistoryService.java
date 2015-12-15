@@ -2,13 +2,17 @@ package com.ob.dailyReport.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
 import com.ob.dailyReport.dao.EmployeeDao;
 import com.ob.dailyReport.dao.EmployeeTaskDao;
 import com.ob.dailyReport.dao.PlanDao;
+import com.ob.dailyReport.dao.ProjectDao;
 import com.ob.dailyReport.model.EmployeeReport;
+import com.ob.dailyReport.model.Project;
 import com.ob.dailyReport.model.ProjectReport;
 import com.ob.dailyReport.model.TaskRecord;
 import com.ob.dailyReport.model.TaskStatus;
@@ -30,7 +34,26 @@ public class TeamReportHistoryService {
 			allTaskRecords.addAll(employeeTasks);
 		}
 		List<ProjectReport> projectList = convertList2Report(allTaskRecords, team);
+		sortProject(projectList, team);
 		return projectList;
+	}
+
+	private static void sortProject(List<ProjectReport> projectList, final String team) {
+		Collections.sort(projectList, new Comparator<ProjectReport>() {
+			public int compare(ProjectReport projectReport1, ProjectReport projectReport2) {
+				String name1 = projectReport1.getProjectName();
+				String name2 = projectReport2.getProjectName();
+				Project project1;
+				try {
+					project1 = ProjectDao.getProject(name1, team);
+					Project project2 = ProjectDao.getProject(name2, team);
+					return Integer.compare(project1.getLevel(), project2.getLevel());
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return 0;
+			}
+		});
 	}
 
 	/**
@@ -54,7 +77,8 @@ public class TeamReportHistoryService {
 	 * @param eh
 	 * @throws SQLException
 	 */
-	private static void fillProjectList(String team, List<ProjectReport> projectList, TaskRecord eh) throws SQLException {
+	private static void fillProjectList(String team, List<ProjectReport> projectList, TaskRecord eh)
+			throws SQLException {
 		String projectName = eh.getProjectName();
 		ProjectReport projectReport = null;
 		for (ProjectReport project : projectList) {
