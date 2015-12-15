@@ -327,8 +327,10 @@ div#users-contain table td, div#users-contain table th {
 							return;
 						}
 						var employeeObject = eval("("+data+")");  
+						var role = employeeObject.role;
 						var plans = employeeObject.plans;
 						$("#plans").val(decode(plans));
+						$("#role").val(role);
 						var taskArray = employeeObject.taskList;
 						for(var i= 0; i < taskArray.length;i++){  
 							var task = taskArray[i];

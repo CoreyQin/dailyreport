@@ -49,6 +49,7 @@ public class ReportSearchServlet extends HttpServlet {
 		employeeObject.put("name", employeeReport.getName());
 		employeeObject.put("project", employeeReport.getProject());
 		employeeObject.put("plans", Base64Util.encode(employeeReport.getPlans()));
+		employeeObject.put("role",employeeReport.getRole());
 		JSONArray taskArray = new JSONArray();
 		for (TaskStatus status : employeeReport.getCurrentStatus()) {
 			JSONObject taskObject = new JSONObject();

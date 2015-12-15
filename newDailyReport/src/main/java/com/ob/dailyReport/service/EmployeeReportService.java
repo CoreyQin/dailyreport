@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.ob.dailyReport.dao.EmployeeDao;
 import com.ob.dailyReport.dao.EmployeeTaskDao;
 import com.ob.dailyReport.dao.PlanDao;
 import com.ob.dailyReport.model.EmployeeReport;
@@ -21,6 +22,9 @@ public class EmployeeReportService {
 		employeeReport.setTeam(team);
 		employeeReport.setReportDate(date);
 		employeeReport.setProject(project);
+		
+		String role = EmployeeDao.getEmployeeRole(name, team, project);
+		employeeReport.setRole(role);
 
 		List<TaskRecord> taskList = EmployeeTaskDao.getEmployeeTasks(name, team, project, date);
 		List<TaskStatus> statusList = new ArrayList<TaskStatus>();
