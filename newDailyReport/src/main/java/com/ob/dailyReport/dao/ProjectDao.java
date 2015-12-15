@@ -41,19 +41,18 @@ public class ProjectDao {
 		return projectList;
 	}
 
-	public static boolean isExsit(String projectName) throws SQLException {
-		Project project = getProject(projectName);
+	public static boolean isExsit(String projectName, String team) throws SQLException {
+		Project project = getProject(projectName,team);
 		if (project != null) {
 			return true;
 		}
 		return false;
 	}
 
-	public static Project getProject(String projectName) throws SQLException {
-		String sql = "select * from project where project ='" + projectName + "'";
+	public static Project getProject(String projectName, String team) throws SQLException {
+		String sql = "select * from project where project ='" + projectName + "' and team = '" + team + "'";
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		if (rs.next()) {
-			String team = rs.getString("team");
 			int level = rs.getInt("level");
 			Project project = new Project(projectName, team, level);
 			return project;

@@ -32,7 +32,7 @@ CREATE TABLE `employee` (
 
 /*Data for the table `employee` */
 
-insert  into `employee`(`employee`,`team`,`project`,`role`,`email`,`active`) values ('Abby Li','Kronos Team5','State Sick Leave SU1(RFA 1000036)','QA','test@test.com.cn',1),('Caroline Zhang','Kronos Team5','SMS Back porting V7(RFA 1000029)','QA',NULL,1),('Carson Zhu','Kronos Team5','State Sick LeaveSU2(RFA 1000037)','Dev',NULL,1),('coreytest','Kronos Team5','coreytest','Dev','corey@corey.com.cn',0),('Donna Wu','Kronos Team5',NULL,NULL,NULL,1),('Holly Ren','Kronos Team5','State Sick Leave SU1(RFA 1000036)','QA',NULL,1),('Jonathan Feng','Kronos Team5',NULL,'Arch',NULL,1),('Josh Li','Kronos Team5',NULL,'TL','coreyqin@objectivasoftware.com',1),('Maria Deng','Kronos Team5','SMS Backporting V7(RFA 1000030)','QA',NULL,1),('Patrick Wang','Kronos Team5','State Sick Leave SU1(RFA 1000036)','Dev',NULL,1),('Quentin Qin','Kronos Team5','State Sick Leave SU1(RFA 1000036)','QA',NULL,1),('Stephanie Yang','Kronos Team5','State Sick Leave SU1(RFA 1000036)','Dev',NULL,1),('test','Kronos Team5','testProject222','Dev','',0),('Timothy Yang','Kronos Team5','Click Software SHA2 testing','Dev',NULL,1),('Victoria Chang','Kronos Team5','State Sick LeaveSU2(RFA 1000037)','Dev',NULL,1);
+insert  into `employee`(`employee`,`team`,`project`,`role`,`email`,`active`) values ('Abby Li','Kronos Team5','State Sick Leave SU1(RFA 1000036)','Dev','test@test.com',1),('Andrew Chang','Kronos Team3','Audit Report - convert to java','DEV','',1),('Ashley Geng','Kronos Team3','API Locale Policy Support','QA','',1),('Barry Fan','Kronos Team1&8','State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)','Dev','bfan@Objectivasoftware.com',1),('Byron Liu','Kronos Team1&8','Training','DEV','byronliu@Objectivasoftware.com',1),('Caroline Zhang','Kronos Team5','SMS Back porting V7(RFA 1000029)','QA',NULL,1),('Carson Zhu','Kronos Team5','State Sick LeaveSU2(RFA 1000037)','Dev',NULL,1),('Charles Qian','Kronos Team1&8','8.0 Stabilization (RFA-1000047)','DEV','charlesqian@Objectivasoftware.com',1),('Chester Zhang','Kronos Team1&8','Resources Support in  Team 3','DEV','chesterzhang@Objectivasoftware.com',1),('Christine Cai','Kronos Team1&8','LAM(RFA-32445)','QA','christinecai@Objectivasoftware.com',1),('Coby Guo','Kronos Team1&8','Cross Project Automation (UFT)','QA','cobyguo@Objectivasoftware.com',1),('coreytest','Kronos Team3','coreytest_project','DEV','',1),('coreytest','Kronos Team5','coreytest_project','DEV','',1),('Edmund Shi','Kronos Team1&8','Resources Support in  Team 3','DEV','edmundshi@Objectivasoftware.com',1),('Eric Yao','Kronos Team1&8','State Street Core SAML 2.0 Support\n(RFA-32016)(CENG-15829)','ARCH','eyao@Objectivasoftware.com',1),('Eva Ren','Kronos Team3','API Update Action ','QA','',1),('Frida Yang','Kronos Team3','API Locale Policy Support','QA','',1),('Gavin Wang','Kronos Team3','API Locale Policy Support','DEV','',1),('Holly Ren','Kronos Team5','State Sick Leave SU1(RFA 1000036)','QA',NULL,1),('James Li','Kronos Team3','Rest Day Rule','QA','',1),('Jonathan Feng','Kronos Team5','3','ARCH','',1),('Josh Li','Kronos Team5',NULL,'TL','joshli@Objectivasoftware.com',1),('Julia Zhang','Kronos Team3','Shift tolerance - technical debt','QA','',1),('Karen Meng','Kronos Team3','Audit Report - convert to java','QA','',1),('Lisa Li','Kronos Team1&8','State Street Core SAML 2.0 Support\n(RFA-32016)(CENG-15829)','QA','lisali@Objectivasoftware.com',1),('Maria Deng','Kronos Team5','SMS Backporting V7(RFA 1000030)','QA',NULL,1),('Neal Chen','Kronos Team3','Shift tolerance - technical debt','DEV','',1),('Nolan Lu','Kronos Team3','Audit Report - convert to java','DEV','',1),('Patrick','Kronos Team3','Rest Day Rule','DEV','',1),('Patrick Wang','Kronos Team5','State Sick Leave SU1(RFA 1000036)','Dev',NULL,1),('Queenie Li','Kronos Team1&8','Resources Support in  Team 3','QA','queenieli@Objectivasoftware.com',1),('Quentin Qin','Kronos Team5','State Sick Leave SU1(RFA 1000036)','QA',NULL,1),('Rebacca Cheng','Kronos Team1&8','8.0 Stabilization (RFA-1000047)','QA','rcheng@Objectivasoftware.com',1),('Sabrina Liu','Kronos Team3','API Locale Policy Support','DEV','',1),('Scarlett Xiao','Kronos Team1&8','State Street Core SAML 2.0 Support\n(RFA-32016)(CENG-15829)','TL','sxiao@Objectivasoftware.com',1),('Stephanie Yang','Kronos Team5','State Sick Leave SU1(RFA 1000036)','Dev',NULL,1),('Timothy Yang','Kronos Team3','-','DEV','',1),('Timothy Yang','Kronos Team5','Click Software SHA2 testing','Dev',NULL,1),('Victoria Chang','Kronos Team5','State Sick LeaveSU2(RFA 1000037)','Dev',NULL,1);
 
 /*Table structure for table `plans_info` */
 
@@ -40,6 +40,7 @@ DROP TABLE IF EXISTS `plans_info`;
 
 CREATE TABLE `plans_info` (
   `employee` varchar(100) DEFAULT NULL,
+  `team` varchar(50) DEFAULT NULL,
   `date` varchar(20) DEFAULT NULL,
   `project` varchar(100) DEFAULT NULL,
   `plans` text
@@ -47,7 +48,7 @@ CREATE TABLE `plans_info` (
 
 /*Data for the table `plans_info` */
 
-insert  into `plans_info`(`employee`,`date`,`project`,`plans`) values ('Abby Li','2015-12-07','-',''),('Abby Li','2015-12-07','Click Software SHA2 testing','MiBidWdzLCAKUGF5aW5nUGF5Q29kZSBpcyBub3QgZXhpc3Rpbmcgd2hlbiBSZXRyaWV2ZSBhbiBFbXBsb3ltZW50IFRlcm0gd2l0aCBzaW5nbGUgdmVyc2lvbiBhbmQgQWxsb3dNaW5tdW1XYWdlIGluIFhNTCBpcyB0cnVlLiAKUGF5aW5nUGF5Q29kZSBpcyBub3QgZXhpc3Rpbmcgd2hlbiBSZXRyaWV2ZSBhbiBFbXBsb3ltZW50IFRlcm0gd2l0aCBtdWx0aSB2ZXJzaW9uIGFuZCBBbGxvd01pbm11bVdhZ2UgaW4gWE1MIGlzIHRydWUuCg=='),('Caroline Zhang','2015-12-07','Click Software SHA2 testing',''),('Abby Li','2015-12-09','Click Software SHA2 testing','YXNkZg=='),('Abby Li','2015-12-09','SMS Back porting V7(RFA 1000029)','c2RmYXNkZiA='),('Abby Li','2015-12-10','Click Software SHA2 testing','YXNkZg=='),('Caroline Zhang','2015-12-10','SMS Back porting V7(RFA 1000029)','YXNkZg==');
+insert  into `plans_info`(`employee`,`team`,`date`,`project`,`plans`) values ('coreytest','Kronos Team3','2015-12-15','coreytest_project','cGxhbnMgZm9yIHRlYW0z'),('coreytest','Kronos Team5','2015-12-15','coreytest_project','cGxhbnMgZm9yIHRlYW01');
 
 /*Table structure for table `project` */
 
@@ -55,14 +56,14 @@ DROP TABLE IF EXISTS `project`;
 
 CREATE TABLE `project` (
   `project` varchar(100) NOT NULL,
-  `team` varchar(100) DEFAULT NULL,
+  `team` varchar(100) NOT NULL,
   `level` int(2) DEFAULT NULL,
-  PRIMARY KEY (`project`)
+  PRIMARY KEY (`project`,`team`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `project` */
 
-insert  into `project`(`project`,`team`,`level`) values ('Click Software SHA2 testing','Kronos Team5',4),('SMS Back porting V7(RFA 1000029)','Kronos Team5',10),('SMS Backporting V7(RFA 1000030)','Kronos Team5',10),('State Sick Leave SU1(RFA 1000036)','Kronos Team5',10),('State Sick LeaveSU2(RFA 1000037)','Kronos Team5',10),('testProject','Kronos Team5',6);
+insert  into `project`(`project`,`team`,`level`) values ('8.0 Stabilization (RFA-1000047)','Kronos Team1&8',10),('Click Software SHA2 testing','Kronos Team5',5),('coreytest_project','Kronos Team3',10),('coreytest_project','Kronos Team5',8),('Cross Project Automation (UFT)','Kronos Team1&8',10),('LAM(RFA-32445)','Kronos Team1&8',10),('Resources Support in  Team 3','Kronos Team1&8',10),('SMS Back porting V7(RFA 1000029)','Kronos Team5',10),('SMS Backporting V7(RFA 1000030)','Kronos Team5',10),('State Sick Leave SU1(RFA 1000036)','Kronos Team5',10),('State Sick LeaveSU2(RFA 1000037)','Kronos Team5',10),('State Street Core SAML 2.0 Support','Kronos Team1&8',10),('Training','Kronos Team1&8',9);
 
 /*Table structure for table `task_info` */
 
@@ -70,6 +71,7 @@ DROP TABLE IF EXISTS `task_info`;
 
 CREATE TABLE `task_info` (
   `employee` varchar(100) DEFAULT NULL,
+  `team` varchar(50) DEFAULT NULL,
   `project` varchar(100) DEFAULT NULL,
   `role` varchar(10) DEFAULT NULL,
   `date` varchar(20) DEFAULT NULL,
@@ -80,7 +82,7 @@ CREATE TABLE `task_info` (
 
 /*Data for the table `task_info` */
 
-insert  into `task_info`(`employee`,`project`,`role`,`date`,`task_desc`,`hours`,`eta`) values ('Abby Li','-','QA','2015-12-07','YWE=',2,'2'),('Abby Li','-','QA','2015-12-07','YmI8YnI+YXNkZmFkZmFkZiEjQCMjIUBAIyM8YnI+YXNkZmEncyBhZnNkZg==',2,'2'),('Abby Li','Click Software SHA2 testing','QA','2015-12-07','NC4gVXBkYXRlIHRoZSByZXBvcnQgdGVzdCBjYXNlIGFuZCBzY2VuYXJpbyBmb2xsb3cgUXVlbnRpbidzIHJldmlldzEwMCUpLg==',2,'2'),('Abby Li','Click Software SHA2 testing','QA','2015-12-07','My4gVXBkYXRlIHRoZSBYTUwgQVBJIHRlc3QgY2FzZSBhbmQgc2NlbmFyaW8gd2l0aCBDYXJzb24ncyBuZXcgc3dpdGNoMTAwJSku',2,'2'),('Abby Li','Click Software SHA2 testing','QA','2015-12-07','Mi4gVGVzdCAgWE1MIEFQSSBmdW5jdGlvbiBvbiAgcmZhMTAwMDAzNy1qbDEoMjAlKS4=',2,'2'),('Caroline Zhang','Click Software SHA2 testing','QA','2015-12-07','MS4gU01TIFFGIGZvciBSRkEgMTAwMDAyOSB0cm91YmxlIHNob290aW5nIEluc3RhbGwvVW5pbnN0YWxsIHRlc3RpbmcuIC0tLS0tLTEwMCU8YnI+MS4xICBJbnN0YWxsZWQgdGhlIDcuMC4wUlRNIGFuZCA3LjAuMTAgb24gY2VuZzk2ODktcGoxIHRvIHZlcmlmeSB0aGUgRXJyb3IgTG9nIGZlYXR1cmUgb24gNy4wLjEwKCM4NCkuPGJyPjEuMiAgVW5pbnN0YWxsZWQgdGhlIDcuMC4xMCBvbiBjZW5nOTY4OS1wajEgdG8gdmVyaWZ5IHRoZSBlcnJvciBsb2cgb24gNy4wLjBSVE0uPGJyPjEuMyAgVXBncmFkZSB0ZXN0aW5nIG9uIGNlbmc2NDQ4LCB3aGljaCBmcm9tIDcuMC45IHRvIDcuMC4xMC48YnI+',2,'2'),('Abby Li','Click Software SHA2 testing','QA','2015-12-09','YXNkZmFzZGY8YnI+YXNkZmFhPGJyPi8vXFxhc2RmYSdz',2,'2'),('Abby Li','Click Software SHA2 testing','QA','2015-12-09','YXNkZmE=',2,'2'),('Abby Li','SMS Back porting V7(RFA 1000029)','QA','2015-12-09','MTExMjxicj5hc2RmPGJyPmFzZGY=',2,'2'),('Abby Li','Click Software SHA2 testing','QA','2015-12-10','MTIzPGJyPmFzZGZhc2RmJ3Nhc2RmIGFzZGZhPGJyPkAjIyMkQCMjJA==',2,'2'),('Caroline Zhang','SMS Back porting V7(RFA 1000029)','QA','2015-12-10','YXNkZg==',2,'2');
+insert  into `task_info`(`employee`,`team`,`project`,`role`,`date`,`task_desc`,`hours`,`eta`) values ('coreytest','Kronos Team3','coreytest_project','DEV','2015-12-15','MTIzMTxicj5kZmE8YnI+dGFzayBmb3IgdGVhbTM=',2,'2'),('coreytest','Kronos Team5','coreytest_project','DEV','2015-12-15','dGFzayBmb3IgdGVhbTU=',2,'2');
 
 /*Table structure for table `team` */
 
@@ -93,7 +95,7 @@ CREATE TABLE `team` (
 
 /*Data for the table `team` */
 
-insert  into `team`(`team`) values ('Kronos Team5');
+insert  into `team`(`team`) values ('Kronos Team1&8'),('Kronos Team3'),('Kronos Team5');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -162,6 +162,7 @@ div#users-contain table td, div#users-contain table th {
 		
 		function getSumbitData(){
 			var employee = $("#employee").val();
+			var team = $("#team").val();
 			var project = $("#project").val();
 			var role = $("#role").val();
 			//var date = new Date();
@@ -181,7 +182,7 @@ div#users-contain table td, div#users-contain table th {
 				}
 			}
 			
-			var jsonString = "{'name':'"+employee+"','project':'"+project+"','role':'"+role+"','taskList':["+tableData+"],'plans':'"+plans+"'}";
+			var jsonString = "{'name':'"+employee+"','team':'"+team+"','project':'"+project+"','role':'"+role+"','taskList':["+tableData+"],'plans':'"+plans+"'}";
 			return jsonString;
 		}
 		
@@ -312,6 +313,7 @@ div#users-contain table td, div#users-contain table th {
 			$( "#plans").val();
 			
 			var employee = $("#employee").val();
+			var team = $("#team").val();
 			var project = $("#project").val();
 			if(employee == "" || project == ""){
 				return;
@@ -319,7 +321,7 @@ div#users-contain table td, div#users-contain table th {
 			$.ajax({
 					type : "post",
 					url : "ReportSearchServlet",
-					data : "{'name':'"+$("#employee").val()+"','project':'"+$("#project").val()+"'}",
+					data : "{'name':'"+employee+"','team':'"+team+"','project':'"+project+"'}",
 					success : function(data) {
 						if(data == null || data == ""){
 							return;

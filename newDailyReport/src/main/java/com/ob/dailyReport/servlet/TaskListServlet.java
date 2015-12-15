@@ -28,12 +28,13 @@ public class TaskListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String employee = request.getParameter("name");
+		String team = request.getParameter("team");
 		String project = request.getParameter("project");
 		Date date = new Date();
 
 		EmployeeReport employeeReport;
 		try {
-			employeeReport = EmployeeReportService.getEmployeeReport(employee, date, project);
+			employeeReport = EmployeeReportService.getEmployeeReport(employee, team, date, project);
 			String tasksJson = this.converReport2Json(employeeReport);
 			response.getWriter().print(tasksJson);
 		} catch (SQLException e) {

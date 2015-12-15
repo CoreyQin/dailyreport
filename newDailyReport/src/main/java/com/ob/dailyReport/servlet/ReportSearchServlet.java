@@ -30,12 +30,13 @@ public class ReportSearchServlet extends HttpServlet {
 		String jsonString = this.getInputJson(request);
 		JSONObject dataJson = new JSONObject(jsonString);
 		String employee = dataJson.getString("name");
+		String team = dataJson.getString("team");
 		String project = dataJson.getString("project");
 		Date date = new Date();
 
 		EmployeeReport employeeReport;
 		try {
-			employeeReport = EmployeeReportService.getEmployeeReport(employee, date, project);
+			employeeReport = EmployeeReportService.getEmployeeReport(employee, team, date, project);
 			String tasksJson = this.converReport2Json(employeeReport);
 			response.getWriter().print(tasksJson);
 		} catch (SQLException e) {

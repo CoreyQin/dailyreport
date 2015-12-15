@@ -14,29 +14,32 @@ import com.ob.dailyReport.util.DateUtil;
 
 public class EmployeeReportService {
 
-	public static EmployeeReport getEmployeeReport(String name, Date date, String project) throws SQLException {
+	public static EmployeeReport getEmployeeReport(String name, String team, Date date, String project)
+			throws SQLException {
 		EmployeeReport employeeReport = new EmployeeReport();
 		employeeReport.setName(name);
+		employeeReport.setTeam(team);
 		employeeReport.setReportDate(date);
 		employeeReport.setProject(project);
 
-		List<TaskRecord> taskList = EmployeeTaskDao.getEmployeeTasks(name, project, date);
+		List<TaskRecord> taskList = EmployeeTaskDao.getEmployeeTasks(name, team, project, date);
 		List<TaskStatus> statusList = new ArrayList<TaskStatus>();
 		for (TaskRecord taskRecord : taskList) {
 			statusList.add(taskRecord.getStatus());
 		}
 		employeeReport.setCurrentStatus(statusList);
-		String plans = PlanDao.getPlan(name, project, date);
+		String plans = PlanDao.getPlan(name, team, project, date);
 		employeeReport.setPlans(plans);
 		return employeeReport;
 	}
 
 	public static void submitReport(EmployeeReport report) throws SQLException {
 		String name = report.getName();
+		String team = report.getTeam();
 		String project = report.getProject();
 		Date date = report.getReportDate();
 
-		EmployeeTaskDao.removeAllTasks(name, project, DateUtil.FormatDate2String(date));
+		EmployeeTaskDao.removeAllTasks(name, team,project, DateUtil.FormatDate2String(date));
 		PlanDao.removePlan(report);
 
 		EmployeeTaskDao.addTasks(report);

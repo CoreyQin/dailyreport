@@ -67,6 +67,7 @@ public class SubmitReportServlet extends HttpServlet {
 
 		EmployeeReport input = new EmployeeReport();
 		input.setName(dataJson.getString("name"));
+		input.setTeam(dataJson.getString("team"));
 		input.setProject(dataJson.getString("project"));
 		input.setRole(dataJson.getString("role"));
 		input.setReportDate(new Date());

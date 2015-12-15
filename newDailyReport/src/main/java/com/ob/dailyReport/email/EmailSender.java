@@ -1,6 +1,7 @@
 package com.ob.dailyReport.email;
 
 import java.io.File;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -68,7 +69,7 @@ public class EmailSender {
 			msg.setContent(mtp);
 			msg.saveChanges();
 			Transport.send(msg);
-			System.out.println("send email to :" + to + " successfully");
+			System.out.println("send email to :" + to + " successfully! at " + new Date());
 		} catch (AddressException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {
