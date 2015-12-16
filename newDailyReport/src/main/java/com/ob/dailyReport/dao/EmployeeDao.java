@@ -112,11 +112,6 @@ public class EmployeeDao {
 		String email = employee.getEmail();
 		StringBuffer sql = new StringBuffer("update employee set ");
 		Boolean hasValue = false;
-		if (team != null) {
-			sql.append("team='" + team + "'");
-			hasValue = true;
-		}
-
 		if (project != null) {
 			updateSql(sql, "project", project, hasValue);
 			hasValue = true;
@@ -131,7 +126,7 @@ public class EmployeeDao {
 			hasValue = true;
 		}
 
-		sql.append(" where employee='" + employeeName + "';");
+		sql.append(" where employee='" + employeeName + "' and team = '" + team + "';");
 		return sql.toString();
 	}
 
