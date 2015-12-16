@@ -20,6 +20,22 @@ $(function() {
 		onLoadSuccess : function() {
 		}
 	});
+	
+	$("#employee").combobox({
+		onChange : function() {
+			employeeChanged();
+		},
+		onLoadSuccess : function() {
+		}
+	});
+	
+	$("#project").combobox({
+		onChange : function() {
+			searchTasks();
+		},
+		onLoadSuccess : function() {
+		}
+	});
 
 });
 
@@ -29,7 +45,7 @@ function teamChanged() {
 	// change project options
 	$("#project").empty();
 	$.getJSON("ProjectListServlet", {
-		team : $('#team').combobox('getText')
+		team : $('#team').combobox('getValue')
 	}, function(json) {
 		var fitData = [];
 		for (var i = 0; i < json.length; i++) {
@@ -44,9 +60,9 @@ function teamChanged() {
 		});
 	});
 
-	
+	$("#employee").empty();
 	$.getJSON("EmployeeListServlet", {
-		team : $('#team').combobox('getText')
+		team : $('#team').combobox('getValue')
 	}, function(json) {
 		var rows = json.rows;
 		var fitData = [];
@@ -62,7 +78,6 @@ function teamChanged() {
 		});
 	});
 }
-
 
 /**
  * 
@@ -163,48 +178,52 @@ function removeTask() {
 	}
 }
 
-searchTasks();
-
 /**
  * 
  */
 function searchTasks() {
 	$.post('TaskListServlet', {
-		name : 'Abby Li',
-		project : 'Click Software SHA2 testing'
+		name : $('#employee').combobox('getValue'),
+		team : $('#team').combobox('getValue'),
+		project : $('#project').combobox('getValue')
 	}, function(result) {
 		if (result == null || result == "") {
 			return;
 		}
 		var employeeObject = result;
-		var plans = employeeObject.plans;
-		// $("#plans").val(decode(plans));
 		var taskArray = employeeObject.taskList;
-		for (var i = 0; i < taskArray.length; i++) {
-			var task = taskArray[i];
-			insertRow2TaskTable(i, converTask2Row(task));
-		}
+		var newArray = convertTaskArray(taskArray);
+		$('#task_dg').datagrid("loadData",newArray);
+		
+		var plans = employeeObject.plans;
+		$('#plans').textbox('setValue',decode(plans));
 	}, 'json');
 }
 
-function insertRow2TaskTable(index, row) {
-	$('#task_dg').datagrid('insertRow', {
-		index : index,
-		row : row
-	});
+function convertTaskArray(taskArray){
+	//
+	function converTask2Row(task) {
+		var taskDesc = decode(task.task);
+		var hours = task.hours;
+		var eta = task.eta;
+		var row = {
+			taskDesc : taskDesc,
+			spentHours : hours,
+			eta : eta
+		};
+		return row;
+	}
+	
+	//
+	var newArray = [];
+	for(var i = 0; i < taskArray.length; i++){
+		var task = taskArray[i];
+		newArray.push(converTask2Row(task));
+	}
+	return newArray;
 }
 
-function converTask2Row(task) {
-	var taskDesc = decode(task.task);
-	var hours = task.hours;
-	var eta = task.eta;
-	var row = {
-		taskDesc : taskDesc,
-		spentHours : hours,
-		eta : eta
-	};
-	return row;
-}
+
 
 function submitReport() {
 	if (!checkInput()) {
@@ -225,10 +244,10 @@ function submitReport() {
 }
 
 function checkInput() {
-	var employee = $('#employee').combobox('getText');
-	var project = $('#project').combobox('getText');
-	var role = $('#role').combobox('getText');
-	
+	var employee = $('#employee').combobox('getValue');
+	var project = $('#project').combobox('getValue');
+	var role = $('#role').combobox('getValue');
+
 	if (employee == "" || project == "" || role == "") {
 		return false;
 	}
@@ -236,9 +255,10 @@ function checkInput() {
 }
 
 function getSumbitData() {
-	var employee = $("#employee").val();
-	var project = $("#project").val();
-	var role = $("#role").val();
+	var team = $('#team').combobox('getValue');
+	var employee = $('#employee').combobox('getValue');
+	var project = $('#project').combobox('getValue');
+	var role = $('#role').combobox('getValue');
 	var plans = encode($("#plans").val());
 	var tableData = "";
 	var rows = $('#task_dg').datagrid('getRows');
@@ -253,18 +273,90 @@ function getSumbitData() {
 		}
 	}
 
-	var jsonString = "{'name':'" + employee + "','project':'" + project
-			+ "','role':'" + role + "','taskList':[" + tableData
-			+ "],'plans':'" + plans + "'}";
+	var jsonString = "{'name':'" + employee + "','team':'" + team
+			+ "','project':'" + project + "','role':'" + role
+			+ "','taskList':[" + tableData + "],'plans':'" + plans + "'}";
 	return jsonString;
 }
 
+
+
+
+/*var searchTasks = function(){
+	$( "#task_table tbody").empty();
+	$( "#plans").val();
+	
+	var team = $('#team').combobox('getValue');
+	var employee = $('#employee').combobox('getValue');
+	var project = $('#project').combobox('getValue');
+	
+	if(employee == "" || project == ""){
+		return;
+	}
+	$.ajax({
+			type : "post",
+			url : "ReportSearchServlet",
+			data : "{'name':'"+employee+"','team':'"+team+"','project':'"+project+"'}",
+			success : function(data) {
+				if(data == null || data == ""){
+					return;
+				}
+				var employeeObject = eval("("+data+")");  
+				var plans = employeeObject.plans;
+				$("#plans").val(decode(plans));
+				var taskArray = employeeObject.taskList;
+				for(var i= 0; i < taskArray.length;i++){  
+					var task = taskArray[i];
+					$( "#task_table tbody" ).append( "<tr>" +
+					"<td>" + decode(task.task) + "</td>" + 
+					"<td>" + task.hours + "</td>" + 
+					"<td>" + task.eta + "</td>" +
+					'<td><button class="EditButton" >Edit</button><button class="DeleteButton">Delete</button></td>'+
+					"</tr>" ); 
+				}  
+				bindEditEvent();
+			},
+			error : function() {
+				console.error("refresh imagelist error");
+			}
+		})
+}*/
+
+var employeeChanged = function(){
+	var team = $('#team').combobox('getValue');
+	var employee = $('#employee').combobox('getValue');
+	var project = $('#project').combobox('getValue');
+	$.ajax({
+		type : "get",
+		data : {employee:employee,team:team},
+		url : "EmployeeSearchServlet",
+		success : function(data) {
+			var employee = eval("("+data+")"); 
+			var project = employee.project;
+			var role = employee.role;
+			if(project!=null && project!=""){
+				$('#project').combobox('setValue',project);
+			}
+			if(role!=null && role!=""){
+				$('#role').combobox('setValue',role);
+			}
+		},
+		error : function() {
+			console.error("error!");
+		}
+	});
+}
+
+
+/**
+ * 
+ * @param value
+ * @returns
+ */
 function encode(value) {
 	if (value == null || value == "") {
 		return value;
 	}
-	// return base64Util.encodeBase64(value);
-
 	return base64Util.base64encode(value);
 }
 
@@ -272,7 +364,6 @@ function decode(value) {
 	if (value == null || value == "") {
 		return value;
 	}
-	// return base64Util.decodeBase64(value);
 	return base64Util.base64decode(value);
 }
 
