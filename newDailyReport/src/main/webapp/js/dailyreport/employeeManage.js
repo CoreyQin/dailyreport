@@ -103,15 +103,15 @@ function initEmployeeGrid() {
 		}, {
 			field : 'project',
 			title : 'project',
-			width : 50
+			width : 180
 		}, {
 			field : 'role',
 			title : 'role',
-			width : 50
+			width : 30
 		}, {
 			field : 'email',
 			title : 'email',
-			width : 50
+			width : 80
 		} ] ],
 		title : "employee list",
 		pagination : true,

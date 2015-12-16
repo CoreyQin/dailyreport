@@ -99,11 +99,11 @@ function initProjectGrid() {
 		columns : [ [ {
 			field : 'project',
 			title : 'project',
-			width : 50
+			width : 600
 		}, {
 			field : 'level',
 			title : 'level',
-			width : 50
+			width : 98
 		}, ] ],
 		title : "project list",
 		singleSelect : true,

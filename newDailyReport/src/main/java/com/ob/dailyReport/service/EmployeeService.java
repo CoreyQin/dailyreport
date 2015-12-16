@@ -8,6 +8,11 @@ import com.ob.dailyReport.model.Employee;
 import com.ob.dailyReport.model.PageBean;
 
 public class EmployeeService {
+	
+	public static Employee getEmployee(String employeeName, String team) throws SQLException{
+		Employee employee = EmployeeDao.getEmployee(employeeName,team);
+		return employee;
+	}
 
 	public static List<Employee> getEmployeeList(String team, PageBean pageBean) throws SQLException {
 		List<Employee> employeeList = EmployeeDao.getEmployeeList(team, pageBean);
@@ -24,7 +29,7 @@ public class EmployeeService {
 	}
 
 	public static boolean isEmployeeExsit(String employeeName,String team) throws SQLException {
-		Employee employee = EmployeeDao.getEmployee(employeeName,team);
+		Employee employee = getEmployee(employeeName,team);
 		if (employee != null) {
 			return true;
 		}

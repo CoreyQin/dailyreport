@@ -225,9 +225,10 @@ function submitReport() {
 }
 
 function checkInput() {
-	var employee = $("#employee").val();
-	var project = $("#project").val();
-	var role = $("#role").val();
+	var employee = $('#employee').combobox('getText');
+	var project = $('#project').combobox('getText');
+	var role = $('#role').combobox('getText');
+	
 	if (employee == "" || project == "" || role == "") {
 		return false;
 	}

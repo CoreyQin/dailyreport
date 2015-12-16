@@ -1,6 +1,7 @@
 package com.ob.dailyReport.timer;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,9 @@ public class DailyReportEmailTimerTask extends TimerTask {
 
 	@Override
 	public void run() {
+		if(isWeekend(Calendar.getInstance())){
+			return;
+		}
 		try {
 			// generate team report for all teams and send email the team leader
 			List<String> teamList = TeamDao.getTeamList();
@@ -31,6 +35,14 @@ public class DailyReportEmailTimerTask extends TimerTask {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private boolean isWeekend(Calendar calendar) {
+		int weekDay = calendar.get(Calendar.DAY_OF_WEEK);
+		if (weekDay == Calendar.SATURDAY && weekDay == Calendar.SUNDAY) {
+			return true;
+		}
+		return false;
 	}
 
 	private void sendReport() {

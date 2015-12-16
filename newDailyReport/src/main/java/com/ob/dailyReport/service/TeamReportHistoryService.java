@@ -41,14 +41,13 @@ public class TeamReportHistoryService {
 	private static void sortProject(List<ProjectReport> projectList, final String team) {
 		Collections.sort(projectList, new Comparator<ProjectReport>() {
 			public int compare(ProjectReport projectReport1, ProjectReport projectReport2) {
-				String name1 = projectReport1.getProjectName();
-				String name2 = projectReport2.getProjectName();
-				Project project1;
 				try {
-					project1 = ProjectDao.getProject(name1, team);
+					String name1 = projectReport1.getProjectName();
+					String name2 = projectReport2.getProjectName();
+					Project project1 = ProjectDao.getProject(name1, team);
 					Project project2 = ProjectDao.getProject(name2, team);
 					return Integer.compare(project1.getLevel(), project2.getLevel());
-				} catch (SQLException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				return 0;
