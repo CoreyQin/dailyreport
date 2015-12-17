@@ -43,18 +43,18 @@ div#users-contain table td, div#users-contain table th {
 		<table style="width: 600px; height: 100px;">
 			<tr>
 				<td align="right">Team:</td>
-				<td align="left"><select id="team">
+				<td align="left"><select id="team" style="width:120px">
 				</select></td>
 				<td align="right">Employee Name:</td>
-				<td align="left"><select id="employee">
+				<td align="left"><select id="employee" style="width:120px">
 				</select></td>
 			</tr>
 			<tr>
 				<td align="right">Project :</td>
-				<td align="left"><select id="project">
+				<td align="left"><select id="project" style="width:220px">
 				</select></td>
 				<td align="right">Role:</td>
-				<td><select id="role">
+				<td><select id="role" style="width:80px">
 						<option>DM</option>
 						<option>DEV</option>
 						<option>QA</option>

@@ -14,7 +14,7 @@ function newProject() {
 function editProject() {
 	var row = $('#project_dg').datagrid('getSelected');
 	if (row) {
-		$('#project_dlg').dialog('open').dialog('setTitle', 'Edit Employee');
+		$('#project_dlg').dialog('open').dialog('setTitle', 'Edit Project');
 		$('#project_fm').form('load', row);
 		var team = $('#team').combobox('getText');
 		url = 'ProjectSaveServlet';

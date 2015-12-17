@@ -136,7 +136,7 @@ function editTask() {
  * 
  */
 function saveTask() {
-	var taskDesc = $("#taskDesc").val();
+	var taskDesc = $("#taskDesc").textbox('getValue');
 	var spentHours = $("#spentHours").val();
 	var eta = $("#eta").val();
 	if (flag == constant_update) {
@@ -156,10 +156,18 @@ function saveTask() {
 			spentHours : spentHours,
 			eta : eta
 		};
-		insertRow2TaskTable(2, newRow);
+		var rowNumber = $('#task_dg').datagrid('getRows').length;
+		insertRow2TaskTable(rowNumber, newRow);
 	}
 	$('#task_dlg').dialog('close'); // close the dialog
 
+}
+
+function insertRow2TaskTable(index, row) {
+	$('#task_dg').datagrid('insertRow', {
+		index : index,
+		row : row
+	});
 }
 
 /**
@@ -259,17 +267,20 @@ function getSumbitData() {
 	var employee = $('#employee').combobox('getValue');
 	var project = $('#project').combobox('getValue');
 	var role = $('#role').combobox('getValue');
-	var plans = encode($("#plans").val());
+	var plans = encode($("#plans").textbox('getValue'));
 	var tableData = "";
 	var rows = $('#task_dg').datagrid('getRows');
 	if (rows) {
-		for (var i = rows.length - 1; i >= 0; i--) {
+		for (var i = 0; i < rows.length; i++) {
 			var row = rows[i];
 			var task = row.taskDesc;
 			var hours = row.spentHours;
 			var eta = row.eta;
 			tableData += "{'task':'" + encode(task) + "'" + ",'hours':'"
 					+ hours + "'" + ",'eta':'" + eta + "'}";
+			if(i < rows.length -1){
+				tableData += ",";
+			}
 		}
 	}
 

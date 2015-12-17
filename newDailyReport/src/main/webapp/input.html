@@ -41,7 +41,7 @@
 	<div>
 		<h2 align="center">Employee Task Today</h2>
 		<table
-			style="width: 900px; height: 130px; margin-left: 180px; margin-bottom: 50px; margin-top: 100px;">
+			style="width: 900px; height: 130px; margin-left: 180px;margin-bottom: 10px; margin-top: 100px;">
 			<tr align="center">
 				<td align="right">Team:</td>
 				<td align="left"><input class="easyui-combobox" id="team" name="team"
@@ -82,13 +82,14 @@
 	</div>
 
 	<div id="task_dlg" class="easyui-dialog"
-		style="width: 500px; height: 280px; padding: 10px 20px" closed="true"
+		style="width: 700px; height: 320px; padding: 10px 20px" closed="true"
 		buttons="#task_dlg-buttons">
 		<div class="ftitle">Task Information</div>
 		<form id="task_fm" method="post">
 			<div class="fitem">
-				<label>Task Description:</label> <input id="taskDesc" name="taskDesc"
-					class="easyui-validatebox" required="true">
+				<label>Task Description:</label>
+					<input class="easyui-textbox" id="taskDesc" name="taskDesc" data-options="multiline:true"
+						style="height: 100px;width:480px" required="true"></input>
 			</div>
 			<div class="fitem">
 				<label>Spent Hours:</label> <input id="spentHours" name="spentHours"
@@ -105,12 +106,13 @@
 			onclick="javascript:$('#task_dlg').dialog('close')">Cancel</a>
 	</div>
 
-	<div style="margin: 80px 80px 20px;">
-		<label style="margin-left: 40px;">Plans For Tomorrow:</label><br>
+	<!-- plans -->
+	<div style="margin: 80px 60px 10px;">
+		<label style='font-weight: bolder;'>Plans For Tomorrow:</label><br>
 	</div>
-	<div style="margin-left: 180px">
+	<div style="margin-left: 60px;">
 		<input class="easyui-textbox" id="plans" name="plans" data-options="multiline:true"
-			style="height: 180px;width:500px"></input>
+			style="height: 130px;width:500px"></input>
 	</div>
 
 
