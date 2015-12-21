@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import com.ob.dailyReport.service.EmployeeService;
@@ -17,6 +18,8 @@ import com.ob.dailyReport.service.EmployeeService;
  */
 public class EmployeeDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private static Logger log = Logger.getLogger(EmployeeDeleteServlet.class);
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -33,6 +36,7 @@ public class EmployeeDeleteServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String employeeName = request.getParameter("employee");
 		String team = request.getParameter("team");
+		log.info("request to delete employee : {employee:" + employeeName + "e,team:" + team + "}");
 		try {
 			EmployeeService.removeEmployee(employeeName, team);
 			JSONObject result = new JSONObject();
@@ -40,6 +44,7 @@ public class EmployeeDeleteServlet extends HttpServlet {
 			response.getWriter().print(result.toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
+			log.error("delete employee error : " + e.getMessage());
 		}
 	}
 

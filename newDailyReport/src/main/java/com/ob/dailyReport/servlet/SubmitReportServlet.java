@@ -12,15 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.ob.dailyReport.dao.EmployeeTaskDao;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.TaskStatus;
 import com.ob.dailyReport.service.EmployeeReportService;
 
 public class SubmitReportServlet extends HttpServlet {
+
+	private static Logger log = Logger.getLogger(SubmitReportServlet.class);
 
 	/**
 	 * 
@@ -32,17 +34,19 @@ public class SubmitReportServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// get user input
 		String jsonString = this.getInputJson(request);
+		log.info("get input string : " + jsonString);
 		// convert user input to data model
-//		EmployeeReport input = this.fakeModel();
+		// EmployeeReport input = this.fakeModel();
 		EmployeeReport report = this.convertJson2Model(jsonString);
 		try {
 			EmployeeReportService.submitReport(report);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 	}
-	
-	private String getInputJson(HttpServletRequest request) throws IOException{
+
+	private String getInputJson(HttpServletRequest request) throws IOException {
 		BufferedReader reader = request.getReader();
 		StringBuffer buffer = new StringBuffer();
 		String str;
@@ -50,7 +54,6 @@ public class SubmitReportServlet extends HttpServlet {
 			buffer.append(str);
 		}
 		// reader.close();
-		System.out.println(buffer.toString());
 		return buffer.toString();
 	}
 
@@ -89,7 +92,6 @@ public class SubmitReportServlet extends HttpServlet {
 		}
 
 		input.setCurrentStatus(taskList);
-
 		return input;
 	}
 

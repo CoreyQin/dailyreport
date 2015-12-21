@@ -4,8 +4,8 @@
 function newProject() {
 	$('#project_dlg').dialog('open').dialog('setTitle', 'New Project');
 	$('#project_fm').form('clear');
-	var team = $('#team').combobox('getText');
-	url = 'ProjectSaveServlet';
+//	var team = $('#team').combobox('getText');
+//	url = 'ProjectSaveServlet';
 }
 
 /**
@@ -15,9 +15,10 @@ function editProject() {
 	var row = $('#project_dg').datagrid('getSelected');
 	if (row) {
 		$('#project_dlg').dialog('open').dialog('setTitle', 'Edit Project');
+		$('#project_fm').form('clear');
 		$('#project_fm').form('load', row);
-		var team = $('#team').combobox('getText');
-		url = 'ProjectSaveServlet';
+//		var team = $('#team').combobox('getText');
+//		url = 'ProjectSaveServlet';
 	}
 }
 
@@ -27,7 +28,7 @@ function editProject() {
 function saveProject() {
 	$('#project_fm').find('input[name="team"]').val($('#team').combobox('getText'));
 	$('#project_fm').form('submit', {
-		url : url,
+		url : 'ProjectSaveServlet',
 		onSubmit : function() {
 			return $(this).form('validate');
 		},
@@ -99,12 +100,20 @@ function initProjectGrid() {
 		columns : [ [ {
 			field : 'project',
 			title : 'project',
-			width : 600
+			width : 400
 		}, {
+			field : 'rfa',
+			title : 'rfa',
+			width : 100
+		},{
+			field : 'status',
+			title : 'status',
+			width : 100
+		},{
 			field : 'level',
 			title : 'level',
 			width : 98
-		}, ] ],
+		} ] ],
 		title : "project list",
 		singleSelect : true,
 		fitColumns : true,

@@ -100,11 +100,23 @@
 	
 	<div id="project_dlg" class="easyui-dialog" style="width:500px;height:280px;padding:10px 20px"
 			closed="true" buttons="#project_dlg-buttons">
-		<div class="ftitle">User Information</div>
+		<div class="ftitle">Project Information</div>
 		<form id="project_fm" method="post">
 			<div class="fitem">
 				<label>Name:</label>
 				<input name="project" style="width:260px" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Rfa:</label>
+				<input name="rfa" style="width:260px" class="easyui-validatebox">
+			</div>
+			<div class="fitem">
+				<label>Status:</label>
+				<select name="status">
+					<option></option>
+					<option>On track</option>
+					<option>Has issue</option>
+				</select>
 			</div>
 			<div class="fitem">
 				<label>Level:</label>

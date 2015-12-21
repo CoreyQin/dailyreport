@@ -65,7 +65,11 @@ public class TeamReportHistoryService {
 			throws SQLException {
 		List<ProjectReport> projectList = new ArrayList<ProjectReport>();
 		for (TaskRecord eh : historyList) {
-			fillProjectList(team, projectList, eh);
+			try {
+				fillProjectList(team, projectList, eh);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return projectList;
 	}
@@ -88,8 +92,11 @@ public class TeamReportHistoryService {
 			}
 		}
 		if (projectReport == null) {
+			Project project = ProjectDao.getProject(projectName, team);
 			projectReport = new ProjectReport();
 			projectReport.setProjectName(projectName);
+			projectReport.setRfa(project.getRfa());
+			projectReport.setStatus(project.getStatus());
 			projectList.add(projectReport);
 		}
 		fillEmployeeList(team, projectReport.getEmployeeRList(), eh);

@@ -1,7 +1,9 @@
 package com.ob.dailyReport.email;
 
 import java.io.File;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -20,7 +22,11 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.log4j.Logger;
+
 public class EmailSender {
+
+	private static Logger log = Logger.getLogger(EmailSender.class);
 
 	private static Properties props = new Properties();
 
@@ -47,11 +53,15 @@ public class EmailSender {
 
 	}
 
-	public static void sendEmail(String to, String subject, String content, File file) {
+	public static void sendEmail(List<String> toList, String subject, String content, File file) {
 		try {
 			Message msg = new MimeMessage(session);
 			msg.setFrom(new InternetAddress(from));
-			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			for (String to : toList) {
+				if (to != null && !to.equals("")) {
+					msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+				}
+			}
 			msg.setSubject(subject);
 			// msg.setText("this is test content");
 
@@ -69,19 +79,25 @@ public class EmailSender {
 			msg.setContent(mtp);
 			msg.saveChanges();
 			Transport.send(msg);
-			System.out.println("send email to :" + to + " successfully! at " + new Date());
+			log.info("send email to :" + toList + " successfully!");
 		} catch (AddressException e) {
-			e.printStackTrace();
+			log.error(e);
 		} catch (MessagingException e) {
-			e.printStackTrace();
+			log.error(e);
 		}
 
 	}
 
-	public static void sendReport(String to, File file) {
+	public static void sendReport(List<String> toList, File file) {
 		String subject = "daily report";
 		String content = "please get daily report file refer to the attachment";
-		sendEmail(to, subject, content, file);
+		sendEmail(toList, subject, content, file);
+	}
+
+	public static void sendReport(String to, File file) {
+		List<String> toList = new ArrayList<String>();
+		toList.add(to);
+		sendReport(toList, file);
 	}
 
 	public static void main(String[] args) {

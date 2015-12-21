@@ -158,10 +158,18 @@ public class EmployeeDao {
 	}
 
 	public static String getTeamLeader(String team) throws SQLException {
+		return getEmplolyeeName(team, Role.TL);
+	}
+
+	public static String getDM(String team) throws SQLException {
+		return getEmplolyeeName(team, Role.DM);
+	}
+
+	public static String getEmplolyeeName(String team, Role role) throws SQLException {
 		List<String> employeeList = getEmployeeNameList(team, null);
 		for (String employee : employeeList) {
-			String role = getEmployeeRole(employee, team, null);
-			if (role != null && role.equals(Role.TL.toString())) {
+			String employeeRole = getEmployeeRole(employee, team, null);
+			if (employeeRole != null && employeeRole.equals(role.toString())) {
 				return employee;
 			}
 		}

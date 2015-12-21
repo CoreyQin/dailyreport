@@ -1,6 +1,5 @@
 package com.ob.dailyReport.servlet;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
@@ -31,7 +30,6 @@ public class TaskListServlet extends HttpServlet {
 		String team = request.getParameter("team");
 		String project = request.getParameter("project");
 		Date date = new Date();
-
 		EmployeeReport employeeReport;
 		try {
 			employeeReport = EmployeeReportService.getEmployeeReport(employee, team, date, project);
@@ -57,18 +55,6 @@ public class TaskListServlet extends HttpServlet {
 		}
 		employeeObject.put("taskList", taskArray);
 		return employeeObject.toString();
-	}
-
-	private String getInputJson(HttpServletRequest request) throws IOException {
-		BufferedReader reader = request.getReader();
-		StringBuffer buffer = new StringBuffer();
-		String str;
-		while ((str = reader.readLine()) != null) {
-			buffer.append(str);
-		}
-		// reader.close();
-		System.out.println(buffer.toString());
-		return buffer.toString();
 	}
 
 	/**

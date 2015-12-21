@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Daily Report Input</title>
 <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/color.css">
 <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/themes/icon.css">
 <link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.4/demo/demo.css">
 <style type="text/css">
@@ -40,8 +41,10 @@
 
 	<div>
 		<h2 align="center">Employee Task Today</h2>
+	</div>
+	<div align="center">
 		<table
-			style="width: 900px; height: 130px; margin-left: 180px;margin-bottom: 10px; margin-top: 100px;">
+			style="width: 900px; height: 130px;margin-bottom: 10px; margin-top: 100px;">
 			<tr align="center">
 				<td align="right">Team:</td>
 				<td align="left"><input class="easyui-combobox" id="team" name="team"
@@ -96,7 +99,7 @@
 					class="easyui-validatebox" required="true">
 			</div>
 			<div class="fitem">
-				<label>Eta:</label> <input id="eta" name="eta" class="easyui-validatebox">
+				<label>ETA:</label> <input id="eta" name="eta" class="easyui-validatebox">
 			</div>
 		</form>
 	</div>
@@ -107,17 +110,18 @@
 	</div>
 
 	<!-- plans -->
-	<div style="margin: 80px 60px 10px;">
-		<label style='font-weight: bolder;'>Plans For Tomorrow:</label><br>
+	<div align="center" style="margin-top: 100px;">
+		<label style="font-weight: bolder;margin-left: -750px;">Plans For Tomorrow:</label><br>
+		
 	</div>
-	<div style="margin-left: 60px;">
+	<div align="center" style="margin-left: -260px;margin-top: 10px;">
 		<input class="easyui-textbox" id="plans" name="plans" data-options="multiline:true"
-			style="height: 130px;width:500px"></input>
+			style="height: 130px;width:500px;"></input>
 	</div>
 
 
-	<div align="center" style="margin-top: 60px;">
-		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitReport()">submit</a>
+	<div align="center" style="margin-top: 120px;">
+		<a href="#" class="easyui-linkbutton c6" style="width:120px" onclick="submitReport()">Submit</a>
 	</div>
 
 </body>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import com.ob.dailyReport.service.ReportGenerateService;
@@ -20,6 +21,7 @@ import com.ob.dailyReport.util.ReportFileManager;
 
 public class ReportGenerateServlet extends HttpServlet {
 	
+	private static Logger log = Logger.getLogger(ReportGenerateServlet.class);
 	
 	@Override
 	public void init() throws ServletException {
@@ -37,6 +39,8 @@ public class ReportGenerateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String jsonString = this.getInputJson(request);
+		log.info("input string : " + jsonString);
+		
 		JSONObject dataJson = new JSONObject(jsonString);
 		String teamName = dataJson.getString("team");
 		String dateString = dataJson.getString("date");
@@ -62,7 +66,6 @@ public class ReportGenerateServlet extends HttpServlet {
 			buffer.append(str);
 		}
 		// reader.close();
-		System.out.println(buffer.toString());
 		return buffer.toString();
 	}
 

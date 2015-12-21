@@ -18,26 +18,30 @@ import com.ob.dailyReport.service.ProjectService;
  */
 public class ProjectSaveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ProjectSaveServlet() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ProjectSaveServlet() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String team = request.getParameter("team");
 		String projectName = request.getParameter("project");
 		String level = request.getParameter("level");
-		Project project = new Project(projectName, team, Integer.parseInt(level));
+		String rfa = request.getParameter("rfa");
+		String status = request.getParameter("status");
+		Project project = new Project(projectName, team, rfa, status, Integer.parseInt(level));
 		try {
 			ProjectService.saveProject(project);
-			JSONObject result=new JSONObject();
+			JSONObject result = new JSONObject();
 			result.put("success", "true");
 			response.setContentType("text/html;charset=utf-8");
 			response.getWriter().print(result);
@@ -47,9 +51,11 @@ public class ProjectSaveServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

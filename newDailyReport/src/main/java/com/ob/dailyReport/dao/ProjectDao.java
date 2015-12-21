@@ -13,9 +13,11 @@ public class ProjectDao {
 	public static boolean addProject(Project project) throws SQLException {
 		String projectName = project.getName();
 		String team = project.getTeam();
+		String rfa = project.getRfa();
+		String status = project.getStatus();
 		int level = project.getLevel();
-		String sql = "insert into project (project,team,level) values('" + projectName + "','" + team + "'," + level
-				+ ");";
+		String sql = "insert into project (project,rfa,status,team,level) values('" + projectName + "','" + rfa + "','"
+				+ status + "','" + team + "'," + level + ");";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
 	}
@@ -35,7 +37,9 @@ public class ProjectDao {
 		while (rs.next()) {
 			String projectName = rs.getString("project");
 			int level = rs.getInt("level");
-			Project project = new Project(projectName, team, level);
+			String rfa = rs.getString("rfa");
+			String status = rs.getString("status");
+			Project project = new Project(projectName, team, rfa, status, level);
 			projectList.add(project);
 		}
 		return projectList;
@@ -54,7 +58,9 @@ public class ProjectDao {
 		ResultSet rs = DataBaseHandler.executeQuerySql(sql);
 		if (rs.next()) {
 			int level = rs.getInt("level");
-			Project project = new Project(projectName, team, level);
+			String rfa = rs.getString("rfa");
+			String status = rs.getString("status");
+			Project project = new Project(projectName, team, rfa, status, level);
 			return project;
 		}
 		return null;
@@ -69,21 +75,31 @@ public class ProjectDao {
 	private static String getUpdateSql(Project project) {
 		String projectName = project.getName();
 		String team = project.getTeam();
+		String rfa = project.getRfa();
+		String status = project.getStatus();
 		int level = project.getLevel();
-		StringBuffer sql = new StringBuffer(
-				"update project set level=" + level + " where project='" + projectName + "' and team='" + team + "';");
+		StringBuffer sql = new StringBuffer("update project set level = '" + level + "'");
+		Boolean hasValue = true;
+		if (rfa != null) {
+			updateSql(sql, "rfa", rfa, hasValue);
+		}
+
+		if (status != null) {
+			updateSql(sql, "status", status, hasValue);
+		}
+
+		sql.append(" where project='" + projectName + "' and team='" + team + "';");
 		return sql.toString();
 	}
 
-	// private static StringBuffer updateSql(StringBuffer sql, String
-	// columnName, String value, Boolean hasValue) {
-	// if (value != null) {
-	// if (hasValue) {
-	// sql.append(", ");
-	// }
-	// sql.append(columnName + "='" + value + "'");
-	// }
-	// return sql;
-	// }
+	private static StringBuffer updateSql(StringBuffer sql, String columnName, String value, Boolean hasValue) {
+		if (value != null) {
+			if (hasValue) {
+				sql.append(", ");
+			}
+			sql.append(columnName + "='" + value + "'");
+		}
+		return sql;
+	}
 
 }

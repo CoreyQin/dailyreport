@@ -90,18 +90,18 @@ function initTaskGrid() {
 		},
 		columns : [ [ {
 			field : 'taskDesc',
-			title : 'task description',
+			title : 'Task Description',
 			width : 100
 		}, {
 			field : 'spentHours',
-			title : 'spent hours',
+			title : 'Spent hours',
 			width : 20
 		}, {
 			field : 'eta',
-			title : 'eta',
+			title : 'ETA',
 			width : 30
 		} ] ],
-		title : "task list",
+		title : "Task List",
 		singleSelect : true,
 		fitColumns : true,
 		toolbar : $('#task_toolbar')
