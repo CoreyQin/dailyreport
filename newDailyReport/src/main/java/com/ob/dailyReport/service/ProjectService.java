@@ -15,7 +15,8 @@ public class ProjectService {
 
 	public static void saveProject(Project project) throws SQLException {
 		String projectName = project.getName();
-		if (ProjectDao.isExsit(projectName)) {
+		String team = project.getTeam();
+		if (ProjectDao.isExsit(projectName,team)) {
 			ProjectDao.updateProject(project);
 		} else {
 			ProjectDao.addProject(project);

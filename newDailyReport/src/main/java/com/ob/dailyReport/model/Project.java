@@ -2,10 +2,14 @@ package com.ob.dailyReport.model;
 
 import org.json.JSONObject;
 
+import com.ob.dailyReport.util.Constant;
+
 public class Project {
 
 	private String name;
 	private String team;
+	private String rfa;
+	private String status = Constant.ontrack;
 	private int level = 10;
 
 	public Project() {
@@ -22,6 +26,17 @@ public class Project {
 		super();
 		this.name = name;
 		this.team = team;
+		this.level = level;
+	}
+
+	public Project(String name, String team, String rfa, String status, int level) {
+		super();
+		this.name = name;
+		this.team = team;
+		this.rfa = rfa;
+		if (status != null && !status.equals("")) {
+			this.status = status;
+		}
 		this.level = level;
 	}
 
@@ -49,10 +64,28 @@ public class Project {
 		this.level = level;
 	}
 
+	public String getRfa() {
+		return rfa;
+	}
+
+	public void setRfa(String rfa) {
+		this.rfa = rfa;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public JSONObject toJsonObject() {
 		JSONObject projectObject = new JSONObject();
 		projectObject.put("project", name);
 		projectObject.put("team", team);
+		projectObject.put("rfa", rfa);
+		projectObject.put("status", status);
 		projectObject.put("level", level);
 		return projectObject;
 	}

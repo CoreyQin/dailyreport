@@ -108,4 +108,14 @@
     <servlet-name>TaskListServlet</servlet-name>
     <url-pattern>/TaskListServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeSearchServlet</display-name>
+    <servlet-name>EmployeeSearchServlet</servlet-name>
+    <servlet-class>com.ob.dailyReport.servlet.EmployeeSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeSearchServlet</servlet-name>
+    <url-pattern>/EmployeeSearchServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

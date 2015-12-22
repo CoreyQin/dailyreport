@@ -99,19 +99,19 @@ function initEmployeeGrid() {
 		columns : [ [ {
 			field : 'employee',
 			title : 'employee',
-			width : 50
+			width : 150
 		}, {
 			field : 'project',
 			title : 'project',
-			width : 50
+			width : 490
 		}, {
 			field : 'role',
 			title : 'role',
-			width : 50
+			width : 70
 		}, {
 			field : 'email',
 			title : 'email',
-			width : 50
+			width : 280
 		} ] ],
 		title : "employee list",
 		pagination : true,

@@ -39,31 +39,22 @@ div#users-contain table td, div#users-contain table th {
 <body>
 
 	<div>
-		<h2>user info:</h2>
+		<h2>User Info:</h2>
 		<table style="width: 600px; height: 100px;">
 			<tr>
 				<td align="right">Team:</td>
-				<td align="left"><select id="team">
-						<option></option>
-						<option>team1</option>
-						<option>team2</option>
+				<td align="left"><select id="team" style="width:120px">
 				</select></td>
 				<td align="right">Employee Name:</td>
-				<td align="left"><select id="employee">
-						<!-- <option></option> -->
-						<option>corey</option>
-						<option>gary</option>
+				<td align="left"><select id="employee" style="width:120px">
 				</select></td>
 			</tr>
 			<tr>
 				<td align="right">Project :</td>
-				<td align="left"><select id="project">
-						<option></option>
-						<option>project1</option>
-						<option>project2</option>
+				<td align="left"><select id="project" style="width:220px">
 				</select></td>
 				<td align="right">Role:</td>
-				<td><select id="role">
+				<td><select id="role" style="width:80px">
 						<option>DM</option>
 						<option>DEV</option>
 						<option>QA</option>
@@ -79,14 +70,14 @@ div#users-contain table td, div#users-contain table th {
 
 	</div>
 
-	<div id="dialog-form" title="Create/Edit User">
+	<div id="dialog-form" title="Create/Edit Task">
 		<form>
 			<fieldset>
-				<label for="taskDesc">task desc</label>
+				<label for="taskDesc">Task Desc</label>
 				<textarea id="taskDesc" rows="6" cols="50" class="text"></textarea>
-				<label for="spentHours">spent hours</label> <input type="text"
+				<label for="spentHours">Spent Hours</label> <input type="text"
 					name="spentHours" id="spentHours" value="" class="text" /> <label
-					for="eta">eta</label> <input type="text" name="eta" id="eta"
+					for="eta">Eta</label> <input type="text" name="eta" id="eta"
 					value="" class="text" /> <input type="hidden" name="rowindex"
 					id="rowindex" value="" />
 			</fieldset>
@@ -102,9 +93,9 @@ div#users-contain table td, div#users-contain table th {
 		<table id="task_table">
 			<thead>
 				<tr class="ui-widget-header ">
-					<th>task description</th>
-					<th>spent hours</th>
-					<th>eta</th>
+					<th>Task Description</th>
+					<th>Spent Hours</th>
+					<th>Eta</th>
 					<th style="width: 12em;">Operation</th>
 				</tr>
 			</thead>
@@ -119,7 +110,7 @@ div#users-contain table td, div#users-contain table th {
 	<br>
 	<br>
 	<div>
-		<h2>plans for tomorrow:</h2>
+		<h2>Plans For Tomorrow:</h2>
 		<textarea id="plans" rows="8" cols="100"></textarea>
 	</div>
 
@@ -162,6 +153,7 @@ div#users-contain table td, div#users-contain table th {
 		
 		function getSumbitData(){
 			var employee = $("#employee").val();
+			var team = $("#team").val();
 			var project = $("#project").val();
 			var role = $("#role").val();
 			//var date = new Date();
@@ -181,7 +173,7 @@ div#users-contain table td, div#users-contain table th {
 				}
 			}
 			
-			var jsonString = "{'name':'"+employee+"','project':'"+project+"','role':'"+role+"','taskList':["+tableData+"],'plans':'"+plans+"'}";
+			var jsonString = "{'name':'"+employee+"','team':'"+team+"','project':'"+project+"','role':'"+role+"','taskList':["+tableData+"],'plans':'"+plans+"'}";
 			return jsonString;
 		}
 		
@@ -233,6 +225,25 @@ div#users-contain table td, div#users-contain table th {
 			eta = $( "#eta" ),
 			rowindex = $( "#rowindex" ),
 			allFields = $( [] ).add( taskDesc ).add( spentHours ).add( eta ).add( rowindex );
+		
+		// get team list
+		$.ajax({
+				type : "get",
+				url : "TeamListServlet",
+				success : function(data) {
+					//var teamList = eval("("+data+")"); 
+					var teamArray = eval("("+data+")"); 
+					fillTeamList(teamArray);
+					//fillData2Select($("#team"),teamArray);
+					//teamChanged();
+				},
+				error : function() {
+					console.error("error!");
+				}
+			});
+		
+		$("#team").change(teamChanged);
+		
 		
 		$( "#dialog-form" ).dialog({
 			autoOpen: false,
@@ -312,6 +323,7 @@ div#users-contain table td, div#users-contain table th {
 			$( "#plans").val();
 			
 			var employee = $("#employee").val();
+			var team = $("#team").val();
 			var project = $("#project").val();
 			if(employee == "" || project == ""){
 				return;
@@ -319,7 +331,7 @@ div#users-contain table td, div#users-contain table th {
 			$.ajax({
 					type : "post",
 					url : "ReportSearchServlet",
-					data : "{'name':'"+$("#employee").val()+"','project':'"+$("#project").val()+"'}",
+					data : "{'name':'"+employee+"','team':'"+team+"','project':'"+project+"'}",
 					success : function(data) {
 						if(data == null || data == ""){
 							return;
@@ -345,27 +357,33 @@ div#users-contain table td, div#users-contain table th {
 				})
 		}
 		
-		$("#employee").change(searchTasks);
-		$("#project").change(searchTasks);
-		
-		
-		// change team options
-		$.ajax({
+		var employeeChanged = function(){
+			$.ajax({
 				type : "get",
-				url : "TeamListServlet",
+				data : {employee:$("#employee").val(),team:$("#team").val()},
+				url : "EmployeeSearchServlet",
 				success : function(data) {
 					//var teamList = eval("("+data+")"); 
-					var teamArray = eval("("+data+")"); 
-					fillTeamList(teamArray);
-					//fillData2Select($("#team"),teamArray);
-					teamChanged();
+					var employee = eval("("+data+")"); 
+					var project = employee.project;
+					var role = employee.role;
+					if(project!=null && project!=""){
+						$("#project").val(project);
+					}
+					if(role!=null && role!=""){
+						$("#role").val(role);
+					}
+					searchTasks();
 				},
 				error : function() {
 					console.error("error!");
 				}
-			})
-			
-			
+			});
+		}
+		
+		$("#employee").change(employeeChanged);
+		$("#project").change(searchTasks);
+		
 		function teamChanged(){
 				// change project options
 				$("#project").empty();
@@ -381,12 +399,9 @@ div#users-contain table td, div#users-contain table th {
 							console.error("error!");
 						}
 					})
+				// let project change, so all tasks will be searched again.
+				$("#project").change();
 					
-				/* $.get("ProjectListServlet",{team:$("#team").val()}, function(result){
-					var projectArray = eval("("+data+")");
-					fillProjectList(projectArray);
-				}); */
-			
 				// change employee options
 				$("#employee").empty();
 				$.ajax({
@@ -402,11 +417,6 @@ div#users-contain table td, div#users-contain table th {
 						console.error("error!");
 					}
 				})
-				/* $.get("EmployeeListServlet",{team:$("#team").val()}, function(result){
-					var employeeList = eval("("+result+")"); 
-					var employeeArray = employeeList.rows;
-					fillEmployeeList(employeeArray);
-				}); */
 		}
 		
 		function fillTeamList(teamArray){
@@ -437,11 +447,10 @@ div#users-contain table td, div#users-contain table th {
 			selectWidget.append("<option> - </option>" ); 
 			for(var i= 0; i < optionArray.length;i++){  
 				var option = optionArray[i];
-				selectWidget.append("<option>"+option+"</option>" ); 
+				selectWidget.append("<option value='"+option+"'>"+option+"</option>" ); 
 			}  
 		}
 		
-		$("#team").change(teamChanged);
 	});
 	
 	</script>

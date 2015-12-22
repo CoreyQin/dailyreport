@@ -8,6 +8,8 @@ public class EmployeeReport {
 
 	private String name;
 
+	private String team;
+
 	private String project;
 
 	private String role;
@@ -24,6 +26,14 @@ public class EmployeeReport {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
 	}
 
 	public Date getReportDate() {

@@ -6,10 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 // TODO:need put the connect string into file
 public class DataBaseHandler {
 
 	private static Connection conn;
+	
+	private static Logger log = Logger.getLogger(DataBaseHandler.class);
 
 	private static Connection getConnection() {
 		try {
@@ -19,7 +23,7 @@ public class DataBaseHandler {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/newdailyreport", "dailyreport", "dailyreport");
 		} catch (Exception e) {
-			System.out.println("fail to connect the database : " + e.getMessage());
+			log.error("fail to connect the database : " + e.getMessage());
 		}
 		return conn;
 	}

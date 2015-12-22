@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -17,6 +18,8 @@ import com.ob.dailyReport.model.PageBean;
 import com.ob.dailyReport.service.EmployeeService;
 
 public class EmployeeListServlet extends HttpServlet {
+
+	private static Logger log = Logger.getLogger(EmployeeListServlet.class);
 
 	/**
 	 * 
@@ -28,6 +31,7 @@ public class EmployeeListServlet extends HttpServlet {
 		String teamName = request.getParameter("team");
 		String page = request.getParameter("page");
 		String rows = request.getParameter("rows");
+		log.info("request to get employee list : {team:" + teamName + ",page:" + page + ",rows:" + rows + "}");
 		PageBean pageBean = null;
 		if (page != null && rows != null) {
 			pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
@@ -43,9 +47,10 @@ public class EmployeeListServlet extends HttpServlet {
 			returnJson.put("total", EmployeeService.employeeCount(teamName));
 			// returnJson.put("employeeList", employeeArray);
 			response.getWriter().print(returnJson.toString());
-
+			log.info("return employee list : " + returnJson.toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 	}
 
