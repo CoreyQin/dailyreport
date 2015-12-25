@@ -15,7 +15,7 @@ public class DataBaseHandler {
 	
 	private static Logger log = Logger.getLogger(DataBaseHandler.class);
 
-	private static Connection getConnection() {
+	public static Connection getConnection() {
 		try {
 			if (conn != null && !conn.isClosed()) {
 				return conn;
