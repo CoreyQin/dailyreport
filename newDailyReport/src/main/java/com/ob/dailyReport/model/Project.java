@@ -34,9 +34,7 @@ public class Project {
 		this.name = name;
 		this.team = team;
 		this.rfa = rfa;
-		if (status != null && !status.equals("")) {
-			this.status = status;
-		}
+		this.status = status;
 		this.level = level;
 	}
 

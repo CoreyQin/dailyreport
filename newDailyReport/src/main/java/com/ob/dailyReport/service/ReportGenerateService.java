@@ -2,8 +2,10 @@ package com.ob.dailyReport.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -19,12 +21,13 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import com.ob.dailyReport.model.EmployeeReport;
 import com.ob.dailyReport.model.ProjectReport;
 import com.ob.dailyReport.model.TaskStatus;
+import com.ob.dailyReport.util.Constant;
 import com.ob.dailyReport.util.DateUtil;
 import com.ob.dailyReport.util.StyleManager;
 import com.ob.dailyReport.util.TitleWriter;
 
 public class ReportGenerateService {
-	
+
 	private static Logger log = Logger.getLogger(ReportGenerateService.class);
 
 	private static int currentRowIndex = 0;
@@ -36,18 +39,21 @@ public class ReportGenerateService {
 
 	public static File generateReport(String filePath, String teamName, Date date) throws Exception {
 		HSSFWorkbook wb = new HSSFWorkbook();
-		HSSFSheet sheet = wb.createSheet("sheet1");
+		HSSFSheet sheet = wb.createSheet("report");
+		HSSFSheet summarySheet = wb.createSheet("summary");
 		sheet.setDefaultRowHeight((short) 500);
 		setSheetStyle(sheet);
 		// get data from database, build data to format model
 		// List<ProjectReport> projectList = fakeModel();
+
+		writeTeamSummary(teamName, summarySheet, date);
 
 		List<ProjectReport> projectList = TeamReportHistoryService.getTeamReport(teamName, date);
 		// convert mode data to excel data
 		TitleWriter.write(sheet);
 		convertModel2Excel(sheet, projectList);
 
-		configerSize(sheet);
+//		configerSize(sheet);
 		changeColumnWid(sheet);
 		String reportName = teamName + "_" + DateUtil.FormatDate2String(date) + ".xls";
 		File file = new File(filePath + "\\" + reportName);
@@ -85,11 +91,11 @@ public class ReportGenerateService {
 		sheet.setColumnWidth(6, 50 * 256);
 	}
 
-	private static void configerSize(HSSFSheet sheet) {
-		for (int i = 0; i < 7; i++) {
-			sheet.autoSizeColumn(i, true);
-		}
-	}
+//	private static void configerSize(HSSFSheet sheet) {
+//		for (int i = 0; i < 7; i++) {
+//			sheet.autoSizeColumn(i, true);
+//		}
+//	}
 
 	private static void convertModel2Excel(HSSFSheet sheet, List<ProjectReport> reportList) {
 		currentRowIndex = 2;
@@ -106,8 +112,7 @@ public class ReportGenerateService {
 		HSSFCell project_cell = project_row.createCell(0);
 		// project_cell.setCellValue(new
 		// HSSFRichTextString(project.getProjectName()));
-		configProjectText(project_cell, project.getProjectName(), project.getRfa() ,
-				 project.getStatus() );
+		configProjectText(project_cell, project.getProjectName(), project.getRfa(), project.getStatus());
 		// project_cell.setCellStyle(defaultStyle);
 
 		for (int i = 0; i < project.getEmployeeRList().size(); i++) {
@@ -157,7 +162,7 @@ public class ReportGenerateService {
 		int projectStartRow = project_row.getRowNum();
 		int projectEndRow = currentRowIndex;
 		sheet.addMergedRegion(new CellRangeAddress(projectStartRow, projectEndRow, 0, 0));
-		
+
 	}
 
 	private static void configProjectText(HSSFCell cell, String value, String rfa, String status) {
@@ -172,17 +177,19 @@ public class ReportGenerateService {
 		status_font.setFontName("Calibri");
 
 		HSSFRichTextString ts = null;
-		if(rfa == null || rfa.equals("")){
-			status = "[" + status +"]";
-			ts = new HSSFRichTextString(value + "\n" + status);
-			ts.applyFont(value.length(), ts.length(), status_font);
+		if (rfa == null || rfa.equals("")) {
+			rfa = "";
 		}else{
-			rfa = "(" + rfa +")";
-			status = "[" + status +"]";
-			ts = new HSSFRichTextString(value + "\n" + rfa + "\n" + status);
-			ts.applyFont(value.length(), (value + "\n" + rfa).length(), rfa_font);
-			ts.applyFont((value + "\n" + rfa).length(), ts.length(), status_font);
+			rfa = "\n" + "(" + rfa + ")" ;
 		}
+		if (status == null || status.equals("")) {
+			status = "";
+		}else{
+			status = "\n" + "[" + status + "]";
+		}
+		ts = new HSSFRichTextString(value + rfa + status);
+		ts.applyFont(value.length(), (value + rfa).length(), rfa_font);
+		ts.applyFont((value + rfa).length(), ts.length(), status_font);
 		cell.setCellValue(ts);
 	}
 
@@ -220,48 +227,52 @@ public class ReportGenerateService {
 			HSSFCell eta_cell = task_row.createCell(5);
 			eta_cell.setCellValue(task.getEta());
 		}
-
 	}
 
-	// public static List<ProjectReport> fakeModel() {
-	//
-	// List<ProjectReport> projectList = new ArrayList<ProjectReport>();
-	//
-	// ProjectReport project1 = new ProjectReport("Ford Motor – Hyperfind
-	// Transfer(RFA-31911)");
-	// ProjectReport project2 = new ProjectReport("project2");
-	//
-	// EmployeeReport emp1_report = new EmployeeReport();
-	// emp1_report.setName("Byron Liu");
-	// emp1_report.setReportDate(new Date());
-	// emp1_report.setRole("Dev");
-	// emp1_report.addStatus(new TaskStatus("Support QA on testing and issue
-	// fixing.", 1f, "Done"));
-	// emp1_report.addStatus(new TaskStatus("Support team member for some
-	// issue.", 3f, "Done"));
-	// emp1_report.setPlans("tomorrow");
-	// project1.addEmployeeReport(emp1_report);
-	// project2.addEmployeeReport(emp1_report);
-	//
-	// EmployeeReport emp2_report = new EmployeeReport();
-	// emp2_report.setName("Rebecca Cheng");
-	// emp2_report.setReportDate(new Date());
-	// emp2_report.setRole("QA");
-	// emp2_report.addStatus(
-	// new TaskStatus("Install SP#52 on custom DB environment
-	// (ceng13233-bf6/fordqa2)", 5f, "Done"));
-	// emp2_report.addStatus(
-	// new TaskStatus("Install SP#52 on automation server (ceng13233-bf1) to run
-	// SoapUI tests", 3f, "Done"));
-	// emp2_report.setPlans("tomorrow");
-	// project1.addEmployeeReport(emp2_report);
-	// project2.addEmployeeReport(emp2_report);
-	//
-	// projectList.add(project1);
-	// projectList.add(project2);
-	//
-	// return projectList;
-	// }
+	/**
+	 * 
+	 * @param team
+	 * @param sheet
+	 * @param date
+	 */
+	private static void writeTeamSummary(String team, HSSFSheet sheet, Date date) {
+		try {
+			Map<String, List<String>> summaryMap = TeamSummaryService.getEmployeeWithTaskList(team, date);
+			List<String> employeeWithTasksList = summaryMap.get(Constant.hasTask);
+			List<String> employeeWithoutTasksList = summaryMap.get(Constant.noTask);
+			HSSFCellStyle style = StyleManager.getTitleStyle(sheet.getWorkbook());
+			sheet.setColumnWidth(0, 22 * 256);
+			sheet.setColumnWidth(1, 22 * 256);
+			HSSFRow titleRow = sheet.createRow(0);
+			String title[] = { "employee with task:", "employee without task:" };
+			for (int i = 0; i < title.length; i++) {
+				HSSFCell cell = titleRow.createCell(i);
+				cell.setCellValue(title[i]);
+				cell.setCellStyle(style);
+			}
+
+			for (int i = 0; i < employeeWithTasksList.size(); i++) {
+				String employeeName = employeeWithTasksList.get(i);
+				HSSFRow row = sheet.createRow(i + 1);
+				HSSFCell cell = row.createCell(0);
+				cell.setCellValue(employeeName);
+			}
+
+			for (int i = 0; i < employeeWithoutTasksList.size(); i++) {
+				String employeeName = employeeWithoutTasksList.get(i);
+				if (employeeName != null) {
+					HSSFRow row = sheet.getRow(i + 1);
+					if (row == null) {
+						row = sheet.createRow(i + 1);
+					}
+					HSSFCell cell = row.createCell(1);
+					cell.setCellValue(employeeName);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) throws Exception {
 		generateReport("/", "team1", new Date());

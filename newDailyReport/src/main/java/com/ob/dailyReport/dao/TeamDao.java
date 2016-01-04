@@ -10,7 +10,7 @@ import com.ob.dailyReport.db.DataBaseHandler;
 public class TeamDao {
 
 	public static boolean addTeam(String team) throws SQLException {
-		String sql = "insert into team (team) values('" + team + "';";
+		String sql = "insert into team (team) values('" + team + "');";
 		boolean success = DataBaseHandler.executeSql(sql);
 		return success;
 	}

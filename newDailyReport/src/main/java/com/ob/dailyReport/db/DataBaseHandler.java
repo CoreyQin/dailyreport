@@ -14,6 +14,10 @@ public class DataBaseHandler {
 	private static Connection conn;
 	
 	private static Logger log = Logger.getLogger(DataBaseHandler.class);
+	
+	public static void setconnection(Connection connection){
+		conn = connection;
+	}
 
 	public static Connection getConnection() {
 		try {
@@ -30,16 +34,17 @@ public class DataBaseHandler {
 
 	public static ResultSet executeQuerySql(String sql) throws SQLException {
 		Connection conn = getConnection();
-		Statement st = (Statement) conn.createStatement();
+		Statement st =  conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 		return rs;
 	}
 
 	public static boolean executeSql(String sql) throws SQLException {
 		Connection conn = getConnection();
-		Statement st = (Statement) conn.createStatement();
-		boolean rs = st.execute(sql);
-		return rs;
+		Statement st = conn.createStatement();
+		int rs = st.executeUpdate(sql);
+		
+		return true;
 	}
 
 	// public static void main(String[] args) throws SQLException {

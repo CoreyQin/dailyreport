@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <employee employee="Abby Li" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" email="test@test.com" active="true"/>
+  <employee employee="Andrew Chang" team="Kronos Team3" project="Audit Report - convert to java" role="DEV" email="" active="true"/>
+  <employee employee="Ashley Geng" team="Kronos Team3" project="API Locale Policy Support" role="QA" email="" active="true"/>
+  <employee employee="Barry Fan" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(CENG-15829)" role="DEV" email="bfan@Objectivasoftware.com" active="true"/>
+  <employee employee="Byron Liu" team="Kronos Team1&amp;8" project="Training" role="DEV" email="byronliu@Objectivasoftware.com" active="true"/>
+  <employee employee="Caroline Zhang" team="Kronos Team5" project="SMS Back porting V7(RFA 1000029)" role="QA" active="true"/>
+  <employee employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" active="true"/>
+  <employee employee="Charles Qian" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" email="charlesqian@Objectivasoftware.com" active="true"/>
+  <employee employee="Chester Zhang" team="Kronos Team1&amp;8" project="Resources Support in  Team 3" role="DEV" email="chesterzhang@Objectivasoftware.com" active="true"/>
+  <employee employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" email="christinecai@Objectivasoftware.com" active="true"/>
+  <employee employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" email="cobyguo@Objectivasoftware.com" active="true"/>
+  <employee employee="coreytest" team="Kronos Team3" project="coreytest_project" role="DEV" email="" active="true"/>
+  <employee employee="coreytest" team="Kronos Team5" project="coreytest_project" role="DEV" email="" active="true"/>
+  <employee employee="Edmund Shi" team="Kronos Team1&amp;8" project="Resources Support in  Team 3" role="DEV" email="edmundshi@Objectivasoftware.com" active="true"/>
+  <employee employee="Eric Yao" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support&#xA;(RFA-32016)(CENG-15829)" role="ARCH" email="eyao@Objectivasoftware.com" active="true"/>
+  <employee employee="Eva Ren" team="Kronos Team3" project="API Update Action " role="QA" email="" active="true"/>
+  <employee employee="Frida Yang" team="Kronos Team3" project="API Locale Policy Support" role="QA" email="" active="true"/>
+  <employee employee="Gavin Wang" team="Kronos Team3" project="API Locale Policy Support" role="DEV" email="" active="true"/>
+  <employee employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" active="true"/>
+  <employee employee="James Li" team="Kronos Team3" project="Rest Day Rule" role="QA" email="" active="true"/>
+  <employee employee="Jonathan Feng" team="Kronos Team5" project="-" role="ARCH" email="" active="true"/>
+  <employee employee="Josh Li" team="Kronos Team5" role="TL" email="joshli@Objectivasoftware.com" active="true"/>
+  <employee employee="Julia Zhang" team="Kronos Team3" project="Shift tolerance - technical debt" role="QA" email="" active="true"/>
+  <employee employee="Karen Meng" team="Kronos Team3" project="Audit Report - convert to java" role="QA" email="" active="true"/>
+  <employee employee="Lisa Li" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support&#xA;(RFA-32016)(CENG-15829)" role="QA" email="lisali@Objectivasoftware.com" active="true"/>
+  <employee employee="Maria Deng" team="Kronos Team5" project="SMS Backporting V7(RFA 1000030)" role="QA" active="true"/>
+  <employee employee="Neal Chen" team="Kronos Team3" project="Shift tolerance - technical debt" role="DEV" email="" active="true"/>
+  <employee employee="Nolan Lu" team="Kronos Team3" project="Audit Report - convert to java" role="DEV" email="" active="true"/>
+  <employee employee="Patrick" team="Kronos Team3" project="Rest Day Rule" role="DEV" email="" active="true"/>
+  <employee employee="Patrick Wang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" active="true"/>
+  <employee employee="Queenie Li" team="Kronos Team1&amp;8" project="Resources Support in  Team 3" role="QA" email="queenieli@Objectivasoftware.com" active="true"/>
+  <employee employee="Quentin Qin" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" active="true"/>
+  <employee employee="Rebacca Cheng" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="QA" email="rcheng@Objectivasoftware.com" active="true"/>
+  <employee employee="Sabrina Liu" team="Kronos Team3" project="API Locale Policy Support" role="DEV" email="" active="true"/>
+  <employee employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support&#xA;(RFA-32016)(CENG-15829)" role="TL" email="sxiao@Objectivasoftware.com" active="true"/>
+  <employee employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" active="true"/>
+  <employee employee="Timothy Yang" team="Kronos Team3" project="-" role="DEV" email="" active="true"/>
+  <employee employee="Timothy Yang" team="Kronos Team5" project="Click Software SHA2 testing" role="DEV" active="true"/>
+  <employee employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" active="true"/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-15" project="8.0 Stabilization (RFA-1000047)" plans=""/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-16" project="8.0 Stabilization (RFA-1000047)" plans=""/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-16" project="Resources Support in  Team 3" plans="YWY="/>
+  <plans_info employee="Charles Qian" team="Kronos Team1&amp;8" date="2015-12-16" project="8.0 Stabilization (RFA-1000047)" plans="YXNkZg=="/>
+  <plans_info employee="Charles Qian" team="Kronos Team1&amp;8" date="2015-12-16" project="Cross Project Automation (UFT)" plans="YXNkZmFzZGY="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-16" project="Training" plans="YXNkZmE="/>
+  <plans_info employee="coreytest" team="Kronos Team5" date="2015-12-16" project="Click Software SHA2 testing" plans="YWFhYWE="/>
+  <plans_info employee="coreytest" team="Kronos Team5" date="2015-12-16" project="coreytest_projectasdf" plans="YXNkZmE="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="8.0 Stabilization (RFA-1000047)" plans=""/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans="YXNkZmFzZGZhc2RmYXNkZmEKCmNvcmV5J3MgcGxhbg=="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="Resources Support in  Team 3" plans="YXNkZmFzZGY="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="Cross Project Automation (UFT)" plans="YXNkZg=="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM(RFA-32445)" plans="YXNkZg=="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="8.0 Stabilization" plans="YXNkZmFzZGY="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="Cross Project Automation" plans="YWFhIGEKYXNkZmE="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM" plans="YXNkZg=="/>
+  <plans_info employee="coreytest" team="Kronos Team5" date="2015-12-15" project="-" plans=""/>
+  <plans_info employee="coreytest" team="Kronos Team1&amp;8" date="2015-12-15" project="-" plans=""/>
+  <plans_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" date="2015-12-15" project="8.0 Stabilization (RFA-1000047)" plans="U3VwcG9ydCBEZXZlbG9wZXIgb24gaXNzdWUgZml4aW5n"/>
+  <plans_info employee="Christine Cai" team="Kronos Team1&amp;8" date="2015-12-15" project="LAM(RFA-32445)" plans="UmVzZWFyY2ggdGhlIGRvY3VtZW50IGZvciBTdGF0ZW1lbnQgb2YgV29yayBmb3IgTEFNIGFuZCBwZXJmb3JtYW5jZSB0ZXN0IGRvY3VtZW50Lg=="/>
+  <plans_info employee="Charles Qian" team="Kronos Team1&amp;8" date="2015-12-15" project="8.0 Stabilization (RFA-1000047)" plans="QW5hbHlzaXMgYW5kIHJlcHJvZHVjZSBDRU5HLTE2MjIxIGlzc3Vl"/>
+  <plans_info employee="Queenie Li" team="Kronos Team1&amp;8" date="2015-12-15" project="Resources Support in Team 3" plans="U3VwcG9ydCBpbiBUZWFtIDM="/>
+  <plans_info employee="Victoria Chang" team="Kronos Team5" date="2015-12-15" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Stephanie Yang" team="Kronos Team5" date="2015-12-15" project="State Sick Leave SU1(RFA 1000036)" plans="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKMg=="/>
+  <plans_info employee="Donna Wu" team="Kronos Team5" date="2015-12-15" project="8.0 stabilization(RFA 100047)" plans="Rml4IHRoZSBDRU5HLTE2MzA1IGlzc3VlIG9mIDguMCBTdGFiaWxpemF0aW9u"/>
+  <plans_info employee="Donna Wu" team="Kronos Team5" date="2015-12-15" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Edmund Shi" team="Kronos Team1&amp;8" date="2015-12-15" project="Resources Support in Team 3" plans="U3VwcG9ydCB0ZWFtMw=="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-15" project="8.0 Stabilization (RFA-1000047)" plans="UmVzZWFyY2ggbmV3IGJ1ZyBpbiBKSVJB"/>
+  <plans_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" date="2015-12-15" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans="RGVzaWduIGFuZCBmaW5hbGl6ZSB0aGUgc29sdXRpb24gZm9yIHJlcXVpcmVtZW50IGJhc2VkIG9uIHRoZSBjb25maXJtYXRpb24gZnJvbSBFRC4="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-15" project="Training" plans="RmFtaWxpYXJpemUgbXlzZWxmIHdpdGggcmVzZWFyY2hpbmcgSlMgZm9yIFJGQS0zMjQ0NSBMQU0gcHJvamVjdC4="/>
+  <plans_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" date="2015-12-15" project="8.0 Stabilization (RFA-1000047)" plans="Ti9B"/>
+  <plans_info employee="Holly Ren" team="Kronos Team5" date="2015-12-15" project="State Sick Leave SU1(RFA 1000036)" plans="SW50ZWdyYXRpb24gdGVzdCBvbiByZmExMDAwMDM2LXBqNS4="/>
+  <plans_info employee="Holly Ren" team="Kronos Team5" date="2015-12-15" project="State Sick Leave SU1(RFA 1000036)" plans="SW50ZWdyYXRpb24gdGVzdCBvbiByZmExMDAwMDM2LXBqNS4="/>
+  <plans_info employee="Coby Guo" team="Kronos Team1&amp;8" date="2015-12-15" project="Cross Project Automation (UFT)" plans="QWxsIHRoZSBVRlQgY2FzZXMgaGF2ZSBiZWVuIGZpbmlzaGVkIGFuZCBzdGFydCBvbiBTdGFiaWxpemF0aW9uIA=="/>
+  <plans_info employee="Josh Li" team="Kronos Team5" date="2015-12-15" project="-" plans="MS4gIHByb2plY3QgcmVwb3J0IGFuZCBzdW1tYXJ5LgoyLiAgU3VwcG9ydCBvbiBhbnkgb3BlbiBpc3N1ZXMuCjMuICA4LjAgc3RhYmlsaXphdGlvbiBmaXguCg=="/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-15" project="8.0 stabilization(RFA 100047)" plans="VmVyaWZ5aW5nIDguMCBlb3UgVVQgZmFpbHVyZSBpc3N1ZXM="/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-15" project="State Sick LeaveSU2(RFA 1000037)" plans="IA=="/>
+  <plans_info employee="Lisa Li" team="Kronos Team1&amp;8" date="2015-12-15" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans="VGVzdCBjYXNlIGRlc2lnbiBmb3IgbmV3IHJlcXVpcmVtZW50Lg=="/>
+  <plans_info employee="Chester Zhang" team="Kronos Team1&amp;8" date="2015-12-15" project="Resources Support in Team 3" plans="U3VwcG9ydCB0ZWFtIDMu"/>
+  <plans_info employee="Eric Yao" team="Kronos Team1&amp;8" date="2015-12-15" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans="REVWIHN1cHBvcnQ="/>
+  <plans_info employee="Caroline Zhang" team="Kronos Team5" date="2015-12-15" project="State Sick LeaveSU2(RFA 1000037)" plans="aW50ZWdyYXRpb24gdGVzdGluZyBmb3IgU1UyIG9uIE1TUw=="/>
+  <plans_info employee="Quentin Qin" team="Kronos Team5" date="2015-12-15" project="State Sick Leave SU1(RFA 1000036)" plans="Vjggc3RhYmxpemF0aW9uIGlzc3Vl"/>
+  <plans_info employee="Abby Li" team="Kronos Team5" date="2015-12-15" project="State Sick Leave SU1(RFA 1000036)" plans=""/>
+  <plans_info employee="Maria Deng" team="Kronos Team5" date="2015-12-15" project="8.0 stabilization(RFA 100047)" plans="RG8gcGVyZm9ybWFuY2UgdGVzdCBmb3IgU1UwMS4="/>
+  <plans_info employee="Abby Li" team="Kronos Team5" date="2015-12-15" project="8.0 stabilization(RFA 100047)" plans="SW52ZXN0aWdhdGUgYW5kIGZpeCBidWcgV0ZDLTExNzQ1"/>
+  <plans_info employee="Felicia Zhang" team="Kronos Team9" date="2015-12-16" project="Zero Down 2 Core Project (RFA-25226-8.x Zero Down in Core)" plans="VGVzdGluZyBBUEkgb2YgGFJ1biB6ZXJvIGRvd24ZIGFuZCB2ZXJpZnkgYnVncy4="/>
+  <plans_info employee="coreytest" team="Kronos Team5" date="2015-12-16" project="8.0 stabilization(RFA 100047)" plans=""/>
+  <plans_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" date="2015-12-16" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans="VXBsb2FkIFNhbWwgdG9vbCB0byB0aGlyZFBhcnR5IHN0cmVhbS4="/>
+  <plans_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" date="2015-12-16" project="LAM(RFA-32445)" plans="QW5hbHl6ZSByZXF1aXJlbWVudCBhbmQgcHJlcGFyZSBzdG9yeSBkb2N1bWVudC4="/>
+  <plans_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" date="2015-12-16" project="LAM(RFA-32445)" plans="UmVxdWlyZW1lbnQgUmVzZWFyY2ggZm9yIExBTQ=="/>
+  <plans_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" date="2015-12-16" project="8.0 Stabilization (RFA-1000047)" plans="Ti9B"/>
+  <plans_info employee="Charles Qian" team="Kronos Team1&amp;8" date="2015-12-16" project="8.0 Stabilization (RFA-1000047)" plans="U2V0IHVwIGVvdSBkZXZlbG9wbWVudCBlbnZpcm9ubWVudCBhbmQgZml4IENFTkctMTYyMjEgaXNzdWU="/>
+  <plans_info employee="Christine Cai" team="Kronos Team1&amp;8" date="2015-12-16" project="LAM(RFA-32445)" plans="UmVzZWFyY2ggdGhlIGRvY3VtZW50IGZvciBTdGF0ZW1lbnQgb2YgV29yayBmb3IgTEFN"/>
+  <plans_info employee="Edmund Shi" team="Kronos Team1&amp;8" date="2015-12-16" project="Resources Support in Team 3" plans=""/>
+  <plans_info employee="Quentin Qin" team="Kronos Team5" date="2015-12-16" project="8.0 stabilization(RFA 100047)" plans=""/>
+  <plans_info employee="Quentin Qin" team="Kronos Team5" date="2015-12-16" project="State Sick Leave SU1(RFA 1000036)" plans="U0FGIGFuYWx5c2lzCkJ1ZyB2ZXJpZmljYXRpb24="/>
+  <plans_info employee="Quentin Qin" team="Kronos Team5" date="2015-12-16" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Stephanie Yang" team="Kronos Team5" date="2015-12-16" project="State Sick Leave SU1(RFA 1000036)" plans="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKMg=="/>
+  <plans_info employee="Queenie Li" team="Kronos Team1&amp;8" date="2015-12-16" project="Resources Support in Team 3" plans=""/>
+  <plans_info employee="Victoria Chang" team="Kronos Team5" date="2015-12-16" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-16" project="8.0 stabilization(RFA 100047)" plans=""/>
+  <plans_info employee="Lisa Li" team="Kronos Team1&amp;8" date="2015-12-16" project="8.0 Stabilization (RFA-1000047)" plans="UGlja2luZyBKaXJhIGFuZCByZXByb2R1Y2luZyBpc3N1ZS4="/>
+  <plans_info employee="Lisa Li" team="Kronos Team1&amp;8" date="2015-12-16" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans=""/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-16" project="State Sick LeaveSU2(RFA 1000037)" plans="U3RhdGUgU2ljayBMZWF2ZSBTdTAyIGVycm9yIG1lc3NhZ2UgaXNzdWUgZml4ZWQ="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-16" project="Training" plans="Ti9B"/>
+  <plans_info employee="Coby Guo" team="Kronos Team1&amp;8" date="2015-12-16" project="Cross Project Automation (UFT)" plans="VmVyaWZ5IFVGVCB0ZXN0IGNhc2VzIG9uIHRoZSBsYXRlc3Qgc2VydmljZSBwYWNrIHZpYSBTQUY="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-16" project="LAM(RFA-32445)" plans="U2V0dXAgZGV2ZWxvcG1lbnQgZW52aXJvbm1lbnQu"/>
+  <plans_info employee="Chester Zhang" team="Kronos Team1&amp;8" date="2015-12-16" project="Resources Support in Team 3" plans=""/>
+  <plans_info employee="Holly Ren" team="Kronos Team5" date="2015-12-16" project="State Sick Leave SU1(RFA 1000036)" plans="MS5JbnRlZ3JhdGlvbiB0ZXN0IG9uIHJmYTEwMDAwMzYtcGo1"/>
+  <plans_info employee="Donna Wu" team="Kronos Team5" date="2015-12-16" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Donna Wu" team="Kronos Team5" date="2015-12-16" project="8.0 stabilization(RFA 100047)" plans="MS4gRml4IHRoZSBXRkMtMTE3MDYgaXNzdWUgb2YgOC4wIFN0YWJpbGl6YXRpb24KMi4gRml4IHRoZSBDRU5HLTE2MzA1IGlzc3VlIG9mIDguMCBTdGFiaWxpemF0aW9u"/>
+  <plans_info employee="Chester Zhang" team="Kronos Team3" date="2015-12-16" project="API Update Action" plans="TW9kaWZ5IHJlbGF0ZWQgVVQgYWJvdXQgY29kZSBhZnRlciByZWZhY3RvcmluZy4="/>
+  <plans_info employee="Abby Li" team="Kronos Team5" date="2015-12-16" project="State Sick Leave SU1(RFA 1000036)" plans="Rml4IGJ1ZyBhbmQgaW52ZXN0aWdhdGUgaGlzdG9yaWNhbCBlZGl0IGZvciBzaWNrIGxlYXZl"/>
+  <plans_info employee="Maria Deng" team="Kronos Team5" date="2015-12-16" project="State Sick Leave SU1(RFA 1000036)" plans="RG8gc3RhYmlsaXphdGlvbiBwcm9qZWN0Lg=="/>
+  <plans_info employee="Josh Li" team="Kronos Team5" date="2015-12-16" project="-" plans="MS4gIHByb2plY3QgcmVwb3J0IGFuZCBzdW1tYXJ5LgoyLiAgU3VwcG9ydCBvbiBhbnkgb3BlbiBpc3N1ZXMuCjMuICA4LjAgc3RhYmlsaXphdGlvbiBmaXguCg=="/>
+  <plans_info employee="Caroline Zhang" team="Kronos Team5" date="2015-12-16" project="State Sick LeaveSU2(RFA 1000037)" plans="aW50ZWdyYXRpb24gdGVzdGluZyBvbiBtc3Mgc2VydmVy"/>
+  <plans_info employee="Jonathan Feng" team="Kronos Team5" date="2015-12-16" project="State Sick Leave SU1(RFA 1000036)" plans=""/>
+  <plans_info employee="Jonathan Feng" team="Kronos Team5" date="2015-12-16" project="-" plans="VGVjaG5pY2FsIHN1cHBvcnQ="/>
+  <plans_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM(RFA-32445)" plans="UmVzZWFyY2ggdGVzdCBzdHJhdGVneSBpZiBpdCBpcyB1cGxvYWRlZCBvbiB0aGUgU2hhcmVQb2ludA=="/>
+  <plans_info employee="Eric Yao" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM(RFA-32445)" plans="UmVxdWlyZW1lbnQgc3VwcG9ydC4="/>
+  <plans_info employee="Edmund Shi" team="Kronos Team1&amp;8" date="2015-12-17" project="Resources Support in Team 3" plans=""/>
+  <plans_info employee="Stephanie Yang" team="Kronos Team5" date="2015-12-17" project="State Sick Leave SU1(RFA 1000036)" plans="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKMiA="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM(RFA-32445)" plans="UmVzZWFyY2ggdGltZWNhcmQgSlMgb24gdGhlIFdGQyA4LjAuNy4="/>
+  <plans_info employee="Christine Cai" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM(RFA-32445)" plans="TGVhcm5pbmcgdGhlIHJlbGF0ZWQgYnVzaW5lc3Mga25vd2xlZGdlIG9mIFRpbWVDYXJkIGFuZCByZXNlYXJjaCByZWxhdGVkIGRvY3VtZW50cyBmb3IgTEFN"/>
+  <plans_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" date="2015-12-17" project="8.0 Stabilization (RFA-1000047)" plans="Ti9B"/>
+  <plans_info employee="Lisa Li" team="Kronos Team1&amp;8" date="2015-12-17" project="8.0 Stabilization (RFA-1000047)" plans="U3VwcG9ydCBkZXZlbG9wZXIgb24gZml4aW5nIGlzc3VlLg=="/>
+  <plans_info employee="Holly Ren" team="Kronos Team5" date="2015-12-17" project="State Sick Leave SU1(RFA 1000036)" plans="MS5JbnRlZ3JhdGlvbiB0ZXN0IG9uIHJmYTEwMDAwMzYtcGo1Lg=="/>
+  <plans_info employee="Charles Qian" team="Kronos Team1&amp;8" date="2015-12-17" project="8.0 Stabilization (RFA-1000047)" plans="U2V0IHVwIEVPVSBEZXZlbG9wbWVudCBFbnZpcm9ubWVudA=="/>
+  <plans_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" date="2015-12-17" project="LAM(RFA-32445)" plans="UmVxdWlyZW1lbnQgYW5hbHlzaXMu"/>
+  <plans_info employee="Maria Deng" team="Kronos Team5" date="2015-12-17" project="8.0 stabilization(RFA 100047)" plans=""/>
+  <plans_info employee="Coby Guo" team="Kronos Team1&amp;8" date="2015-12-17" project="Cross Project Automation (UFT)" plans="MS4gUmVzZWFyY2gga25vd2xlZGdlIG9uIHRpbWVjYXJkCjIuIHZlcmlmeSB0ZXN0IGNhc2VzIG9uIFVGVA=="/>
+  <plans_info employee="Caroline Zhang" team="Kronos Team5" date="2015-12-17" project="State Sick LeaveSU2(RFA 1000037)" plans="aW50ZWdyYXRpb24gdGVzdGluZyBvbiBtc3Mgc2VydmVy"/>
+  <plans_info employee="Chester Zhang" team="Kronos Team1&amp;8" date="2015-12-17" project="Resources Support in Team 3" plans="U3VwcG9ydCB0ZWFtIDMu"/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-17" project="8.0 stabilization(RFA 100047)" plans="UkZBMTAwMDA0NyAgdmVyaWZ5IHNvbWUgZW91LmZlYXR1cmUgIFVUIGZhaWx1cmUgaXNzdWVz"/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-17" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Victoria Chang" team="Kronos Team5" date="2015-12-17" project="State Sick LeaveSU2(RFA 1000037)" plans=""/>
+  <plans_info employee="Abby Li" team="Kronos Team5" date="2015-12-17" project="State Sick Leave SU1(RFA 1000036)" plans="UmVzZWFyY2ggaGlzdG9yaWNhbCBlZGl0IGZvciBzdGF0ZSBzaWNrIGxlYXZl"/>
+  <plans_info employee="Queenie Li" team="Kronos Team1&amp;8" date="2015-12-17" project="Resources Support in Team 3" plans="U3VwcG9ydCB0ZWFtIDM="/>
+  <plans_info employee="Donna Wu" team="Kronos Team5" date="2015-12-17" project="8.0 stabilization(RFA 100047)" plans="MS5GaXggdGhlIFdGQy0xMTcwNiBpc3N1ZSBvZiA4LjAgU3RhYmlsaXphdGlvbiAKMi5GaXggdGhlIFdGQy0xMjA1MiBpc3N1ZSBvZiA4LjAgU3RhYmlsaXphdGlvbg=="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-18" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" plans="YXNkZmFkZg=="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-18" project="coreytest" plans="YXNkZg=="/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2015-12-18" project="State Street Core SAML 2.0 Support(CENG-15829)" plans="YXNkZmFzZGY="/>
+  <plans_info employee="Carson Zhu" team="Kronos Team5" date="2015-12-21" project="State Sick LeaveSU2(RFA 1000037)" plans="ZmFzZGZhc2Rm"/>
+  <plans_info employee="Holly Ren" team="Kronos Team5" date="2015-12-21" project="coreytest_project" plans="YXNkZmFzZGY="/>
+  <plans_info employee="coreytest" team="Kronos Team5" date="2015-12-21" project="coreytest_project" plans="YXNkZmFzZGZhCmFzZGZhc2Rm"/>
+  <plans_info employee="Barry Fan" team="Kronos Team1&amp;8" date="2016-01-04" project="State Street Core SAML 2.0 Support(CENG-15829)" plans="YXNkZmFzZGY="/>
+  <plans_info employee="Byron Liu" team="Kronos Team1&amp;8" date="2016-01-04" project="Training" plans="YXNkZgphc2RmYXNkZgoyMTMyMQ=="/>
+  <project project="-" team="Kronos Team5" level="10"/>
+  <project project="8.0 Stabilization" team="Kronos Team1&amp;8" rfa="" status="On track" level="10"/>
+  <project project="API Locale Policy Support" team="Kronos Team3" level="10"/>
+  <project project="API Update Action " team="Kronos Team3" level="10"/>
+  <project project="Audit Report - convert to java" team="Kronos Team3" level="10"/>
+  <project project="Click Software SHA2 testing" team="Kronos Team5" rfa="testFfa" status="On track" level="5"/>
+  <project project="coreytest" team="Kronos Team1&amp;8" rfa="sdf" status="On track" level="10"/>
+  <project project="coreytest_project" team="Kronos Team3" level="10"/>
+  <project project="coreytest_project" team="Kronos Team5" rfa="testFfa" status="On track" level="11"/>
+  <project project="coreytest_project_10" team="Kronos Team5" level="10"/>
+  <project project="Cross Project Automation" team="Kronos Team1&amp;8" rfa="UFT" level="10"/>
+  <project project="LAM" team="Kronos Team1&amp;8" rfa="RFA-32445" level="10"/>
+  <project project="Resources Support in  Team 3" team="Kronos Team1&amp;8" rfa="" status="Has issue" level="10"/>
+  <project project="Rest Day Rule" team="Kronos Team3" level="10"/>
+  <project project="SMS Back porting V7(RFA 1000029)" team="Kronos Team5" level="10"/>
+  <project project="SMS Backporting V7(RFA 1000030)" team="Kronos Team5" level="10"/>
+  <project project="State Sick Leave SU1(RFA 1000036)" team="Kronos Team5" level="10"/>
+  <project project="State Sick LeaveSU2(RFA 1000037)" team="Kronos Team5" level="10"/>
+  <project project="State Street Core SAML 2.0 Support" team="Kronos Team1&amp;8" level="10"/>
+  <project project="State Street Core SAML 2.0 Support(CENG-15829)" team="Kronos Team1&amp;8" rfa="RFA-32016" status="On track" level="10"/>
+  <project project="Training" team="Kronos Team1&amp;8" rfa="" status="On track" level="9"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="8.0 Stabilization" role="DEV" date="2015-12-17" task_desc="YXNkZmFzZGZh" hours="2.0" eta="2"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="Cross Project Automation" role="DEV" date="2015-12-17" task_desc="YXNkZmFzZGZhc2RmYXNkZmFzZGZhZGY=" hours="2.0" eta="2"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="LAM" role="DEV" date="2015-12-17" task_desc="YXNkZmFzZGY=" hours="3.0" eta="3"/>
+  <task_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="QA" date="2015-12-15" task_desc="UmVzZWFyY2ggdGhlIGlzc3VlIGZyb20gSklSQSBvbiBSRkExMDAwNDctYmYxOjxicj5XRkMtMTE4NzcvV0ZDLTExOTYzL0NFTkctMTUxMTEvQ0VORy0xMzg4Ng==" hours="8.0" eta="12/16/2015"/>
+  <task_info employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-15" task_desc="UmVzZWFyY2ggdGhlIGRvY3VtZW50IGZvciBTdGF0ZW1lbnQgb2YgV29yayBmb3IgTEFNOkFkZGl0aW9uYWwgcHJvamVjdCBhc3N1bXB0aW9ucyA8QlI+" hours="4.0" eta="Done"/>
+  <task_info employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-15" task_desc="UmVzZWFyY2ggZG9jdW1lbnQgOkhvdyB0byBUcmFjayBCdWdzIHdpdGggQnVnemlsbGE=" hours="4.0" eta="Done"/>
+  <task_info employee="Charles Qian" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" date="2015-12-15" task_desc="QW5hbHl6ZWQgYW5kIHJlcHJvZHVjZWQgQ0VORy0xNjIyMSBpc3N1ZSg3MCUp" hours="8.0" eta="12/16/2015"/>
+  <task_info employee="Queenie Li" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="QA" date="2015-12-15" task_desc="U3VwcG9ydCBpbiBUZWFtIDM=" hours="8.0" eta="Done"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-15" task_desc="RGVzaWduIHRoZSBTdGF0ZSBTaWNrIExlYXZlIFNVMiBwZXJmb3JtYW5jZSB0ZXN0IHNjZW5hcmlvcw==" hours="3.0" eta="12/15/2015"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-15" task_desc="VmVyaWZ5IDggQnVncyBvbiBCdWdGcmVlIGFuZCA1IGFyZSBub3QgcGFzcw==" hours="2.0" eta="12/15/2015"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-15" task_desc="VXBkYXRlIFN0YXRlIFNpY2sgTGVhdmUgU1UyIGVuZCB0byBlbmQgYXV0b21hdGlvbiBzY3JpcHQgb24gcmZhMTAwMDAzNy1qbDEoMTAwJSkuPEJSPg==" hours="3.0" eta="12/15/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="UmVwb3J0IHJlZ3Jlc3Npb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKNSATIDEwJTxCUj4=" hours="1.0" eta="12/15/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKMiATIDMwJQ==" hours="7.0" eta="12/15/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-15" task_desc="UmVzZWFyY2ggYW5kIGZpeCB0aGUgQ0VORy0xNjMwNSBpc3N1ZSBvZiA4LjAgU3RhYmlsaXphdGlvbigzMCUpICA=" hours="7.0" eta="12/17/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-15" task_desc="QXR0ZW5kIHRoZSByZXZpZXcgbWVldGluZyBmb3IgdGhlIFNVMiBwZXJmb3JtYW5jZSB0ZXN0IHNjZW5hcmlvcw==" hours="1.0" eta="12/15/2015"/>
+  <task_info employee="Edmund Shi" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="DEV" date="2015-12-15" task_desc="U3VwcG9ydCB0ZWFtMw==" hours="8.0" eta="Ongoing"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" date="2015-12-15" task_desc="UmVzZWFyY2ggdGhlIGZ1bmN0aW9uIGNvZGUgY2F1c2UgdGhpcyB3ZmMtMTE0ODIgaXNzdWUu" hours="4.0" eta="Ongoing"/>
+  <task_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" role="TL" date="2015-12-15" task_desc="UmVzZWFyY2ggb24gdGhlIG5ldyByZXF1aXJlbWVudA==" hours="6.0" eta="Done"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="Training" role="DEV" date="2015-12-15" task_desc="RmFtaWxpYXJpemUgbXlzZWxmIHdpdGggcmVzZWFyY2hpbmcgSlMgZm9yIFJGQS0zMjQ0NSBMQU0gcHJvamVjdC4=" hours="4.0" eta="done"/>
+  <task_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="TL" date="2015-12-15" task_desc="U3VwcG9ydCB0ZWFtLg==" hours="2.0" eta="Done"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="Mi5JbnRlZ3JhdGlvbiB0ZXN0IG9uIHJmYTEwMDAwMzYtcGo1KFNRTCwgYnVpbGQgIzQ2KS4oMTAlKQ==" hours="5.0" eta="12/21/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="My4JVmVyaWZpZWQgYW5kIENsb3NlZCBidWcgNjUxLg==" hours="1.0" eta="12/15/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="MS4JVG91Y2ggdGVzdCBQYXkgUnVsZSBBdWRpdCBSZXBvcnQuIChkb25lKQ==" hours="2.0" eta="12/15/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="Mi5JbnRlZ3JhdGlvbiB0ZXN0IG9uIHJmYTEwMDAwMzYtcGo1KFNRTCwgYnVpbGQgIzQ2KS4oMTAlKQ==" hours="5.0" eta="12/21/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="My4JVmVyaWZpZWQgYW5kIENsb3NlZCBidWcgNjUxLg==" hours="1.0" eta="12/15/2015"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-15" task_desc="UkZBMjk4MTk8YnI+RXhlY3V0ZSBhbmQgdmVyaWZ5IGNvcHkgYWN0aXZpdHkgZGV0YWlscyBvbiBzdWl0ZSBwcm9kdWN0aW9uIHN0cmVhbQ==" hours="3.0" eta="Done"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-15" task_desc="UkZBMzEzNjQgPGJyPkV4ZWN1dGUgYW5kIHZlcmlmeSB3ZWIgZm9ybSBhY3Rpdml0eSBxdWVyeSBvbiBzdWl0ZSBwcm9kdWN0aW9uIHN0cmVhbTxicj4=" hours="2.0" eta="Done"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-15" task_desc="UkZBMzEzNjU8YnI+RXhlY3V0ZSBhbmQgdmVyaWZ5IG1hbmFnZXIgYXBwcm92YWwgb3ZlcnJpZGUgb24gc3VpdGUgcHJvZHVjdGlvbiBzdHJlYW08YnI+" hours="3.0" eta="Done"/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-15" task_desc="U1UyIHBlcmZvcm1hbmNlIGludGVyYW5sIHJldmlldyBhbmQgZGlzY3Vlc3Npb24=" hours="2.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-15" task_desc="SlJJQSBpc3N1ZSB0cmFja2luZyBhbmQgY29uZmlybSBvcGVuIHF1ZXN0aW9ucyB3aXRoIHRlYW0=" hours="2.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-15" task_desc="WE1MIEFQSSBmZWF0dXJlIHN3aXRjaCBjb25maXJtIHdpdGggdGVhbSBhbmQgaW50ZXJuYWwgZGlzY3Vlc3Npb24gd2l0aCBvdGhlciB0ZWFt" hours="1.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-15" task_desc="SGVscCB0ZWFtIGNsYXJpZnkgaXNzdWUgYW5kIHRyYWNrIHRoZSBwcm9qZWN0IHN0YXR1cw==" hours="2.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-15" task_desc="UHJvamVjdCByZXBvcnQgLCBtYW5hZ2VtZW50IGFuZCBtZWV0aW5n" hours="1.0" eta=""/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-15" task_desc="VmVyaWZ5aW5nIDguMCBlb3UgVVQgZmFpbHVyZSBpc3N1ZXMgIGFuZCByZXNlYXJjaCAgZGVlcCBvdmVybGFwIHNvbHV0aW9ucyA=" hours="6.0" eta="-"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-15" task_desc="cmVzZWFyY2ggYW5kIGVzdGltYXRlIGluaXRpYWxseSBTdGF0ZSBTaWNrIExlYXZlIFN1MDIgOC4wIG1lcmdlICBlZmZvcnQ=" hours="1.0" eta="-"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-15" task_desc="U3VwcG9ydCBRQSB0byB0ZXN0" hours="1.0" eta=""/>
+  <task_info employee="Lisa Li" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" role="QA" date="2015-12-15" task_desc="VGVzdCBtYWluIGNhc2VzIG9mIGRyYWZ0IHZlcnNpb24gb2YgbmV3IHJlcXVpcmVtZW50Lg==" hours="6.0" eta="Done"/>
+  <task_info employee="Lisa Li" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" role="QA" date="2015-12-15" task_desc="RG91YmxlIHZhcmlmeSB0aGUgdGVzdCBjYXNlcyBvZiBTU0Iu" hours="2.0" eta="Done"/>
+  <task_info employee="Chester Zhang" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="DEV" date="2015-12-15" task_desc="U3VwcG9ydCB0ZWFtIDM=" hours="8.0" eta="ongoing"/>
+  <task_info employee="Eric Yao" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" role="ARCH" date="2015-12-15" task_desc="REVWIHN1cHBvcnQ=" hours="1.0" eta="Done"/>
+  <task_info employee="Caroline Zhang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DM" date="2015-12-15" task_desc="MS5JbnRlZ3JhdGlvbiB0ZXN0aW5nIG9uIE1TUyBTZXJ2ZXIgcmZhMTAwMDAyOS1jejEuFDIwJTxicj4xLjEgUnVuIHRoZSBTVTIgdG90YWxpemVyIHRlc3QgY2FzZXMsIFRoZXJlIGFyZSBhbHRvZ2V0aGVyIDUwIGNhc2VzIHdlcmUgZXhlY3V0ZWQgc28gZmFyLjxicj4xLjIgVmVyaWZ5IGFuZCBjbG9zZSBidWcgNjYxIHRoYXQgUGF5IGNvZGUgZm9yIGFkanVzdG1lbnQgd29uJ3QgdXBkYXRlIHdoZW4gbW9kaWZpZWQgdGhlIGNvbnRyaWJ1dGluZyBwYXkgY29kZS48YnI+" hours="8.0" eta="12/15/2015"/>
+  <task_info employee="Quentin Qin" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="RGlzY3Vzc2lvbiBmb3IgUGVyZm9ybWFuY2UgdGVzdGluZyBvZiBTVTAy" hours="2.0" eta="12/15/2015"/>
+  <task_info employee="Quentin Qin" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="UUEgUmVwb3J0ICZhbXA7IFRyb3VibGUgc2hvb3RpbmcgZm9yIHRlYW0gbWVtYmVycw==" hours="3.0" eta="12/15/2015"/>
+  <task_info employee="Quentin Qin" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-15" task_desc="SW52ZXN0aWdhdGlvbiBmb3Igc3RhYmxpemF0aW9uIGlzc3VlIFdGQy04NTY4" hours="3.0" eta="12/16/2015"/>
+  <task_info employee="Abby Li" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" date="2015-12-15" task_desc="UmV0cmlldmUgYWxsIEFQSSBzdXBwb3J0IG5ldyBmbGFn" hours="4.0" eta="12/15/2015"/>
+  <task_info employee="Maria Deng" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="QA" date="2015-12-15" task_desc="UmVpbnN0YWxsZWQgdGhlIDcuMCBSVE0gYW5kIHRoZSBsYXRlc3QgcGRzayBidWlsZCgjNDYpIG9uIGNlbmc2NDQ4LXJiMjEgZm9yIFNVMDEgcGVyZm9ybWFuY2UgdGVzdC4=" hours="4.0" eta="12/16/2015"/>
+  <task_info employee="Maria Deng" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="QA" date="2015-12-15" task_desc="VmVyaWZpZWQgdGhlIEpJUkEgaXNzdWUgV0ZDLTExMjQzIG9uIFJGQTMwNDIxLUdXMShBRFApIGFuZCByZmEtMTAwMDUwLWpsNChXRkMpIHN1Y2Nlc3NmdWxseS4=" hours="4.0" eta="12/15/2015"/>
+  <task_info employee="Abby Li" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-15" task_desc="SW52ZXN0aWdhdGUgYW5kIGZpeCBidWcgV0ZDLTExNzQ1" hours="4.0" eta="12/16/2015"/>
+  <task_info employee="Felicia Zhang" team="Kronos Team9" project="Zero Down 2 Core Project (RFA-25226-8.x Zero Down in Core)" role="QAL" date="2015-12-16" task_desc="VGVzdGVkIEFQSSBvZiAYUnVuIHplcm8gZG93bhku" hours="5.0" eta="12/17/2015"/>
+  <task_info employee="Felicia Zhang" team="Kronos Team9" project="Zero Down 2 Core Project (RFA-25226-8.x Zero Down in Core)" role="QAL" date="2015-12-16" task_desc="U3VtbWFyaXplZCBRQSBzdGF0dXMgYW5kIGFzc2lnbiB0YXNrLg==" hours="1.0" eta=""/>
+  <task_info employee="Felicia Zhang" team="Kronos Team9" project="Zero Down 2 Core Project (RFA-25226-8.x Zero Down in Core)" role="QAL" date="2015-12-16" task_desc="Q2hlY2tlZCB0aGUgGEZlYXR1cmUgU3dpdGNoGSBpc3N1ZS4=" hours="2.0" eta=""/>
+  <task_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" role="TL" date="2015-12-16" task_desc="VXBkYXRlZCBkb2N1bWVudCBhbmQgdXBsb2FkIFNhbWwgdG9vbC4=" hours="4.0" eta="12/17/2015"/>
+  <task_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="TL" date="2015-12-16" task_desc="SW52ZXN0aWdhdGlvbiBidXNpbmVzcyBkb2N1bWVudCBhbmQgYmFja2dyb3VuZCBpbmZvcm1hdGlvbi4=" hours="4.0" eta="Done"/>
+  <task_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-16" task_desc="R28gdGhyb3VnaCBTT1cgdG8gZ2V0IHNvbWUgaW5mb3JtYXRpb24gb2YgTEFN" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="QA" date="2015-12-16" task_desc="UmVzZWFyY2ggdGhlIGlzc3VlIGZyb20gSklSQSBvbiBSRkExMDAwNDctYmYxOjxicj5XRkMtMTE5OTM6IGNhbm5vdCByZXByb2R1Y2UgKGFkZCBjb21tZW50KTxicj5DRU5HLTE2Mjc3OiBjYW5ub3QgcmVwcm9kdWNlIChhZGQgY29tbWVudCk8YnI+Q0VORy0xNjI4ODogY2Fubm90IHJlcHJvZHVjZSAoYWRkIGNvbW1lbnQp" hours="6.0" eta="12/17/2015"/>
+  <task_info employee="Charles Qian" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" date="2015-12-16" task_desc="QW5hbHl6ZWQgYW5kIHJlcHJvZHVjZWQgQ0VORy0xNjIyMSBpc3N1ZSgxMDAlKQ==" hours="4.0" eta="Done"/>
+  <task_info employee="Charles Qian" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" date="2015-12-16" task_desc="TGVhcm5lZCB0byBzZXQgdXAgRU9VIERldmVsb3BtZW50IEVudmlyb25tZW50KDEwJSk=" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Charles Qian" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" date="2015-12-16" task_desc="Rml4IENFTkctMTYyMjEgaXNzdWUoMTAlKQ==" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-16" task_desc="UmVzZWFyY2ggdGhlIGRvY3VtZW50IGZvciBTdGF0ZW1lbnQgb2YgV29yayBmb3IgTEFN" hours="4.0" eta="Done"/>
+  <task_info employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-16" task_desc="UmVzZWFyY2ggdGhlIGRvY3VtZW50IDpNZW1vcnkgTGVhayAtIEFjdGlvbiBQbGFu" hours="4.0" eta="Done"/>
+  <task_info employee="Edmund Shi" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="DEV" date="2015-12-16" task_desc="U3VwcG9ydCB0ZWFtMw==" hours="8.0" eta=""/>
+  <task_info employee="Quentin Qin" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="QAL" date="2015-12-16" task_desc="V29ya2VkIG9uIENFTkctMTYzMDUsIHRvIGZpbmQgYWxsIHRoZSBwbGFjZXMgd2l0aCBhcyBvZiBkYXRl" hours="4.0" eta="12/16/2015"/>
+  <task_info employee="Quentin Qin" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QAL" date="2015-12-16" task_desc="S2lja2VkIG9mZiBuZXcgU0FGIHJ1bnMgdG8gdmVyaWZ5IHRoZSBsYXRlc3QgY2hhbmdlcyBhZnRlciBXVEsgYnVpbGQgZmFpbHVyZSBpcyByZXNvbHZlZDs8QlI+UUEgUmVwb3J0ICZhbXA7IFRyb3VibGUgc2hvb3RpbmcgZm9yIHRlYW0gbWVtYmVycw==" hours="2.0" eta="12/16/2015"/>
+  <task_info employee="Quentin Qin" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QAL" date="2015-12-16" task_desc="VjggZXN0aW1hdGlvbiBtZWV0aW5n" hours="2.0" eta="12/16/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="VGVzdCBQYXkgQ29kZSBBUEkgVHVybiBvbi9vZmYgb24gUkZBMTAwMDAzNi1QSjIgEyA4MCU=" hours="1.0" eta="12/16/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKMiATIDQwJQ==" hours="5.0" eta="12/16/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="QWQtaG9jIHRlc3Rpbmcgb24gUkZBMTAwMDAzNi1QSjIg" hours="2.0" eta="12/16/2015"/>
+  <task_info employee="Queenie Li" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="QA" date="2015-12-16" task_desc="U3VwcG9ydCBUZWFtIDM=" hours="8.0" eta=""/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-16" task_desc="VXBkYXRlIHRoZSBuYW1lIG9mIENvbnRyaWJ1dGluZ1BheUNvZGVTZXQgYW5kIHJldHJpZXZlIEFsbG93TWluaW11bVdhZ2UgcHJvcGVydHkgaW4gWE1MIEFQSSBhdXRvbWF0aW9uIHNjcmlwdA==" hours="2.0" eta="12/16/2015"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-16" task_desc="VmVyaWZ5IDQgQnVncyBvbiBCdWdGcmVlIGFuZCAxIGZhaWwgYW5kIDMoSUQgNjY2IDY2NCA2NTcpIHBhc3M=" hours="2.0" eta="12/16/2015"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-16" task_desc="SW50ZWdyYXRpb24gdGVzdCBvbiBPcmFjbGUgZGF0YWJhc2Ugc2VydmVyIHJmYTEwMDAwMzYtcGoyLjxCUj4=" hours="4.0" eta="12/16/2015"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-16" task_desc="VmVyaWZ5aW5nIDguMCBlb3UgVVQgZmFpbHVyZSBpc3N1ZXMgIA==" hours="5.0" eta="-"/>
+  <task_info employee="Lisa Li" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="QA" date="2015-12-16" task_desc="UmVhZCBkb2NzIGFuZCBwcm9jZXNzIGFib3V0IHY4LjAgc3RhYmlsaXphdGlvbi4gR2V0IGZhbWlsaWFyIHdpdGggSmlyYSBzeXN0ZW0u" hours="8.0" eta="Done"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-16" task_desc="IGVzdGltYXRlIGluaXRpYWxseSBTdGF0ZSBTaWNrIExlYXZlIFN1MDIgOC4wIG1lcmdlICBlZmZvcnQ=" hours="1.0" eta="-"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-16" task_desc="ICBTdGF0ZSBTaWNrIExlYXZlIFN1MDIgIGVycm9yIG1lc3NhZ2UgaXNzdWUgcmVzZWFyY2gg" hours="1.0" eta="-"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="Training" role="DEV" date="2015-12-16" task_desc="RmFtaWxpYXJpemUgbXlzZWxmIHdpdGggcmVzZWFyY2hpbmcgSlMgZm9yIFJGQS0zMjQ0NSBMQU0gcHJvamVjdC4=" hours="4.0" eta="Done"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-16" task_desc="UkZBMjk4MTk8YnI+MS4gRXhlY3V0ZSBhbmQgdmVyaWZ5IGNvcHkgYWN0aXZpdHkgZGV0YWlscyBvbiBzdWl0ZSBwcm9kdWN0aW9uIHN0cmVhbSBvbiB0aGUgbGF0ZXN0IHNlcnZpY2UgcGFjazxicj4yLiBVbmluc3RhbGwgYW5kIGluc3RhbGwgc2VydmljZSBwYWNrIHZpYSBTQUY=" hours="4.0" eta="12/17/2015"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-16" task_desc="UkZBMzEzNjQgPGJyPkV4ZWN1dGUgYW5kIHZlcmlmeSB3ZWJmb3JtIGFjdGl2aXR5IHF1ZXJ5IG9uIHN1aXRlIHByb2R1Y3Rpb24gc3RyZWFtIG9uIHRoZSBsYXRlc3Qgc2VydmljZSBwYWNr" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-16" task_desc="UkZBMzEzNjU8YnI+RXhlY3V0ZSBhbmQgdmVyaWZ5IG1hbmFnZXIgYXBwcm92YWwgb3ZlcnJpZGUgb24gc3VpdGUgcHJvZHVjdGlvbiBzdHJlYW0gb24gdGhlIGxhdGVzdCBzZXJ2aWNlIHBhY2s=" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="DEV" date="2015-12-16" task_desc="UmVzZWFyY2ggTGFtIGRvY3MgYW5kIGJ1c2luZXNzIHJlcXVpcmVtZW50Lg==" hours="4.0" eta="Done"/>
+  <task_info employee="Chester Zhang" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="DEV" date="2015-12-16" task_desc="U3VwcG9ydCB0ZWFtIDM=" hours="8.0" eta=""/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="MS4JVmVyaWZ5IGJlbG93IGlzc3VlIG9uIHJmYTEwMDAwMzYtcGo1KFNRTCwgYnVpbGQgIzQ3KS4gKFBhc3Mp" hours="0.5" eta="12/16/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="Mi5BZGQgIlJldHJpZXZlQWxsRm9yVXBkYXRlIiBhbmQgIlJldHJpZXZlRm9yVXBkYXRlIiB0ZXN0IGNhc2VzIGZvciBDU1IgQVBJLihkb25lKQ==" hours="1.0" eta="12/16/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="My5Ub3VjaCB0ZXN0ICJSZXRyaWV2ZUZvclVwZGF0ZSIgdGVzdCBjYXNlIGZvciBDU1IgQVBJIG9uIHJmYTEwMDAwMzYtcGo1KFNRTCwgYnVpbGQgIzQ3KS4oIFBhc3Mp" hours="1.0" eta="12/16/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="NC5WZXJpZnkgc2ljayBwYXkgY2FuIHdvcmsgd2VsbCBpZiBjb250cmlidXRpbmcgcGF5IGNvZGUZcyBhZGRpdGlvbiBhbmQgbXVsdGlwbGllciBhcyAcMB0gb3IgbmVnYXRpdmUgbnVtYmVyLiggUGFzcyk=" hours="5.5" eta="12/16/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-16" task_desc="Rml4IHRoZSBjb2RlIHJldmlldyBpc3N1ZSBhbmQgdGVzdCBpbiBsb2NhbA==" hours="1.0" eta="12/16/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-16" task_desc="U3VwcG9ydCBRQSB0byBjb2xsZWN0IG1vcmUgcGFnZXMgY29udGFpbnMgdGhlIEFzIG9mIERhdGUgZmllbGQgYWJvdXQgQ0VORy0xNjMwNSBpc3N1ZSBiYXNlZCBvbiBjb2RlKDMwJSkgIA==" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-16" task_desc="UmVzZWFyY2ggYW5kIGZpeCB0aGUgV0ZDLTExNzA2IGlzc3VlIG9mIDguMCBTdGFiaWxpemF0aW9uKDYwJSkgIA==" hours="4.0" eta="12/17/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-16" task_desc="RmluZCBhbiBpc3N1ZSBhYm91dCBKb2IgR3JvdXAgaW4gOC4wLjEwIGJ1aWxkIGFuZCB2ZXJpZnkgaXQgZG9lc24ndCBvY2N1ciBpbiA3LjAuMTAsIGNyZWF0ZSB0aGUgamlyYSBpc3N1ZSBXRkMtMTIwNTIgdG8gdHJhY2sgdGhpcy4=" hours="1.0" eta="12/16/2015"/>
+  <task_info employee="Chester Zhang" team="Kronos Team3" project="API Update Action" role="DEV" date="2015-12-16" task_desc="Q29kZSByZWZhY3RvcmluZyBpbiBXb3JrZWREdXJhdGlvbiBhbmQgUGF5Q29kZUVkaXQsIHNlcGFyYXRlIGNvbW1vbiBtZXRob2QgYW5kIHJlbW92ZSB0byBzdXBlciBjbGFzcy4gIA==" hours="5.0" eta="Done"/>
+  <task_info employee="Chester Zhang" team="Kronos Team3" project="API Update Action" role="DEV" date="2015-12-16" task_desc="RG8gdGhlIHRlc3RpbmcgYWZ0ZXIgY29kZSByZWZhY3RvcmluZy4=" hours="3.0" eta="Done"/>
+  <task_info employee="Abby Li" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" date="2015-12-16" task_desc="Rml4IHBheSBydWxlIGF1ZGl0IHRyYWlsIHJlcG9ydCBidWc=" hours="6.0" eta="12/16/2015"/>
+  <task_info employee="Abby Li" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" date="2015-12-16" task_desc="U3VwcG9ydCBRQSB0byB0ZXN0" hours="2.0" eta="12/16/2015"/>
+  <task_info employee="Maria Deng" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-16" task_desc="IglEaWQgcGVyZm9ybWFuY2UgdGVzdCBmb3IgU2ljayBMZWF2ZSBwYXkgY29kZSBvbiBDRU5HNjQ0OC1SQjIxKE9yYWNsZSwgYnVpbGQgIzQ3KS4=" hours="8.0" eta="12/16/2015"/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-16" task_desc="OC4wIHN0YWJsaXphdGlvbiBpc3N1ZSBhc3NpZ24gYW5kIHJlaXZldyB3aXRoIHRlYW0=" hours="1.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-16" task_desc="VGVhbSA1IFZNcyBsaXN0IHVwZGF0ZSBhbmQgcmV2aWV3IHdpdGggdGVhbQ==" hours="2.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-16" task_desc="U3RhdGUgU2ljayBsZWF2ZSBTVTIgcmVsZWFzZSBwbGFuIG1lZXRpbmcgYW5kIHN1bW1hcnk=" hours="2.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-16" task_desc="SGVscCB0ZWFtIGNsYXJpZnkgaXNzdWUgYW5kIHRyYWNrIHRoZSBwcm9qZWN0IHN0YXR1cw==" hours="1.0" eta=""/>
+  <task_info employee="Josh Li" team="Kronos Team5" project="-" role="TL" date="2015-12-16" task_desc="UHJvamVjdCByZXBvcnQgLCBtYW5hZ2VtZW50IGFuZCBtZWV0aW5n" hours="2.0" eta=""/>
+  <task_info employee="Caroline Zhang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-16" task_desc="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBNU1MgU2VydmVyIHJmYTEwMDAwMjktY3oxLhQ0MCU=" hours="8.0" eta="12/16/2015"/>
+  <task_info employee="Jonathan Feng" team="Kronos Team5" project="-" role="ARCH" date="2015-12-16" task_desc="UGVyZm9ybWFuY2UgdGVzdGluZyBzdXBwb3J0IGFuZCByZXZpZXc=" hours="1.0" eta="12/16/2015"/>
+  <task_info employee="Rebecca Cheng" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-17" task_desc="UmVzZWFyY2ggdGhlIHRpbWVjYXJkIGJ1c2luZXNzIGtub3dsZWRnZSBvbiB0aGUgV0ZDIDcuMCBhbmQgY29tcGFyZSB3aXRoIFdGQyA4LjA=" hours="8.0" eta="12/18/2015"/>
+  <task_info employee="Eric Yao" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="ARCH" date="2015-12-17" task_desc="U3VwcG9ydGVkIGFuYWx5emluZyByZXF1aXJlbWVudC4=" hours="1.0" eta="Done"/>
+  <task_info employee="Edmund Shi" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="DEV" date="2015-12-17" task_desc="U3VwcG9ydCB0ZWFtIDM=" hours="8.0" eta=""/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-17" task_desc="VGVzdCBQYXkgQ29kZSBBUEkgVHVybiBvbi9vZmYgb24gUkZBMTAwMDAzNi1QSjIgEyAxMDAl" hours="0.5" eta="12/17/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-17" task_desc="VXBkYXRlIFBheSBDb2RlIEFQSSATIDEwMCU=" hours="0.5" eta="12/17/2015"/>
+  <task_info employee="Stephanie Yang" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-17" task_desc="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBSRkExMDAwMDM2LVBKMiATIDU1JQ==" hours="7.0" eta="12/17/2015"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="DEV" date="2015-12-17" task_desc="UmVzZWFyY2ggdGltZWNhcmQgYnVzaW5lc3Mga25vd2xlZGdlIGFuZCBKUyBvbiB0aGUgV0ZDIDguMC43Lg==" hours="8.0" eta="12/8/2015"/>
+  <task_info employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-17" task_desc="UmVzZWFyY2ggZG9jdW1lbnQgZm9yIDQgUHVuY2ggUm93cyBpbiB0aGUgSFRNTDUgVGltZWNhcmQgZm9yIExBTQ==" hours="4.0" eta="Done"/>
+  <task_info employee="Christine Cai" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="QA" date="2015-12-17" task_desc="TGVhcm5pbmcgdGhlIHJlbGF0ZWQgYnVzaW5lc3Mga25vd2xlZGdlIG9mIFRpbWVDYXJkIG9uIHRoZSBXRkMgNy4w" hours="4.0" eta="Done"/>
+  <task_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="TL" date="2015-12-17" task_desc="U3VwcG9ydCBzZXR1cCBlb3UgZW52aXJvbm1lbnQu" hours="2.0" eta="Done"/>
+  <task_info employee="Lisa Li" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="QA" date="2015-12-17" task_desc="UmVzZWFyY2ggdGhlIGlzc3VlIGZyb20gSklSQSBvbiBSRkExMDAwNDctYmYxOjxicj5XRkMtMTIwODYvV0ZDLTEyMDg0PGJyPg==" hours="8.0" eta="12/17/2015"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="QA" date="2015-12-17" task_desc="MS5WZXJpZnkgUGF5IFJ1bGUgQXVkaXQgcmVwb3J0IGlzc3VlIG9uIHJmYTEwMDAwMzYtcGo1KFNRTCxidWlsZCAjNDkpLiAoZG9uZSk8YnI+Mi5Ub3VjaCB0ZXN0ICJSZXRyaWV2ZUFsbEZvclVwZGF0ZSIgdGVzdCBjYXNlIGZvciBDU1IgQVBJIG9uIHJmYTEwMDAwMzYtcGo1KFNRTCwgYnVpbGQgIzQ5KS4oIFBhc3MpPGJyPjMuVXBkYXRlIENTUiBhdXRvbWF0aW9uIHRlc3QgY2FzZSBieSBhZGRpbmcgIlJldHJpZXZlQWxsRm9yVXBkYXRlIiBhbmQgIlJldHJpZXZlRm9yVXBkYXRlIi4oZG9uZSk8YnI+NC5JbnRlcm5hbCBkaXNjdXNzIBxIaXN0b3JpY2FsIEVkaXQdIHNjZW5hcmlvcyBmb3IgOC4wIHdpdGggQWJieS48YnI+NS5JbnRlZ3JhdGlvbiB0ZXN0IG9uICByZmExMDAwMDM2LXBqNShTUUwsIGJ1aWxkICM0OSkuKDMwJSk=" hours="8.0" eta="12/17/2015"/>
+  <task_info employee="Charles Qian" team="Kronos Team1&amp;8" project="8.0 Stabilization (RFA-1000047)" role="DEV" date="2015-12-17" task_desc="TGVhcm5lZCB0byBzZXQgdXAgRU9VIERldmVsb3BtZW50IEVudmlyb25tZW50IGFuZCBzZXR0ZWQgdXAgRU9VIERldmVsb3BtZW50IEVudmlyb25tZW50KDcwJSk=" hours="8.0" eta="12/17/2015"/>
+  <task_info employee="Scarlett Xiao" team="Kronos Team1&amp;8" project="LAM(RFA-32445)" role="TL" date="2015-12-17" task_desc="SW52ZXNpdGdhdGVkIHJlcXVpcmVtZW50IGRvY3VtZW50IGFuZCBmaW5kIHRlYW0gc29tZSB0cmFpbmluZyByZWNvcmRzIGFib3V0IGJ1c2luZXNzIGtub3dsZWRnZS4=" hours="6.0" eta="Done"/>
+  <task_info employee="Maria Deng" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="QA" date="2015-12-17" task_desc="IglDb21wbGV0ZWQgdGhlIGRvY3VtZW50IGZvciB0aGUgQ29uZmlndXJhdGlvbiBmb3IgU1UwMSBQZXJmb3JtYW5jZSBUZXN0Lg==" hours="4.0" eta="12/17/2015"/>
+  <task_info employee="Maria Deng" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="QA" date="2015-12-17" task_desc="IglSZXByb2R1Y2VkIEpJUkEgaXNzdWVXRkMtMTE3MDYgYW5kIFdGQy0xMjA1MiBvbiBSRkEtMTAwMDUwLUpMNCAu" hours="4.0" eta="12/17/2015"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-17" task_desc="UkZBMjk4MTk8YnI+MS4gRXhlY3V0ZSBhbmQgdmVyaWZ5IGNvcHkgYWN0aXZpdHkgZGV0YWlscyB1c2luZyB0aGUgbGF0ZXN0IHNlcnZpY2UgcGFjazxicj4yLiBVbmluc3RhbGwgYW5kIGluc3RhbGwgc2VydmljZSBwYWNrIG1hbnVhbGx5" hours="4.0" eta="12/18/2015"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-17" task_desc="UkZBMzEzNjQgPGJyPkV4ZWN1dGUgYW5kIHZlcmlmeSB3ZWJmb3JtIGFjdGl2aXR5IHF1ZXJ5IHVzaW5nIHRoZSBsYXRlc3Qgc2VydmljZSBwYWNr" hours="1.0" eta="12/18/2015"/>
+  <task_info employee="Coby Guo" team="Kronos Team1&amp;8" project="Cross Project Automation (UFT)" role="QA" date="2015-12-17" task_desc="UkZBMzEzNjU8YnI+MS4gRXhlY3V0ZSBhbmQgdmVyaWZ5IG1hbmFnZXIgYXBwcm92YWwgb3ZlcnJpZGUgdXNpbmcgdGhlIGxhdGVzdCBzZXJ2aWNlIHBhY2s8YnI+Mi4gVXBkYXRlIG9uZSByZXBvc2l0b3J5IGZpbGUgSFRNTEFjdGl2aXRpZXNHZW5pZXMudHNy" hours="3.0" eta="12/18/2015"/>
+  <task_info employee="Caroline Zhang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-17" task_desc="SW50ZWdyYXRpb24gdGVzdGluZyBvbiBNU1MgU2VydmVyIHJmYTEwMDAwMjktY3oxLi0tNjAlPGJyPjEuIFRvdGFsaXplciB0ZXN0aW5nLi0tLTYwJTxicj4yLiBVSSB0ZXN0aW5nLi0tLS0xMDAlPGJyPjMuIEVtcGxveW1lbnQgVGVybXMgTWluIHdhZ2UgQXV0b21hdGlvbiBBUEkgdGVzdGluZy4tLS0xMDAl" hours="8.0" eta="12/17/2015"/>
+  <task_info employee="Chester Zhang" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="DEV" date="2015-12-17" task_desc="U3VwcG9ydCB0ZWFtIDMu" hours="8.0" eta=""/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-17" task_desc="UkZBMTAwMDA0NyAgZml4ZWQgc29tZSBlb3UuZmVhdHVyZSAgVVQgZmFpbHVyZSBpc3N1ZXM=" hours="7.0" eta="-"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-17" task_desc="cmVmYWN0b3IgdmFsaWRhdGlvbiBleGNlcHRpb24gZm9ybWF0" hours="1.0" eta="-"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-17" task_desc="SW50ZWdyYXRpb24gdGVzdCBvbiBPcmFjbGUgZGF0YWJhc2Ugc2VydmVyIHJmYTEwMDAwMzYtcGoyMg==" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Victoria Chang" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="QA" date="2015-12-17" task_desc="VXBkYXRlIGVuZCB0byBlbmQgU29hcFVJIGF1dG9tYXRpb24gc2NyaXB0IG9uIDEwMDAwMzctamwx" hours="6.0" eta="12/17/2015"/>
+  <task_info employee="Abby Li" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" date="2015-12-17" task_desc="UmVzZWFyY2ggaGlzdG9yaWNhbCBlZGl0IGZvciBzdGF0ZSBzaWNrIGxlYXZl" hours="6.0" eta="12/21/2015"/>
+  <task_info employee="Abby Li" team="Kronos Team5" project="State Sick Leave SU1(RFA 1000036)" role="DEV" date="2015-12-17" task_desc="SlVuaXQgYW5kIE1vY2sgaW50cm9kdWN0aW9uIHRyYWluaW5n" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Queenie Li" team="Kronos Team1&amp;8" project="Resources Support in Team 3" role="QA" date="2015-12-17" task_desc="U3VwcG9ydCB0ZWFtIDM=" hours="8.0" eta=""/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-17" task_desc="VGhlIGRldmVsb3BtZW50IHNlcnZlciBpcyBkZWxldGVkLiBTZXQgdXAgOC4wIEVOViBmb3IgOC4wIFN0YWJpbGl6YXRpb24=" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-17" task_desc="U3VwcG9ydCBRQSB0byByZXByb2R1Y2UgdGhlIENFTkctMTYzMDUgaXNzdWUg" hours="2.0" eta="12/17/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-17" task_desc="UmVzZWFyY2ggYW5kIGZpeCB0aGUgV0ZDLTExNzA2IGlzc3VlIG9mIDguMCBTdGFiaWxpemF0aW9uIGFuZCBjcmVhdGUgdGhlIGNvZGUgcmV2aWV3IGluIGNvZGUgY29sbGFib3JhdG9yKDgwJSkgIA==" hours="3.0" eta="12/18/2015"/>
+  <task_info employee="Donna Wu" team="Kronos Team5" project="8.0 stabilization(RFA 100047)" role="DEV" date="2015-12-17" task_desc="QXR0ZW5kIHRoZSBKVW5pdCBhbmQgTW9jayBUcmFpbmluZyA=" hours="1.0" eta="12/17/2015"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(RFA-32016)(CENG-15829)" role="DEV" date="2015-12-18" task_desc="YXNkZmFzZGY8YnI+YXNkZmE=" hours="2.0" eta="2"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="coreytest" role="DEV" date="2015-12-18" task_desc="YXNkZmE=" hours="2.0" eta="asdf"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(CENG-15829)" role="DEV" date="2015-12-18" task_desc="YXNkZmFzZGZhc2Rmc2Q=" hours="2.0" eta="2"/>
+  <task_info employee="Carson Zhu" team="Kronos Team5" project="State Sick LeaveSU2(RFA 1000037)" role="DEV" date="2015-12-21" task_desc="YXNkZmFzCmFzZGZh" hours="2.0" eta="2"/>
+  <task_info employee="Holly Ren" team="Kronos Team5" project="coreytest_project" role="QA" date="2015-12-21" task_desc="YXNkZg==" hours="2.0" eta="2"/>
+  <task_info employee="coreytest" team="Kronos Team5" project="coreytest_project" role="DEV" date="2015-12-21" task_desc="YXNkZmFzZGZhc2RmCgpzZWNvbmQgbGluZSBhc2RmYXNkZgphc2RmYXNkZg==" hours="2.0" eta="2"/>
+  <task_info employee="coreytest" team="Kronos Team5" project="coreytest_project" role="DEV" date="2015-12-21" task_desc="YXNkZmFzZGZhc2Rm" hours="22.0" eta="2"/>
+  <task_info employee="Barry Fan" team="Kronos Team1&amp;8" project="State Street Core SAML 2.0 Support(CENG-15829)" role="DEV" date="2016-01-04" task_desc="YXNkZmFzZGY=" hours="2.0" eta="done"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="Training" role="DEV" date="2016-01-04" task_desc="YXNkZg==" hours="2.0" eta="2"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="Training" role="DEV" date="2016-01-04" task_desc="c2RmYXNkZjxicj5hc2RmPGJyPjEyMzIx" hours="2.0" eta="2"/>
+  <task_info employee="Byron Liu" team="Kronos Team1&amp;8" project="Training" role="DEV" date="2016-01-04" task_desc="MTIzMTxicj5hc2RmPGJyPmFzZGZhc2Q8YnI+YXNkZmE=" hours="2.0" eta="2"/>
+  <team team="Kronos Team1&amp;8"/>
+  <team team="Kronos Team3"/>
+  <team team="Kronos Team5"/>
+</dataset>

@@ -1,7 +1,8 @@
 package com.ob.dailyReport.dao;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -10,10 +11,13 @@ import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.dbunit.ext.h2.H2DataTypeFactory;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
+
+import com.ob.dailyReport.db.DataBaseHandler;
 
 public class BaseDaoTest extends DBTestCase {
 
@@ -23,13 +27,20 @@ public class BaseDaoTest extends DBTestCase {
 	public BaseDaoTest(String name) {
 		super(name);
 	}
+	
+	@Override
+	protected void setUp() throws Exception {
+		initDataBase();
+		super.setUp();
+		
+	}
 
-	public static void setUpBeforeClass() throws Exception {
-		// create db instance and tabel
-		Class.forName("org.h2.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:h2:~/dbunitdemo", "sa", "");
+	private void initDataBase() throws Exception {
+		Connection conn = getDatabaseTester().getConnection().getConnection();
+		conn.setAutoCommit(true);
 		ScriptRunner runner = new ScriptRunner(conn);
 		runner.runScript(Resources.getResourceAsReader("newdailyreport.sql"));
+		DataBaseHandler.setconnection(conn);
 	}
 
 	@AfterClass
@@ -39,20 +50,19 @@ public class BaseDaoTest extends DBTestCase {
 	}
 
 	protected IDataSet getDataSet() throws Exception {
-		setUpBeforeClass();
-		return new FlatXmlDataSetBuilder().build(Thread.currentThread().getContextClassLoader().getResourceAsStream("dataset.xml"));
+		return new FlatXmlDataSetBuilder().build(Thread.currentThread().getContextClassLoader().getResourceAsStream("initdataset.xml"));
 	}
 
 	/*
 	 */
 	protected IDatabaseTester getDatabaseTester() throws ClassNotFoundException {
-		return new JdbcDatabaseTester("org.h2.Driver", "jdbc:h2:~/dbunitdemo", "sa", "");
+		return new JdbcDatabaseTester("org.h2.Driver", "jdbc:h2:~/dbunitdemo;MODE=MySQL", "sa", "");
 
 	}
 
 	protected void setUpDatabaseConfig(DatabaseConfig config) {
-		config.setProperty(DatabaseConfig.PROPERTY_BATCH_SIZE, new Integer(97));
-		config.setFeature(DatabaseConfig.FEATURE_BATCHED_STATEMENTS, true);
+//		config.setProperty(DatabaseConfig.PROPERTY_BATCH_SIZE, new Integer(97));
+		config.setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new H2DataTypeFactory());
 	}
 
 	protected DatabaseOperation getSetUpOperation() throws Exception {
@@ -63,7 +73,7 @@ public class BaseDaoTest extends DBTestCase {
 		return DatabaseOperation.NONE;
 	}
 
-	/*public void exportData() throws Exception {
+	private void exportData() throws Exception {
 		IDatabaseTester testter = new JdbcDatabaseTester("com.mysql.jdbc.Driver",
 				"jdbc:mysql://localhost:3306/newdailyreport", "dailyreport", "dailyreport");
 		// create DataSet from database.
@@ -77,6 +87,6 @@ public class BaseDaoTest extends DBTestCase {
 	public static void main(String[] args) throws Exception {
 		BaseDaoTest test = new BaseDaoTest();
 		test.exportData();
-	}*/
+	}
 
 }

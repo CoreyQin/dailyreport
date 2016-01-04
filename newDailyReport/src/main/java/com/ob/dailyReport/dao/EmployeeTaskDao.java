@@ -52,7 +52,15 @@ public class EmployeeTaskDao {
 		DataBaseHandler.executeSql(task_sql);
 	}
 
-	// TODO: need add team parameter
+	
+	/**
+	 * 
+	 * @param employee
+	 * @param team
+	 * @param date
+	 * @return
+	 * @throws SQLException
+	 */
 	public static List<TaskRecord> getEmployeeTasks(String employee, String team, Date date) throws SQLException {
 		List<TaskRecord> historyList = new ArrayList<TaskRecord>();
 		String dateString = DateUtil.FormatDate2String(date);
@@ -81,6 +89,15 @@ public class EmployeeTaskDao {
 
 	}
 
+	/**
+	 * 
+	 * @param employee
+	 * @param team
+	 * @param project
+	 * @param date
+	 * @return
+	 * @throws SQLException
+	 */
 	public static List<TaskRecord> getEmployeeTasks(String employee, String team, String project, Date date)
 			throws SQLException {
 		List<TaskRecord> historyList = new ArrayList<TaskRecord>();
@@ -106,7 +123,22 @@ public class EmployeeTaskDao {
 			historyList.add(taskRecord);
 		}
 		return historyList;
-
+	}
+	
+	/**
+	 * 
+	 * @param employee
+	 * @param team
+	 * @param date
+	 * @return
+	 * @throws SQLException 
+	 */
+	public static boolean hasReportTasks(String employee, String team, Date date) throws SQLException{
+		List<TaskRecord> taskList = getEmployeeTasks(employee,team,date);
+		if(taskList == null || taskList.size() == 0){
+			return false;
+		}
+		return true;
 	}
 
 }

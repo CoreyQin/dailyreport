@@ -36,9 +36,6 @@ public class TitleWriter {
 			cell.setCellStyle(style);
 		}
 		
-		
-		
-
 		// project
 		sheet.addMergedRegion(new CellRangeAddress(0, 1, 0, 0));
 		// name
@@ -49,7 +46,6 @@ public class TitleWriter {
 		sheet.addMergedRegion(new CellRangeAddress(0, 0, 3, 5));
 		// plans for tomorrow
 		sheet.addMergedRegion(new CellRangeAddress(0, 1, 6, 6));
-//		
 //		row.setRowStyle(style);
 //		row2.setRowStyle(style);
 	}

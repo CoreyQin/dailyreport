@@ -126,17 +126,19 @@ function newTask() {
 function editTask() {
 	var row = $('#task_dg').datagrid('getSelected');
 	if (row) {
+		row.taskDesc = html2special(row.taskDesc);
 		$('#task_dlg').dialog('open').dialog('setTitle', 'Edit task');
 		$('#task_fm').form('load', row);
 		flag = constant_update;
 	}
 }
 
+
 /**
  * 
  */
 function saveTask() {
-	var taskDesc = $("#taskDesc").textbox('getValue');
+	var taskDesc = special2html($("#taskDesc").textbox('getValue'));
 	var spentHours = $("#spentHours").val();
 	var eta = $("#eta").val();
 	if (flag == constant_update) {
@@ -378,13 +380,13 @@ function decode(value) {
 	return base64Util.base64decode(value);
 }
 
-function replaceSpecial(value) {
+function special2html(value) {
 	value = value.replace(/\r\n/g, "<br>")
 	value = value.replace(/\n/g, "<br>");
 	return value;
 }
 
-function retrieveSpecial(value) {
+function html2special(value) {
 	if (value == null || value == "") {
 		return value;
 	}
